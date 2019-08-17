@@ -27,6 +27,7 @@ namespace AnimeOrganizer
                InitializeComponent();
                Deserialize();
                CurrentFile = new AnimeFile();
+               dashrbtn.Checked = true;
                OFileDialog.Filter = "Mp4 video file (*.mp4)|*.mp4|MKV file (*.mkv)|*.mkv|3gp video file (*.3gp)|*.3gp";
           }
           public string OpenFolder()
@@ -63,8 +64,15 @@ namespace AnimeOrganizer
           }
           public void RefreshList()
           {
-               SelectedDirectory.Refresh();
-               currentDirectory = SelectedDirectory.GetFiles();
+               if (SelectedDirectory !=null)
+               {
+                    SelectedDirectory.Refresh();
+                    currentDirectory = SelectedDirectory.GetFiles();
+               }
+               else if(currentDirectory != null && currentDirectory.Count>0)
+               {
+                    currentDirectory.ToList().ForEach(fileinfo => fileinfo.Refresh());
+               }
                AddtoListView();
           }
           public void CleanForm()
@@ -82,6 +90,10 @@ namespace AnimeOrganizer
           }
           public void ListFiles(OpenMode openMode)
           {
+               folderlbl.Text = "";
+               SelecetedFile = null;
+               SelectedDirectory = null;
+               currentDirectory = null;
                if (openMode == OpenMode.Folder)
                {
                     string folder = OpenFolder();
@@ -95,8 +107,11 @@ namespace AnimeOrganizer
                } else if (openMode == OpenMode.Files)
                {
                     IList<string> files = OpenFiles();
-                    currentDirectory = new List<FileInfo>(files.Count);
-                    files.ToList().ForEach(x =>currentDirectory.Add(new FileInfo(x)));
+                    if (files != null) 
+                    {
+                         currentDirectory = new List<FileInfo>(files.Count);
+                         files.ToList().ForEach(x => currentDirectory.Add(new FileInfo(x)));
+                    }
                }
                try
                {
@@ -163,6 +178,7 @@ namespace AnimeOrganizer
                     if (menutab.SelectedIndex==0)
                     {
                          CleanForm();
+                         IsCleaning = false;
                          filenametxt.Text = ((CheckedListBox)sender).Text;
                          string file = ((CheckedListBox)sender).Text;
                          SelecetedFile = currentDirectory.ToList().Find(info => new TitleComparer().Equals(info.Name, file));
@@ -186,7 +202,7 @@ namespace AnimeOrganizer
 
           private void episodenud_ValueChanged(object sender, EventArgs e)
           {
-               if (!IsCleaning && SelecetedFile != null)
+               if (!IsCleaning && SelecetedFile != null && CurrentFile.Title.Length>0)
                {
                     CurrentFile.Episode = (int)episodenud.Value;
                     filenametxt.Text = CurrentFile.ToString();
@@ -215,13 +231,13 @@ namespace AnimeOrganizer
                {
                     if (SelecetedFile != null)
                     {
-                         SelecetedFile.MoveTo(SelecetedFile.Directory.FullName +@"\"+ CurrentFile.ToString() + SelecetedFile.Extension);
-                         MessageBox.Show("Change made, confrim froom yout file explorer, file path: " + SelecetedFile.Directory.FullName + @"\" + CurrentFile.ToString() + SelecetedFile.Extension);
+                         string filetitle = filenametxt.Text;
+                         TitleComparer titlecompare = new TitleComparer();
+                         bool useCurrentFileName = titlecompare.Equals(filenametxt.Text, CurrentFile.ToString());
+                         SelecetedFile.MoveTo(SelecetedFile.Directory.FullName +@"\"+ (useCurrentFileName ? CurrentFile.ToString():filetitle) + SelecetedFile.Extension);
+                         MessageBox.Show("Change made, confirm from your file explorer,\nfile path: " + SelecetedFile.Directory.FullName + @"\" + (useCurrentFileName ? CurrentFile.ToString() : filetitle) + SelecetedFile.Extension);
                          CleanForm();
-                         if (SelectedDirectory !=null)
-                         {
-                              RefreshList();
-                         }
+                         RefreshList();
                          IsCleaning = false;
                     }
                     else
@@ -353,6 +369,21 @@ namespace AnimeOrganizer
                     MessageBox.Show("Added " + title + " to Ongoing");
                }
           }
+
+          private void episoderbtn_CheckedChanged(object sender, EventArgs e)
+          {
+               CurrentFile.EpisodeSeperator = Seperator.episode;
+               filenametxt.Text = CurrentFile.Title.Length > 0 ? CurrentFile.ToString() : filenametxt.Text;
+          }
+
+          private void dashrbtn_CheckedChanged(object sender, EventArgs e)
+          {
+               if (((RadioButton)sender).Checked)
+               {
+                    CurrentFile.EpisodeSeperator = Seperator.dash;
+                    filenametxt.Text = CurrentFile.Title.Length > 0 ? CurrentFile.ToString() : filenametxt.Text;
+               }
+          }
      }
      [Serializable]
      public class Database
@@ -434,6 +465,7 @@ namespace AnimeOrganizer
      struct AnimeFile
      {
           private string title;
+          private Seperator seprator;
           private int episode;
           public string Title
           {
@@ -443,7 +475,7 @@ namespace AnimeOrganizer
                }
                get
                {
-                    return title;
+                    return title == null? "":title;
                }
           }
           public int Episode
@@ -457,9 +489,37 @@ namespace AnimeOrganizer
                     return episode;
                }
           }
+          public Seperator EpisodeSeperator
+          {
+               get
+               {
+                    return seprator;
+               }
+               set
+               {
+                    seprator = value;
+               }
+          }
+          private string seperate()
+          {
+               switch (seprator)
+               {
+                    case Seperator.dash:
+                         return "- " + (episode >= 10 ? episode+"" : "0" + episode);
+                    case Seperator.episode:
+                         return "Episode " + episode;
+                    default:
+                         return "Episode " + episode;
+               }
+          }
           public override string ToString()
           {
-               return title + " Episode " + episode;
+               return title + " " + seperate();
           }
+     }
+     enum Seperator
+     {
+          dash,
+          episode
      }
 }

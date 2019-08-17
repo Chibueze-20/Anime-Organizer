@@ -52,9 +52,12 @@
                this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
                this.label1 = new System.Windows.Forms.Label();
                this.Homepanel = new System.Windows.Forms.Panel();
+               this.viewlbl = new System.Windows.Forms.Label();
+               this.label12 = new System.Windows.Forms.Label();
                this.menutab = new System.Windows.Forms.TabControl();
                this.organizetab = new System.Windows.Forms.TabPage();
                this.Renamepanel = new System.Windows.Forms.Panel();
+               this.label3 = new System.Windows.Forms.Label();
                this.episodenud = new System.Windows.Forms.NumericUpDown();
                this.label4 = new System.Windows.Forms.Label();
                this.filenamecbx = new System.Windows.Forms.ComboBox();
@@ -78,10 +81,10 @@
                this.fileList = new System.Windows.Forms.CheckedListBox();
                this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
                this.OFileDialog = new System.Windows.Forms.OpenFileDialog();
-               this.label3 = new System.Windows.Forms.Label();
-               this.label12 = new System.Windows.Forms.Label();
-               this.viewlbl = new System.Windows.Forms.Label();
                this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+               this.dashrbtn = new System.Windows.Forms.RadioButton();
+               this.episoderbtn = new System.Windows.Forms.RadioButton();
+               this.label9 = new System.Windows.Forms.Label();
                this.toolStrip1.SuspendLayout();
                this.Homepanel.SuspendLayout();
                this.menutab.SuspendLayout();
@@ -126,14 +129,14 @@
                // openFileToolStripMenuItem
                // 
                this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-               this.openFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.openFileToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
                this.openFileToolStripMenuItem.Text = "Open File";
                this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
                // 
                // openFolderToolStripMenuItem
                // 
                this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
-               this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
                this.openFolderToolStripMenuItem.Text = "Open Folder";
                this.openFolderToolStripMenuItem.Click += new System.EventHandler(this.openFolderToolStripMenuItem_Click);
                // 
@@ -143,20 +146,20 @@
             this.rootPrefixToolStripMenuItem,
             this.noRootPrefixToolStripMenuItem});
                this.indexFolderToolStripMenuItem.Name = "indexFolderToolStripMenuItem";
-               this.indexFolderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.indexFolderToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
                this.indexFolderToolStripMenuItem.Text = "Index Folder";
                // 
                // rootPrefixToolStripMenuItem
                // 
                this.rootPrefixToolStripMenuItem.Name = "rootPrefixToolStripMenuItem";
-               this.rootPrefixToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.rootPrefixToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
                this.rootPrefixToolStripMenuItem.Text = "Root prefix";
                this.rootPrefixToolStripMenuItem.Click += new System.EventHandler(this.rootPrefixToolStripMenuItem_Click);
                // 
                // noRootPrefixToolStripMenuItem
                // 
                this.noRootPrefixToolStripMenuItem.Name = "noRootPrefixToolStripMenuItem";
-               this.noRootPrefixToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.noRootPrefixToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
                this.noRootPrefixToolStripMenuItem.Text = "No Root prefix";
                this.noRootPrefixToolStripMenuItem.Click += new System.EventHandler(this.noRootPrefixToolStripMenuItem_Click);
                // 
@@ -166,7 +169,7 @@
             this.animeListToolStripMenuItem,
             this.organizerToolStripMenuItem});
                this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-               this.viewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.viewToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
                this.viewToolStripMenuItem.Text = "View";
                // 
                // animeListToolStripMenuItem
@@ -176,34 +179,34 @@
             this.planToWatchToolStripMenuItem,
             this.allToolStripMenuItem});
                this.animeListToolStripMenuItem.Name = "animeListToolStripMenuItem";
-               this.animeListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.animeListToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
                this.animeListToolStripMenuItem.Text = "Anime List";
                // 
                // OngoingToolStripMenuItem
                // 
                this.OngoingToolStripMenuItem.Name = "OngoingToolStripMenuItem";
-               this.OngoingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.OngoingToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
                this.OngoingToolStripMenuItem.Text = "&Ongoing";
                this.OngoingToolStripMenuItem.Click += new System.EventHandler(this.OngoingToolStripMenuItem_Click);
                // 
                // planToWatchToolStripMenuItem
                // 
                this.planToWatchToolStripMenuItem.Name = "planToWatchToolStripMenuItem";
-               this.planToWatchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.planToWatchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
                this.planToWatchToolStripMenuItem.Text = "&Plan to watch";
                this.planToWatchToolStripMenuItem.Click += new System.EventHandler(this.planToWatchToolStripMenuItem_Click);
                // 
                // allToolStripMenuItem
                // 
                this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-               this.allToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.allToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
                this.allToolStripMenuItem.Text = "&All";
                this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
                // 
                // organizerToolStripMenuItem
                // 
                this.organizerToolStripMenuItem.Name = "organizerToolStripMenuItem";
-               this.organizerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+               this.organizerToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
                this.organizerToolStripMenuItem.Text = "O&rganizer";
                // 
                // toolStripSeparator2
@@ -278,6 +281,26 @@
                this.Homepanel.Size = new System.Drawing.Size(743, 347);
                this.Homepanel.TabIndex = 2;
                // 
+               // viewlbl
+               // 
+               this.viewlbl.AutoSize = true;
+               this.viewlbl.Font = new System.Drawing.Font("OCR A Extended", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.viewlbl.Location = new System.Drawing.Point(93, 14);
+               this.viewlbl.Name = "viewlbl";
+               this.viewlbl.Size = new System.Drawing.Size(79, 13);
+               this.viewlbl.TabIndex = 12;
+               this.viewlbl.Text = "Organizer";
+               this.viewlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+               // 
+               // label12
+               // 
+               this.label12.AutoSize = true;
+               this.label12.Location = new System.Drawing.Point(13, 14);
+               this.label12.Name = "label12";
+               this.label12.Size = new System.Drawing.Size(70, 13);
+               this.label12.TabIndex = 12;
+               this.label12.Text = "Current View:";
+               // 
                // menutab
                // 
                this.menutab.Controls.Add(this.organizetab);
@@ -303,6 +326,9 @@
                // 
                // Renamepanel
                // 
+               this.Renamepanel.Controls.Add(this.label9);
+               this.Renamepanel.Controls.Add(this.episoderbtn);
+               this.Renamepanel.Controls.Add(this.dashrbtn);
                this.Renamepanel.Controls.Add(this.label3);
                this.Renamepanel.Controls.Add(this.episodenud);
                this.Renamepanel.Controls.Add(this.label4);
@@ -316,6 +342,15 @@
                this.Renamepanel.Name = "Renamepanel";
                this.Renamepanel.Size = new System.Drawing.Size(370, 237);
                this.Renamepanel.TabIndex = 18;
+               // 
+               // label3
+               // 
+               this.label3.AutoSize = true;
+               this.label3.Location = new System.Drawing.Point(18, 49);
+               this.label3.Name = "label3";
+               this.label3.Size = new System.Drawing.Size(27, 13);
+               this.label3.TabIndex = 24;
+               this.label3.Text = "Title";
                // 
                // episodenud
                // 
@@ -597,39 +632,45 @@
                this.OFileDialog.Multiselect = true;
                this.OFileDialog.Title = "Select a video file";
                // 
-               // label3
-               // 
-               this.label3.AutoSize = true;
-               this.label3.Location = new System.Drawing.Point(18, 49);
-               this.label3.Name = "label3";
-               this.label3.Size = new System.Drawing.Size(27, 13);
-               this.label3.TabIndex = 24;
-               this.label3.Text = "Title";
-               // 
-               // label12
-               // 
-               this.label12.AutoSize = true;
-               this.label12.Location = new System.Drawing.Point(13, 14);
-               this.label12.Name = "label12";
-               this.label12.Size = new System.Drawing.Size(70, 13);
-               this.label12.TabIndex = 12;
-               this.label12.Text = "Current View:";
-               // 
-               // viewlbl
-               // 
-               this.viewlbl.AutoSize = true;
-               this.viewlbl.Font = new System.Drawing.Font("OCR A Extended", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.viewlbl.Location = new System.Drawing.Point(93, 14);
-               this.viewlbl.Name = "viewlbl";
-               this.viewlbl.Size = new System.Drawing.Size(79, 13);
-               this.viewlbl.TabIndex = 12;
-               this.viewlbl.Text = "Organizer";
-               this.viewlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-               // 
                // toolTip1
                // 
                this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
                this.toolTip1.ToolTipTitle = "Information";
+               // 
+               // dashrbtn
+               // 
+               this.dashrbtn.AutoSize = true;
+               this.dashrbtn.Location = new System.Drawing.Point(252, 140);
+               this.dashrbtn.Name = "dashrbtn";
+               this.dashrbtn.Size = new System.Drawing.Size(48, 17);
+               this.dashrbtn.TabIndex = 25;
+               this.dashrbtn.TabStop = true;
+               this.dashrbtn.Text = "dash";
+               this.toolTip1.SetToolTip(this.dashrbtn, "use \"x - episode num\" style");
+               this.dashrbtn.UseVisualStyleBackColor = true;
+               this.dashrbtn.CheckedChanged += new System.EventHandler(this.dashrbtn_CheckedChanged);
+               // 
+               // episoderbtn
+               // 
+               this.episoderbtn.AutoSize = true;
+               this.episoderbtn.Location = new System.Drawing.Point(252, 117);
+               this.episoderbtn.Name = "episoderbtn";
+               this.episoderbtn.Size = new System.Drawing.Size(62, 17);
+               this.episoderbtn.TabIndex = 25;
+               this.episoderbtn.TabStop = true;
+               this.episoderbtn.Text = "episode";
+               this.toolTip1.SetToolTip(this.episoderbtn, "use \"x Episode episode num\" style");
+               this.episoderbtn.UseVisualStyleBackColor = true;
+               this.episoderbtn.CheckedChanged += new System.EventHandler(this.episoderbtn_CheckedChanged);
+               // 
+               // label9
+               // 
+               this.label9.AutoSize = true;
+               this.label9.Location = new System.Drawing.Point(249, 95);
+               this.label9.Name = "label9";
+               this.label9.Size = new System.Drawing.Size(69, 13);
+               this.label9.TabIndex = 26;
+               this.label9.Text = "Episode style";
                // 
                // Form1
                // 
@@ -713,6 +754,9 @@
           private System.Windows.Forms.Label viewlbl;
           private System.Windows.Forms.Label label12;
           private System.Windows.Forms.ToolTip toolTip1;
+          private System.Windows.Forms.Label label9;
+          private System.Windows.Forms.RadioButton episoderbtn;
+          private System.Windows.Forms.RadioButton dashrbtn;
      }
 }
 
