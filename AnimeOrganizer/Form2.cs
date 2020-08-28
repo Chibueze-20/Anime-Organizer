@@ -84,17 +84,17 @@ namespace AnimeOrganizer
           {
                titlelbl.Text = "";
                epdownloadedlbl.Text = "";
-               ratingNud.Value = 0;
+               ratingNud.Value = 1;
                descriptionRtx.Text = "";
           }
           private void foldertree_AfterSelect(object sender, TreeViewEventArgs e)
           {
-               if (e.Node.Text != root.Name)
+               if ((e.Node.Text != root.Name) && Folder.Keys.Contains(e.Node.Text))
                {
                     folderlbl.Text = e.Node.Text;
                     if (db.Contains(folderlbl.Text))
                     {
-                         currentRecord = db[filenametxt.Text];
+                         currentRecord = db[folderlbl.Text];
                          showRecord(currentRecord.Value);
                     }
                     else
@@ -237,6 +237,7 @@ namespace AnimeOrganizer
                     db.Update(rec);
                     currentRecord = db[rec.Title];
                     showRecord(currentRecord.Value);
+                    clearRecord();
                }
                else
                {
@@ -256,6 +257,7 @@ namespace AnimeOrganizer
                     db.Update(newRecord);
                     currentRecord = db[newRecord.Title];
                     showRecord(currentRecord.Value);
+                    clearRecord();
                }
                MessageBox.Show("updated successfully!");
           }
@@ -287,6 +289,14 @@ namespace AnimeOrganizer
                this.Hide();
           }
 
-          
+          private void stopbtn_Click(object sender, EventArgs e)
+          {
+               updateTree();
+               reset();
+               Renamepanel.Enabled = true;
+               epsodeselectorgbx.Enabled = false;
+               rootlink.Show(); dblink.Show();
+
+          }
      }
 }

@@ -72,7 +72,7 @@ namespace AnimeOrganizer
           episode,
           none
      }
-
+     [Serializable]
      public struct AnimeRecord
      {
           private string title;
@@ -87,11 +87,34 @@ namespace AnimeOrganizer
           {
                this.title = title;
                numberOfEpisodes = episodes;
-               rating = 0;
+               rating = 1;
                description = "";
                lastUpdate = DateTime.Now;
                year = null;
                season = "unknown";
+          }
+          public static AnimeRecord FromCsv(string csvLine)
+          {
+               //Title,Episodes Downloaded,Season,Description,Rating
+               string[] values = csvLine.Split(',');
+               AnimeRecord record = new AnimeRecord(Convert.ToString(values[0]), Convert.ToInt32(values[1]));
+               record.Season = Convert.ToString(values[2].Split(' ')[0]);
+               if (values[2].Split(' ')[1]!="")
+               {
+                    record.Year = Convert.ToInt32(values[2].Split(' ')[1]);
+               }
+               record.Description = Convert.ToString(values[3]);
+               record.Rating = Convert.ToInt32(values[4]);
+               return record;
+          }
+          public static AnimeRecord Clone(AnimeRecord currentRecord,string newTitle)
+          {
+               AnimeRecord rec = new AnimeRecord(newTitle, currentRecord.EpisodeCount);
+               rec.Description = currentRecord.Description;
+               rec.Rating = currentRecord.Rating;
+               rec.Season = currentRecord.Season;
+               rec.Year = currentRecord.Year;
+               return rec;
           }
           public string Title { get { return title; }}
           public int EpisodeCount { get { return numberOfEpisodes; } set { numberOfEpisodes = value; } }

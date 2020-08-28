@@ -33,6 +33,9 @@
                this.viewlbl = new System.Windows.Forms.Label();
                this.label12 = new System.Windows.Forms.Label();
                this.groupBox1 = new System.Windows.Forms.GroupBox();
+               this.label4 = new System.Windows.Forms.Label();
+               this.label2 = new System.Windows.Forms.Label();
+               this.seasontxt = new System.Windows.Forms.TextBox();
                this.updatebtn = new System.Windows.Forms.Button();
                this.descriptionRtx = new System.Windows.Forms.RichTextBox();
                this.ratingNud = new System.Windows.Forms.NumericUpDown();
@@ -74,9 +77,6 @@
                this.label8 = new System.Windows.Forms.Label();
                this.label16 = new System.Windows.Forms.Label();
                this.dblink = new System.Windows.Forms.LinkLabel();
-               this.seasontxt = new System.Windows.Forms.TextBox();
-               this.label2 = new System.Windows.Forms.Label();
-               this.label4 = new System.Windows.Forms.Label();
                this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
                this.rootlink = new System.Windows.Forms.LinkLabel();
                this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -135,6 +135,33 @@
                this.groupBox1.TabIndex = 15;
                this.groupBox1.TabStop = false;
                this.groupBox1.Text = "Database Information";
+               // 
+               // label4
+               // 
+               this.label4.AutoSize = true;
+               this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+               this.label4.Location = new System.Drawing.Point(258, 132);
+               this.label4.Name = "label4";
+               this.label4.Size = new System.Drawing.Size(113, 12);
+               this.label4.TabIndex = 11;
+               this.label4.Text = "input format (season,year)";
+               // 
+               // label2
+               // 
+               this.label2.AutoSize = true;
+               this.label2.Location = new System.Drawing.Point(13, 132);
+               this.label2.Name = "label2";
+               this.label2.Size = new System.Drawing.Size(76, 13);
+               this.label2.TabIndex = 10;
+               this.label2.Text = "Season details";
+               // 
+               // seasontxt
+               // 
+               this.seasontxt.Location = new System.Drawing.Point(137, 126);
+               this.seasontxt.Name = "seasontxt";
+               this.seasontxt.Size = new System.Drawing.Size(114, 20);
+               this.seasontxt.TabIndex = 9;
+               this.toolTip1.SetToolTip(this.seasontxt, "Season,Year");
                // 
                // updatebtn
                // 
@@ -376,6 +403,7 @@
                this.stopbtn.TabIndex = 6;
                this.stopbtn.Text = "Stop";
                this.stopbtn.UseVisualStyleBackColor = true;
+               this.stopbtn.Click += new System.EventHandler(this.stopbtn_Click);
                // 
                // label15
                // 
@@ -573,33 +601,6 @@
                this.dblink.VisitedLinkColor = System.Drawing.Color.Black;
                this.dblink.Click += new System.EventHandler(this.linkLabel1_Click);
                // 
-               // seasontxt
-               // 
-               this.seasontxt.Location = new System.Drawing.Point(137, 126);
-               this.seasontxt.Name = "seasontxt";
-               this.seasontxt.Size = new System.Drawing.Size(114, 20);
-               this.seasontxt.TabIndex = 9;
-               this.toolTip1.SetToolTip(this.seasontxt, "Season,Year");
-               // 
-               // label2
-               // 
-               this.label2.AutoSize = true;
-               this.label2.Location = new System.Drawing.Point(13, 132);
-               this.label2.Name = "label2";
-               this.label2.Size = new System.Drawing.Size(76, 13);
-               this.label2.TabIndex = 10;
-               this.label2.Text = "Season details";
-               // 
-               // label4
-               // 
-               this.label4.AutoSize = true;
-               this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-               this.label4.Location = new System.Drawing.Point(258, 132);
-               this.label4.Name = "label4";
-               this.label4.Size = new System.Drawing.Size(113, 12);
-               this.label4.TabIndex = 11;
-               this.label4.Text = "input format (season,year)";
-               // 
                // rootlink
                // 
                this.rootlink.AutoSize = true;
@@ -636,7 +637,7 @@
                this.Controls.Add(this.foldertree);
                this.Name = "Form2";
                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-               this.Text = "BulkOrganizer";
+               this.Text = "Anime Organizer";
                this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
                this.groupBox1.ResumeLayout(false);
                this.groupBox1.PerformLayout();
