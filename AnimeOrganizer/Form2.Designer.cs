@@ -93,6 +93,7 @@
                this.foldertree.Name = "foldertree";
                this.foldertree.Size = new System.Drawing.Size(308, 422);
                this.foldertree.TabIndex = 0;
+               this.foldertree.TabStop = false;
                this.foldertree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.foldertree_AfterSelect);
                // 
                // viewlbl
@@ -161,6 +162,7 @@
                this.seasontxt.Name = "seasontxt";
                this.seasontxt.Size = new System.Drawing.Size(114, 20);
                this.seasontxt.TabIndex = 9;
+               this.seasontxt.TabStop = false;
                this.toolTip1.SetToolTip(this.seasontxt, "Season,Year");
                // 
                // updatebtn
@@ -169,6 +171,7 @@
                this.updatebtn.Name = "updatebtn";
                this.updatebtn.Size = new System.Drawing.Size(116, 25);
                this.updatebtn.TabIndex = 8;
+               this.updatebtn.TabStop = false;
                this.updatebtn.Text = "Update Database";
                this.updatebtn.UseVisualStyleBackColor = true;
                this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
@@ -180,6 +183,7 @@
                this.descriptionRtx.Name = "descriptionRtx";
                this.descriptionRtx.Size = new System.Drawing.Size(354, 62);
                this.descriptionRtx.TabIndex = 7;
+               this.descriptionRtx.TabStop = false;
                this.descriptionRtx.Text = "";
                this.toolTip1.SetToolTip(this.descriptionRtx, "Description of anime");
                // 
@@ -199,6 +203,7 @@
                this.ratingNud.Name = "ratingNud";
                this.ratingNud.Size = new System.Drawing.Size(114, 20);
                this.ratingNud.TabIndex = 6;
+               this.ratingNud.TabStop = false;
                this.ratingNud.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
                this.toolTip1.SetToolTip(this.ratingNud, "1-10");
                this.ratingNud.Value = new decimal(new int[] {
@@ -230,9 +235,9 @@
                this.epdownloadedlbl.AutoSize = true;
                this.epdownloadedlbl.Location = new System.Drawing.Point(134, 56);
                this.epdownloadedlbl.Name = "epdownloadedlbl";
-               this.epdownloadedlbl.Size = new System.Drawing.Size(35, 13);
+               this.epdownloadedlbl.Size = new System.Drawing.Size(50, 13);
                this.epdownloadedlbl.TabIndex = 3;
-               this.epdownloadedlbl.Text = "label4";
+               this.epdownloadedlbl.Text = "Episodes";
                // 
                // label3
                // 
@@ -248,9 +253,9 @@
                this.titlelbl.AutoSize = true;
                this.titlelbl.Location = new System.Drawing.Point(134, 22);
                this.titlelbl.Name = "titlelbl";
-               this.titlelbl.Size = new System.Drawing.Size(35, 13);
+               this.titlelbl.Size = new System.Drawing.Size(55, 13);
                this.titlelbl.TabIndex = 1;
-               this.titlelbl.Text = "label2";
+               this.titlelbl.Text = "Anime title";
                // 
                // label1
                // 
@@ -284,6 +289,7 @@
                this.foldernamecbx.Name = "foldernamecbx";
                this.foldernamecbx.Size = new System.Drawing.Size(108, 17);
                this.foldernamecbx.TabIndex = 27;
+               this.foldernamecbx.TabStop = false;
                this.foldernamecbx.Text = "Use Folder Name";
                this.foldernamecbx.UseVisualStyleBackColor = true;
                this.foldernamecbx.CheckedChanged += new System.EventHandler(this.checkbox_select);
@@ -304,7 +310,6 @@
                this.episoderbtn.Name = "episoderbtn";
                this.episoderbtn.Size = new System.Drawing.Size(62, 17);
                this.episoderbtn.TabIndex = 25;
-               this.episoderbtn.TabStop = true;
                this.episoderbtn.Text = "episode";
                this.episoderbtn.UseVisualStyleBackColor = true;
                this.episoderbtn.CheckedChanged += new System.EventHandler(this.episoderbtn_CheckedChanged);
@@ -316,7 +321,6 @@
                this.dashrbtn.Name = "dashrbtn";
                this.dashrbtn.Size = new System.Drawing.Size(48, 17);
                this.dashrbtn.TabIndex = 25;
-               this.dashrbtn.TabStop = true;
                this.dashrbtn.Text = "dash";
                this.dashrbtn.UseVisualStyleBackColor = true;
                this.dashrbtn.CheckedChanged += new System.EventHandler(this.dashrbtn_CheckedChanged);
@@ -345,6 +349,7 @@
                this.startbtn.Name = "startbtn";
                this.startbtn.Size = new System.Drawing.Size(86, 23);
                this.startbtn.TabIndex = 20;
+               this.startbtn.TabStop = false;
                this.startbtn.Text = "Start";
                this.startbtn.UseVisualStyleBackColor = true;
                this.startbtn.Click += new System.EventHandler(this.startbtn_Click);
@@ -365,6 +370,7 @@
                this.filenametxt.Name = "filenametxt";
                this.filenametxt.Size = new System.Drawing.Size(182, 23);
                this.filenametxt.TabIndex = 18;
+               this.filenametxt.TabStop = false;
                this.filenametxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
                this.filenametxt.TextChanged += new System.EventHandler(this.filenametxt_TextChanged);
                // 
@@ -391,6 +397,7 @@
                this.nextbtn.Name = "nextbtn";
                this.nextbtn.Size = new System.Drawing.Size(75, 23);
                this.nextbtn.TabIndex = 6;
+               this.nextbtn.TabStop = false;
                this.nextbtn.Text = "Next";
                this.nextbtn.UseVisualStyleBackColor = true;
                this.nextbtn.Click += new System.EventHandler(this.nextbtn_Click);
@@ -401,6 +408,7 @@
                this.stopbtn.Name = "stopbtn";
                this.stopbtn.Size = new System.Drawing.Size(75, 23);
                this.stopbtn.TabIndex = 6;
+               this.stopbtn.TabStop = false;
                this.stopbtn.Text = "Stop";
                this.stopbtn.UseVisualStyleBackColor = true;
                this.stopbtn.Click += new System.EventHandler(this.stopbtn_Click);
@@ -438,6 +446,7 @@
                this.clearbtn.Name = "clearbtn";
                this.clearbtn.Size = new System.Drawing.Size(40, 28);
                this.clearbtn.TabIndex = 11;
+               this.clearbtn.TabStop = false;
                this.clearbtn.Text = "cls";
                this.clearbtn.UseVisualStyleBackColor = true;
                this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
@@ -448,6 +457,7 @@
                this.button9.Name = "button9";
                this.button9.Size = new System.Drawing.Size(40, 28);
                this.button9.TabIndex = 10;
+               this.button9.TabStop = false;
                this.button9.Text = "9";
                this.button9.UseVisualStyleBackColor = true;
                this.button9.Click += new System.EventHandler(this.numpad_click);
@@ -458,6 +468,7 @@
                this.button10.Name = "button10";
                this.button10.Size = new System.Drawing.Size(40, 28);
                this.button10.TabIndex = 9;
+               this.button10.TabStop = false;
                this.button10.Text = "8";
                this.button10.UseVisualStyleBackColor = true;
                this.button10.Click += new System.EventHandler(this.numpad_click);
@@ -468,6 +479,7 @@
                this.button11.Name = "button11";
                this.button11.Size = new System.Drawing.Size(41, 28);
                this.button11.TabIndex = 8;
+               this.button11.TabStop = false;
                this.button11.Text = "7";
                this.button11.UseVisualStyleBackColor = true;
                this.button11.Click += new System.EventHandler(this.numpad_click);
@@ -478,6 +490,7 @@
                this.button6.Name = "button6";
                this.button6.Size = new System.Drawing.Size(40, 28);
                this.button6.TabIndex = 7;
+               this.button6.TabStop = false;
                this.button6.Text = "6";
                this.button6.UseVisualStyleBackColor = true;
                this.button6.Click += new System.EventHandler(this.numpad_click);
@@ -488,6 +501,7 @@
                this.button7.Name = "button7";
                this.button7.Size = new System.Drawing.Size(41, 28);
                this.button7.TabIndex = 6;
+               this.button7.TabStop = false;
                this.button7.Text = "5";
                this.button7.UseVisualStyleBackColor = true;
                this.button7.Click += new System.EventHandler(this.numpad_click);
@@ -498,6 +512,7 @@
                this.button8.Name = "button8";
                this.button8.Size = new System.Drawing.Size(40, 28);
                this.button8.TabIndex = 5;
+               this.button8.TabStop = false;
                this.button8.Text = "4";
                this.button8.UseVisualStyleBackColor = true;
                this.button8.Click += new System.EventHandler(this.numpad_click);
@@ -508,6 +523,7 @@
                this.button4.Name = "button4";
                this.button4.Size = new System.Drawing.Size(40, 28);
                this.button4.TabIndex = 3;
+               this.button4.TabStop = false;
                this.button4.Text = "3";
                this.button4.UseVisualStyleBackColor = true;
                this.button4.Click += new System.EventHandler(this.numpad_click);
@@ -518,6 +534,7 @@
                this.button5.Name = "button5";
                this.button5.Size = new System.Drawing.Size(41, 28);
                this.button5.TabIndex = 2;
+               this.button5.TabStop = false;
                this.button5.Text = "2";
                this.button5.UseVisualStyleBackColor = true;
                this.button5.Click += new System.EventHandler(this.numpad_click);
@@ -528,6 +545,7 @@
                this.button3.Name = "button3";
                this.button3.Size = new System.Drawing.Size(40, 28);
                this.button3.TabIndex = 1;
+               this.button3.TabStop = false;
                this.button3.Text = "1";
                this.button3.UseVisualStyleBackColor = true;
                this.button3.Click += new System.EventHandler(this.numpad_click);
@@ -538,6 +556,7 @@
                this.button2.Name = "button2";
                this.button2.Size = new System.Drawing.Size(41, 28);
                this.button2.TabIndex = 0;
+               this.button2.TabStop = false;
                this.button2.Text = "0";
                this.button2.UseVisualStyleBackColor = true;
                this.button2.Click += new System.EventHandler(this.numpad_click);
@@ -562,9 +581,9 @@
                // 
                // currentlbl
                // 
-               this.currentlbl.Location = new System.Drawing.Point(105, 28);
+               this.currentlbl.Location = new System.Drawing.Point(81, 28);
                this.currentlbl.Name = "currentlbl";
-               this.currentlbl.Size = new System.Drawing.Size(223, 53);
+               this.currentlbl.Size = new System.Drawing.Size(231, 53);
                this.currentlbl.TabIndex = 1;
                this.currentlbl.Text = "episode current name";
                // 
@@ -596,7 +615,6 @@
                this.dblink.Name = "dblink";
                this.dblink.Size = new System.Drawing.Size(151, 17);
                this.dblink.TabIndex = 29;
-               this.dblink.TabStop = true;
                this.dblink.Text = "View Database";
                this.dblink.VisitedLinkColor = System.Drawing.Color.Black;
                this.dblink.Click += new System.EventHandler(this.linkLabel1_Click);
@@ -610,7 +628,6 @@
                this.rootlink.Name = "rootlink";
                this.rootlink.Size = new System.Drawing.Size(206, 17);
                this.rootlink.TabIndex = 30;
-               this.rootlink.TabStop = true;
                this.rootlink.Text = "Change Root Folder";
                this.toolTip1.SetToolTip(this.rootlink, "Only does level 1 indexing, ensure correct folder is chosen");
                this.rootlink.VisitedLinkColor = System.Drawing.Color.Black;
@@ -635,9 +652,11 @@
                this.Controls.Add(this.viewlbl);
                this.Controls.Add(this.label12);
                this.Controls.Add(this.foldertree);
+               this.KeyPreview = true;
                this.Name = "Form2";
                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                this.Text = "Anime Organizer";
+               this.TopMost = true;
                this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
                this.groupBox1.ResumeLayout(false);
                this.groupBox1.PerformLayout();

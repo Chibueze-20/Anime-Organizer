@@ -50,15 +50,13 @@
                this.label4 = new System.Windows.Forms.Label();
                this.titlelbl = new System.Windows.Forms.Label();
                this.label2 = new System.Windows.Forms.Label();
-               this.titleList = new System.Windows.Forms.CheckedListBox();
-               this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-               this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-               this.groupBox1 = new System.Windows.Forms.GroupBox();
-               this.csv_importbtn = new System.Windows.Forms.Button();
-               this.videos_importbtn = new System.Windows.Forms.Button();
-               this.folder_importbtn = new System.Windows.Forms.Button();
                this.bulktab = new System.Windows.Forms.TabPage();
                this.groupBox2 = new System.Windows.Forms.GroupBox();
+               this.bulk_titletxt = new System.Windows.Forms.TextBox();
+               this.label6 = new System.Windows.Forms.Label();
+               this.bulk_skipbtn = new System.Windows.Forms.Button();
+               this.bulk_removebtn = new System.Windows.Forms.Button();
+               this.bulk_updatebtn = new System.Windows.Forms.Button();
                this.bulk_yeartxt = new System.Windows.Forms.TextBox();
                this.bulk_seasontxt = new System.Windows.Forms.TextBox();
                this.label3 = new System.Windows.Forms.Label();
@@ -67,22 +65,24 @@
                this.label5 = new System.Windows.Forms.Label();
                this.label7 = new System.Windows.Forms.Label();
                this.label8 = new System.Windows.Forms.Label();
-               this.bulk_updatebtn = new System.Windows.Forms.Button();
-               this.bulk_removebtn = new System.Windows.Forms.Button();
-               this.bulk_skipbtn = new System.Windows.Forms.Button();
-               this.label6 = new System.Windows.Forms.Label();
-               this.bulk_titletxt = new System.Windows.Forms.TextBox();
+               this.groupBox1 = new System.Windows.Forms.GroupBox();
+               this.folder_importbtn = new System.Windows.Forms.Button();
+               this.videos_importbtn = new System.Windows.Forms.Button();
+               this.csv_importbtn = new System.Windows.Forms.Button();
+               this.titleList = new System.Windows.Forms.CheckedListBox();
+               this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+               this.linkLabel1 = new System.Windows.Forms.LinkLabel();
                this.exportbtn = new System.Windows.Forms.Button();
                this.Homepanel.SuspendLayout();
                this.menutab.SuspendLayout();
                this.detailstab.SuspendLayout();
                this.detailspanel.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.ratingnum)).BeginInit();
-               this.groupBox1.SuspendLayout();
                this.bulktab.SuspendLayout();
                this.groupBox2.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.bulk_epsnud)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.bulk_ratingnud)).BeginInit();
+               this.groupBox1.SuspendLayout();
                this.SuspendLayout();
                // 
                // label1
@@ -293,7 +293,7 @@
                this.titlelbl.Name = "titlelbl";
                this.titlelbl.Size = new System.Drawing.Size(195, 23);
                this.titlelbl.TabIndex = 1;
-               this.titlelbl.Text = "xxiitthd";
+               this.titlelbl.Text = "Anime title";
                this.titlelbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                // 
                // label2
@@ -305,77 +305,6 @@
                this.label2.Size = new System.Drawing.Size(32, 13);
                this.label2.TabIndex = 0;
                this.label2.Text = "Title";
-               // 
-               // titleList
-               // 
-               this.titleList.FormattingEnabled = true;
-               this.titleList.Location = new System.Drawing.Point(13, 33);
-               this.titleList.Name = "titleList";
-               this.titleList.Size = new System.Drawing.Size(244, 319);
-               this.titleList.TabIndex = 10;
-               this.titleList.SelectedIndexChanged += new System.EventHandler(this.titleList_SelectedIndexChanged);
-               // 
-               // toolTip1
-               // 
-               this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-               this.toolTip1.ToolTipTitle = "Information";
-               // 
-               // linkLabel1
-               // 
-               this.linkLabel1.AutoSize = true;
-               this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-               this.linkLabel1.Font = new System.Drawing.Font("OCR A Extended", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-               this.linkLabel1.Location = new System.Drawing.Point(3, 3);
-               this.linkLabel1.Name = "linkLabel1";
-               this.linkLabel1.Size = new System.Drawing.Size(173, 17);
-               this.linkLabel1.TabIndex = 30;
-               this.linkLabel1.TabStop = true;
-               this.linkLabel1.Text = "Go to Organizer";
-               this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Black;
-               this.linkLabel1.Click += new System.EventHandler(this.linkLabel1_Click);
-               // 
-               // groupBox1
-               // 
-               this.groupBox1.Controls.Add(this.folder_importbtn);
-               this.groupBox1.Controls.Add(this.videos_importbtn);
-               this.groupBox1.Controls.Add(this.csv_importbtn);
-               this.groupBox1.Location = new System.Drawing.Point(6, 6);
-               this.groupBox1.Name = "groupBox1";
-               this.groupBox1.Size = new System.Drawing.Size(417, 50);
-               this.groupBox1.TabIndex = 24;
-               this.groupBox1.TabStop = false;
-               this.groupBox1.Text = "Import";
-               // 
-               // csv_importbtn
-               // 
-               this.csv_importbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.csv_importbtn.Location = new System.Drawing.Point(288, 19);
-               this.csv_importbtn.Name = "csv_importbtn";
-               this.csv_importbtn.Size = new System.Drawing.Size(123, 25);
-               this.csv_importbtn.TabIndex = 2;
-               this.csv_importbtn.Text = "Import from excel";
-               this.csv_importbtn.UseVisualStyleBackColor = true;
-               // 
-               // videos_importbtn
-               // 
-               this.videos_importbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.videos_importbtn.Location = new System.Drawing.Point(160, 19);
-               this.videos_importbtn.Name = "videos_importbtn";
-               this.videos_importbtn.Size = new System.Drawing.Size(106, 25);
-               this.videos_importbtn.TabIndex = 1;
-               this.videos_importbtn.Text = "Import videos";
-               this.videos_importbtn.UseVisualStyleBackColor = true;
-               // 
-               // folder_importbtn
-               // 
-               this.folder_importbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.folder_importbtn.Location = new System.Drawing.Point(7, 19);
-               this.folder_importbtn.Name = "folder_importbtn";
-               this.folder_importbtn.Size = new System.Drawing.Size(133, 25);
-               this.folder_importbtn.TabIndex = 0;
-               this.folder_importbtn.Text = "Import from folder";
-               this.folder_importbtn.UseVisualStyleBackColor = true;
                // 
                // bulktab
                // 
@@ -410,6 +339,54 @@
                this.groupBox2.TabIndex = 25;
                this.groupBox2.TabStop = false;
                this.groupBox2.Text = "Bulk operation";
+               // 
+               // bulk_titletxt
+               // 
+               this.bulk_titletxt.Location = new System.Drawing.Point(12, 30);
+               this.bulk_titletxt.Multiline = true;
+               this.bulk_titletxt.Name = "bulk_titletxt";
+               this.bulk_titletxt.Size = new System.Drawing.Size(399, 28);
+               this.bulk_titletxt.TabIndex = 36;
+               // 
+               // label6
+               // 
+               this.label6.AutoSize = true;
+               this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.label6.Location = new System.Drawing.Point(195, 15);
+               this.label6.Name = "label6";
+               this.label6.Size = new System.Drawing.Size(32, 13);
+               this.label6.TabIndex = 35;
+               this.label6.Text = "Title";
+               // 
+               // bulk_skipbtn
+               // 
+               this.bulk_skipbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.bulk_skipbtn.Location = new System.Drawing.Point(218, 174);
+               this.bulk_skipbtn.Name = "bulk_skipbtn";
+               this.bulk_skipbtn.Size = new System.Drawing.Size(75, 31);
+               this.bulk_skipbtn.TabIndex = 34;
+               this.bulk_skipbtn.Text = "&Skip";
+               this.bulk_skipbtn.UseVisualStyleBackColor = true;
+               // 
+               // bulk_removebtn
+               // 
+               this.bulk_removebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.bulk_removebtn.Location = new System.Drawing.Point(115, 175);
+               this.bulk_removebtn.Name = "bulk_removebtn";
+               this.bulk_removebtn.Size = new System.Drawing.Size(75, 31);
+               this.bulk_removebtn.TabIndex = 33;
+               this.bulk_removebtn.Text = "&Remove";
+               this.bulk_removebtn.UseVisualStyleBackColor = true;
+               // 
+               // bulk_updatebtn
+               // 
+               this.bulk_updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.bulk_updatebtn.Location = new System.Drawing.Point(12, 175);
+               this.bulk_updatebtn.Name = "bulk_updatebtn";
+               this.bulk_updatebtn.Size = new System.Drawing.Size(75, 31);
+               this.bulk_updatebtn.TabIndex = 32;
+               this.bulk_updatebtn.Text = "&Update";
+               this.bulk_updatebtn.UseVisualStyleBackColor = true;
                // 
                // bulk_yeartxt
                // 
@@ -479,53 +456,76 @@
                this.label8.TabIndex = 24;
                this.label8.Text = "Number of episodes";
                // 
-               // bulk_updatebtn
+               // groupBox1
                // 
-               this.bulk_updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.bulk_updatebtn.Location = new System.Drawing.Point(12, 175);
-               this.bulk_updatebtn.Name = "bulk_updatebtn";
-               this.bulk_updatebtn.Size = new System.Drawing.Size(75, 31);
-               this.bulk_updatebtn.TabIndex = 32;
-               this.bulk_updatebtn.Text = "&Update";
-               this.bulk_updatebtn.UseVisualStyleBackColor = true;
+               this.groupBox1.Controls.Add(this.folder_importbtn);
+               this.groupBox1.Controls.Add(this.videos_importbtn);
+               this.groupBox1.Controls.Add(this.csv_importbtn);
+               this.groupBox1.Location = new System.Drawing.Point(6, 6);
+               this.groupBox1.Name = "groupBox1";
+               this.groupBox1.Size = new System.Drawing.Size(417, 50);
+               this.groupBox1.TabIndex = 24;
+               this.groupBox1.TabStop = false;
+               this.groupBox1.Text = "Import";
                // 
-               // bulk_removebtn
+               // folder_importbtn
                // 
-               this.bulk_removebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.bulk_removebtn.Location = new System.Drawing.Point(115, 175);
-               this.bulk_removebtn.Name = "bulk_removebtn";
-               this.bulk_removebtn.Size = new System.Drawing.Size(75, 31);
-               this.bulk_removebtn.TabIndex = 33;
-               this.bulk_removebtn.Text = "&Remove";
-               this.bulk_removebtn.UseVisualStyleBackColor = true;
+               this.folder_importbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.folder_importbtn.Location = new System.Drawing.Point(7, 19);
+               this.folder_importbtn.Name = "folder_importbtn";
+               this.folder_importbtn.Size = new System.Drawing.Size(133, 25);
+               this.folder_importbtn.TabIndex = 0;
+               this.folder_importbtn.Text = "Import from folder";
+               this.folder_importbtn.UseVisualStyleBackColor = true;
                // 
-               // bulk_skipbtn
+               // videos_importbtn
                // 
-               this.bulk_skipbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.bulk_skipbtn.Location = new System.Drawing.Point(218, 174);
-               this.bulk_skipbtn.Name = "bulk_skipbtn";
-               this.bulk_skipbtn.Size = new System.Drawing.Size(75, 31);
-               this.bulk_skipbtn.TabIndex = 34;
-               this.bulk_skipbtn.Text = "&Skip";
-               this.bulk_skipbtn.UseVisualStyleBackColor = true;
+               this.videos_importbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.videos_importbtn.Location = new System.Drawing.Point(160, 19);
+               this.videos_importbtn.Name = "videos_importbtn";
+               this.videos_importbtn.Size = new System.Drawing.Size(106, 25);
+               this.videos_importbtn.TabIndex = 1;
+               this.videos_importbtn.Text = "Import videos";
+               this.videos_importbtn.UseVisualStyleBackColor = true;
                // 
-               // label6
+               // csv_importbtn
                // 
-               this.label6.AutoSize = true;
-               this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.label6.Location = new System.Drawing.Point(195, 15);
-               this.label6.Name = "label6";
-               this.label6.Size = new System.Drawing.Size(32, 13);
-               this.label6.TabIndex = 35;
-               this.label6.Text = "Title";
+               this.csv_importbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.csv_importbtn.Location = new System.Drawing.Point(288, 19);
+               this.csv_importbtn.Name = "csv_importbtn";
+               this.csv_importbtn.Size = new System.Drawing.Size(123, 25);
+               this.csv_importbtn.TabIndex = 2;
+               this.csv_importbtn.Text = "Import from excel";
+               this.csv_importbtn.UseVisualStyleBackColor = true;
                // 
-               // bulk_titletxt
+               // titleList
                // 
-               this.bulk_titletxt.Location = new System.Drawing.Point(12, 30);
-               this.bulk_titletxt.Multiline = true;
-               this.bulk_titletxt.Name = "bulk_titletxt";
-               this.bulk_titletxt.Size = new System.Drawing.Size(399, 28);
-               this.bulk_titletxt.TabIndex = 36;
+               this.titleList.FormattingEnabled = true;
+               this.titleList.Location = new System.Drawing.Point(13, 33);
+               this.titleList.Name = "titleList";
+               this.titleList.Size = new System.Drawing.Size(244, 319);
+               this.titleList.TabIndex = 10;
+               this.titleList.SelectedIndexChanged += new System.EventHandler(this.titleList_SelectedIndexChanged);
+               // 
+               // toolTip1
+               // 
+               this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+               this.toolTip1.ToolTipTitle = "Information";
+               // 
+               // linkLabel1
+               // 
+               this.linkLabel1.AutoSize = true;
+               this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
+               this.linkLabel1.Font = new System.Drawing.Font("OCR A Extended", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+               this.linkLabel1.Location = new System.Drawing.Point(3, 3);
+               this.linkLabel1.Name = "linkLabel1";
+               this.linkLabel1.Size = new System.Drawing.Size(173, 17);
+               this.linkLabel1.TabIndex = 30;
+               this.linkLabel1.TabStop = true;
+               this.linkLabel1.Text = "Go to Organizer";
+               this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Black;
+               this.linkLabel1.Click += new System.EventHandler(this.linkLabel1_Click);
                // 
                // exportbtn
                // 
@@ -557,12 +557,12 @@
                this.detailspanel.ResumeLayout(false);
                this.detailspanel.PerformLayout();
                ((System.ComponentModel.ISupportInitialize)(this.ratingnum)).EndInit();
-               this.groupBox1.ResumeLayout(false);
                this.bulktab.ResumeLayout(false);
                this.groupBox2.ResumeLayout(false);
                this.groupBox2.PerformLayout();
                ((System.ComponentModel.ISupportInitialize)(this.bulk_epsnud)).EndInit();
                ((System.ComponentModel.ISupportInitialize)(this.bulk_ratingnud)).EndInit();
+               this.groupBox1.ResumeLayout(false);
                this.ResumeLayout(false);
                this.PerformLayout();
 

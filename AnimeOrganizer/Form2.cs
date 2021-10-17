@@ -15,19 +15,39 @@ namespace AnimeOrganizer
      {
           Dictionary<string,List<FileInfo>> Folder = new Dictionary<string,List<FileInfo>>();
           List<FileInfo> activeBulk = new List<FileInfo>();
-          static string rootPath = @"C:\Users\USER\Downloads\Video\zedd";
-          DirectoryInfo root = new DirectoryInfo(rootPath);
+          static string rootPath = Properties.Settings.Default.zeddPath; //@"C:\Users\USER\Downloads\Video\zedd";
+          DirectoryInfo root;
           Seperator seperator;
           FileInfo activeFile;
           int index = 0;
           AnimeDB db;
           AnimeRecord? currentRecord;
+          private bool isRenaming = false;
           public Form2()
           {
                InitializeComponent();
+               if (rootPath == "empty" || rootPath == "" || rootPath == null || !rootPath.Contains(":\\"))
+               {
+                    SelectZeddPath(true);
+                    Properties.Settings.Default["zeddPath"]= rootPath;
+                    Properties.Settings.Default.Save();
+                    Console.WriteLine(Properties.Settings.Default.zeddPath);
+               }
+               else
+               {
+                    try
+                    {
+                         root = new DirectoryInfo(rootPath);
+                    }
+                    catch(Exception e)
+                    {
+                         SelectZeddPath(true);
+                    }
+               }
                db = AnimeDB.Deserialize();
                buildTree();
                epsodeselectorgbx.Enabled = false;
+               
           }
           
           private void buildTree()
@@ -100,6 +120,7 @@ namespace AnimeOrganizer
                     else
                     {
                          currentRecord = null;
+                         clearRecord();
                     }
                     titlelbl.Text = e.Node.Text;
                     epdownloadedlbl.Text = Folder[titlelbl.Text].Count.ToString();
@@ -160,6 +181,7 @@ namespace AnimeOrganizer
                     showFile();
                     epsodeselectorgbx.Enabled = true;
                     Renamepanel.Enabled = false;
+                    isRenaming = true;
                }
           }
 
@@ -201,6 +223,7 @@ namespace AnimeOrganizer
                     Renamepanel.Enabled = true;
                     epsodeselectorgbx.Enabled = false;
                     rootlink.Show(); dblink.Show();
+                    isRenaming = false;
                }
           }
           private void reset()
@@ -213,6 +236,7 @@ namespace AnimeOrganizer
                seperator = Seperator.none;
                currentlbl.Text = "episode current name";
                episodelbl.Text = "select from keypad";
+               isRenaming = false;
 
           }
 
@@ -271,6 +295,10 @@ namespace AnimeOrganizer
 
           private void linkLabel2_LinkClicked(object sender, EventArgs e)
           {
+               SelectZeddPath(false);
+          }
+          private void SelectZeddPath(bool buildOnly)
+          {
                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                {
                     string newroot = folderBrowserDialog.SelectedPath;
@@ -278,10 +306,13 @@ namespace AnimeOrganizer
                     root = new DirectoryInfo(rootPath);
                     reset();
                     clearRecord();
-                    updateTree();
+                    if (!buildOnly)
+                    {
+                        
+                         updateTree();
+                    }
                }
           }
-
           private void linkLabel1_Click(object sender, EventArgs e)
           {
                db.Serialize();
@@ -296,6 +327,14 @@ namespace AnimeOrganizer
                Renamepanel.Enabled = true;
                epsodeselectorgbx.Enabled = false;
                rootlink.Show(); dblink.Show();
+               isRenaming = false;
+          }
+          private void Enter_Press(object sender, KeyEventArgs e)
+          {
+
+          }
+          private void Form2_KeyPress(object sender, KeyPressEventArgs e)
+          {
 
           }
      }
