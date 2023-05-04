@@ -80,6 +80,7 @@
                this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
                this.rootlink = new System.Windows.Forms.LinkLabel();
                this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+               this.autoOrganizeLnkLbl = new System.Windows.Forms.LinkLabel();
                this.groupBox1.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.ratingNud)).BeginInit();
                this.Renamepanel.SuspendLayout();
@@ -351,6 +352,7 @@
                this.startbtn.TabIndex = 20;
                this.startbtn.TabStop = false;
                this.startbtn.Text = "Start";
+               this.toolTip1.SetToolTip(this.startbtn, "start organization process");
                this.startbtn.UseVisualStyleBackColor = true;
                this.startbtn.Click += new System.EventHandler(this.startbtn_Click);
                // 
@@ -615,6 +617,7 @@
                this.dblink.Name = "dblink";
                this.dblink.Size = new System.Drawing.Size(151, 17);
                this.dblink.TabIndex = 29;
+               this.dblink.TabStop = true;
                this.dblink.Text = "View Database";
                this.dblink.VisitedLinkColor = System.Drawing.Color.Black;
                this.dblink.Click += new System.EventHandler(this.linkLabel1_Click);
@@ -628,6 +631,7 @@
                this.rootlink.Name = "rootlink";
                this.rootlink.Size = new System.Drawing.Size(206, 17);
                this.rootlink.TabIndex = 30;
+               this.rootlink.TabStop = true;
                this.rootlink.Text = "Change Root Folder";
                this.toolTip1.SetToolTip(this.rootlink, "Only does level 1 indexing, ensure correct folder is chosen");
                this.rootlink.VisitedLinkColor = System.Drawing.Color.Black;
@@ -638,12 +642,27 @@
                this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
                this.folderBrowserDialog.ShowNewFolderButton = false;
                // 
+               // autoOrganizeLnkLbl
+               // 
+               this.autoOrganizeLnkLbl.AutoSize = true;
+               this.autoOrganizeLnkLbl.Font = new System.Drawing.Font("OCR A Extended", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.autoOrganizeLnkLbl.LinkColor = System.Drawing.Color.Black;
+               this.autoOrganizeLnkLbl.Location = new System.Drawing.Point(3, 25);
+               this.autoOrganizeLnkLbl.Name = "autoOrganizeLnkLbl";
+               this.autoOrganizeLnkLbl.Size = new System.Drawing.Size(151, 17);
+               this.autoOrganizeLnkLbl.TabIndex = 29;
+               this.autoOrganizeLnkLbl.TabStop = true;
+               this.autoOrganizeLnkLbl.Text = "Auto Organize";
+               this.autoOrganizeLnkLbl.VisitedLinkColor = System.Drawing.Color.Black;
+               this.autoOrganizeLnkLbl.Click += new System.EventHandler(this.autoOrganizeLnkLbl_Click);
+               // 
                // Form2
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.ClientSize = new System.Drawing.Size(1057, 494);
                this.Controls.Add(this.rootlink);
+               this.Controls.Add(this.autoOrganizeLnkLbl);
                this.Controls.Add(this.dblink);
                this.Controls.Add(this.label16);
                this.Controls.Add(this.epsodeselectorgbx);
@@ -724,5 +743,6 @@
           private System.Windows.Forms.ToolTip toolTip1;
           private System.Windows.Forms.LinkLabel rootlink;
           private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+          private System.Windows.Forms.LinkLabel autoOrganizeLnkLbl;
      }
 }

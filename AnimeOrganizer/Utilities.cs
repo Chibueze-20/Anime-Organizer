@@ -11,22 +11,103 @@ namespace AnimeOrganizer
           Folder,
           Files
      }
-     public struct AnimeFile
+     public static class UtillExtensions
      {
-          private string title;
-          private Seperator seprator;
-          private int episode;
-          public string Title
+          private static List<string> badStrings = new List<string>()
           {
-               set
+               "mp4", "mkv", "animepahe", "720p", "360p", "subsplease", "ttga",
+               "netflix", "crunchyroll", "disney", "animechap"
+          };
+          public static bool IsNumeric(string s)
+          {
+               if (s == null) return false;
+               if (s.Length == 0) return false;
+               try
                {
-                    title = value;
+                    int.Parse(s);
+                    return true;
                }
-               get
+               catch (Exception)
                {
-                    return title == null ? "" : title;
+
+                    return false;
                }
           }
+          public static bool IsRedundantString(string s)
+          {
+               return badStrings.Contains(s.ToLower());
+          }
+          public static string GenerateFileName(string name, int episode, Seperator sep)
+          {
+               switch (sep)
+               {
+                    case Seperator.dash:
+                         return name + " - " + (episode >= 10 ? episode + "" : "0" + episode);
+                    case Seperator.episode:
+                         return name + " Episode " + episode;
+                    default:
+                         return name + " Episode " + episode;
+               }
+          }
+     }
+     public abstract class BaseAnimeDirectory
+     {
+          private string name;
+          private string path;
+          private int weight = int.MinValue;
+          public int Weight
+          {
+               get { return weight; }
+               set { weight = value; }
+          }
+          public string Name
+          {
+               set { name = value; }
+               get { return name; }
+          }
+          public string Path
+          {
+               get { return path; }
+               set { path = value; }
+          }
+          public static bool operator > (BaseAnimeDirectory a, BaseAnimeDirectory b) { 
+               if(a == null) return false;
+               if(b == null) return true;
+               return a.Weight > b.Weight;
+          }
+
+          public static bool operator < (BaseAnimeDirectory a, BaseAnimeDirectory b)
+          {
+               if (a == null) return true;
+               if (b == null) return false;
+               return a.Weight < b.Weight;
+          }
+          public HashSet<string> SearchSet
+          {
+               get
+               {
+                    string[] set = name.Split('_', '-', ':', ';', '.');
+                    HashSet<string> searchSet = new HashSet<string>();
+                    foreach (string s in set)
+                    {
+                         if (!UtillExtensions.IsNumeric(s) && ! UtillExtensions.IsRedundantString(s))
+                         {
+                              searchSet.Add(s.Trim());
+                         }
+                    }
+                    return searchSet;
+               }
+          }
+          override
+          public string ToString()
+          {
+               return name;
+          }
+     }
+     public class AnimeFile: BaseAnimeDirectory
+     {
+          private int episode;
+          
           public int Episode
           {
                set
@@ -38,34 +119,8 @@ namespace AnimeOrganizer
                     return episode;
                }
           }
-          public Seperator EpisodeSeperator
-          {
-               get
-               {
-                    return seprator;
-               }
-               set
-               {
-                    seprator = value;
-               }
-          }
-          private string seperate()
-          {
-               switch (seprator)
-               {
-                    case Seperator.dash:
-                         return "- " + (episode >= 10 ? episode + "" : "0" + episode);
-                    case Seperator.episode:
-                         return "Episode " + episode;
-                    default:
-                         return "Episode " + episode;
-               }
-          }
-          public override string ToString()
-          {
-               return title + " " + seperate();
-          }
      }
+     public class AnimeFolder: BaseAnimeDirectory { }
      public enum Seperator
      {
           dash,
@@ -171,5 +226,4 @@ namespace AnimeOrganizer
                }
           }
      }
-
 }

@@ -80,18 +80,7 @@ namespace AnimeOrganizer
                activeFile = activeBulk[index];
                currentlbl.Text = activeFile.Name;
           }
-          private string generateFileName(string name,int episode,Seperator sep)
-          {
-               switch (sep)
-               {
-                    case Seperator.dash:
-                         return name+ " - " + (episode >= 10 ? episode + "" : "0" + episode);
-                    case Seperator.episode:
-                         return name+ " Episode " + episode;
-                    default:
-                         return name+" Episode " + episode;
-               }
-          }
+          
           private void showRecord(AnimeRecord record)
           {
                titlelbl.Text = record.Title;
@@ -206,7 +195,7 @@ namespace AnimeOrganizer
           {
                if (episodelbl.Text != "select from keypad")
                {
-                    string filename = generateFileName(filenametxt.Text, int.Parse(episodelbl.Text), seperator);
+                    string filename = UtillExtensions.GenerateFileName(filenametxt.Text, int.Parse(episodelbl.Text), seperator);
                     activeFile.MoveTo(activeFile.Directory.FullName + @"\" + filename + activeFile.Extension);
                     episodelbl.Text = "select from keypad";
                }
@@ -336,6 +325,13 @@ namespace AnimeOrganizer
           private void Form2_KeyPress(object sender, KeyPressEventArgs e)
           {
 
+          }
+
+          private void autoOrganizeLnkLbl_Click(object sender, EventArgs e)
+          {
+               db.Serialize();
+               new Form3(db, rootPath).Show();
+               this.Hide();
           }
      }
 }

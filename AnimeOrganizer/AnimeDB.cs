@@ -55,6 +55,10 @@ namespace AnimeOrganizer
                     return db[title];
                }
           }
+          public bool Contains(string title)
+          {
+               return db.ContainsKey(title);
+          }
           public IList<string> Titles()
           {
                return db.Keys.ToList();
