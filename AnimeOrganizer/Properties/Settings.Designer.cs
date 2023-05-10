@@ -34,5 +34,17 @@ namespace AnimeOrganizer.Properties {
                 this["zeddPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string episodeSep {
+            get {
+                return ((string)(this["episodeSep"]));
+            }
+            set {
+                this["episodeSep"] = value;
+            }
+        }
     }
 }
