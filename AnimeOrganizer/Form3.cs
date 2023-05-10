@@ -25,14 +25,25 @@ namespace AnimeOrganizer
               "temp",
               "Done"
           };
+        private List<string> videoExtensions = new List<string>
+          {
+              ".mp4",
+              ".mkv"
+          };
           private AnimeFile currentFile;
-          private AnimeDB db;
-          public Form3(AnimeDB db, string rootPath)
+          private readonly AnimeDB db;
+        private readonly string rootPath;
+        private Seperator seperator;
+          public Form3(AnimeDB db)
           {
                this.db = db;
+            this.rootPath = Properties.Settings.Default.zeddPath;
                animeFiles = new List<AnimeFile>();
                animeFolders = new List<AnimeFolder>();
                InitializeComponent();
+            menu1.AddOpenMenuOption("Database", OpenDatabaseEvent);
+            menu1.AddOpenMenuOption("Organizer", OpenOrganizerEvent);
+            menu1.OnCustomize = CustomizeSeparatorEvent;
                try
                {
                     GetFiles(rootPath);
@@ -45,11 +56,28 @@ namespace AnimeOrganizer
                }
                Next();
           }
-          private void GetFiles(string rootPath)
+          private void OpenDatabaseEvent(object sender, EventArgs e)
+          {
+            db.Serialize();
+            new Form1().Show();
+            this.Hide();
+          }
+        private void OpenOrganizerEvent(object sender, EventArgs e)
+        {
+            db.Serialize();
+            new Form2().Show();
+            this.Hide();
+        }
+
+        private void GetFiles(string rootPath)
           {
                directoryInfo = new DirectoryInfo(rootPath);
                foreach (FileInfo file in directoryInfo.EnumerateFiles()) 
                {
+                if (!videoExtensions.Contains(file.Extension))
+                {
+                    continue;
+                }
                     AnimeFile animeFile = new AnimeFile();
                     animeFile.Name = file.Name;
                     animeFile.Path = file.FullName;
@@ -73,6 +101,26 @@ namespace AnimeOrganizer
                     animeFolders.Add(animeFolder);
                }
           }
+          private void RefreshSeparator()
+        {
+            try
+            {
+                Seperator current = (Seperator)Enum.Parse(typeof(Seperator), Properties.Settings.Default.episodeSep.ToString());
+                seperator = current;
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("Sep convert Exception: " + e.Message);
+            }
+        }
+        private void CustomizeSeparatorEvent(bool zeddPathChanged, bool separatorChanged)
+        {
+            if (separatorChanged)
+            {
+                RefreshSeparator();
+            }
+        }
           private new void Close()
           {
               db.Serialize();
@@ -102,11 +150,14 @@ namespace AnimeOrganizer
                string name = (string) tags[0];
                string path = (string) tags[1];
                AnimeRecord animeRecord = GetAnimeRecord(name);
-               Next();
-               MoveFile(path, animeRecord);
-               RefreshFiles();
+               if(MoveFile(path, animeRecord))
+            {
+                RefreshFiles();
+                Next();
+            }
+               
 
-          }
+        }
           private AnimeRecord GetAnimeRecord(string name)
           {
                AnimeRecord animeRecord;
@@ -121,9 +172,9 @@ namespace AnimeOrganizer
                }
                return animeRecord;
           }
-          private void MoveFile(string toPath, AnimeRecord animeRecord)
+          private bool MoveFile(string toPath, AnimeRecord animeRecord)
           {
-               string fileName = UtillExtensions.GenerateFileName(animeRecord.Title, animeRecord.EpisodeCount + 1, Seperator.dash);
+               string fileName = UtillExtensions.GenerateFileName(animeRecord.Title, animeRecord.EpisodeCount + 1, seperator);
                FileInfo CurrentFileInfo = new FileInfo(currentFile.Path);
                string newPath = toPath + @"\" + fileName + CurrentFileInfo.Extension;
                if (CurrentFileInfo.Exists && MessageBox.Show("Move to " + newPath + " ?", "Info", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -131,10 +182,11 @@ namespace AnimeOrganizer
                     CurrentFileInfo.MoveTo(newPath);
                     animeRecord.EpisodeCount = animeRecord.EpisodeCount + 1;
                     db.Update(animeRecord);
+                return true;
                }
                else
                {
-                    MessageBox.Show("Something went wrong, confirm is file still exists", "Error");
+                return false;
                }
                
           }
@@ -155,8 +207,8 @@ namespace AnimeOrganizer
                          }
                     }
                }
-               matches.Sort();
-               Console.WriteLine(string.Join(",", matches));
+            matches.Sort((a, b) => a > b ? 1 : -1);
+            Console.WriteLine(string.Join(",", matches));
                optionsBox.Controls.Clear();
                foreach (AnimeFolder match in matches)
                {
@@ -174,6 +226,7 @@ namespace AnimeOrganizer
                button.Tag = new object[] {name, path};
                button.Click += Option_click;
                button.Visible = true;
+            button.Name = name;
                this.toolTip1.SetToolTip(button, name);
                return button;
           }

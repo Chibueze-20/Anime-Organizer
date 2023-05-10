@@ -26,6 +26,9 @@ namespace AnimeOrganizer
           public Form2()
           {
                InitializeComponent();
+            menu1.AddOpenMenuOption("Auto Organize", OpenAutoOrganizeEvent);
+            menu1.AddOpenMenuOption("Database", OpenDatabaseEvent);
+            menu1.OnCustomize = onZeddPathCustomised;
                if (rootPath == "empty" || rootPath == "" || rootPath == null || !rootPath.Contains(":\\"))
                {
                     SelectZeddPath(true);
@@ -58,11 +61,19 @@ namespace AnimeOrganizer
                {
                     TreeNode node = new TreeNode(folder.Name);
                     List<FileInfo> files = new List<FileInfo>();
+                try
+                {
                     foreach (FileInfo file in folder.EnumerateFiles())
                     {
-                         files.Add(file);
-                         node.Nodes.Add(file.Name);
+                        files.Add(file);
+                        node.Nodes.Add(file.Name);
                     }
+                }
+                catch (Exception)
+                {
+
+                    continue;
+                }
                     Folder.Add(folder.Name, files);
                     rootNode.Nodes.Add(node);   
                }
@@ -163,14 +174,14 @@ namespace AnimeOrganizer
           {
                if (filenametxt.Text!="" && (seperator== Seperator.dash || seperator == Seperator.episode))
                {
-                    rootlink.Hide();dblink.Hide();
                     activeBulk = Folder[folderlbl.Text];
                     index = 0;
                     epsodeselectorgbx.Enabled = true;
                     showFile();
                     epsodeselectorgbx.Enabled = true;
                     Renamepanel.Enabled = false;
-                    isRenaming = true;
+                menu1.Enabled = false;
+                isRenaming = true;
                }
           }
 
@@ -211,8 +222,8 @@ namespace AnimeOrganizer
                     reset();
                     Renamepanel.Enabled = true;
                     epsodeselectorgbx.Enabled = false;
-                    rootlink.Show(); dblink.Show();
-                    isRenaming = false;
+                menu1.Enabled = true;
+                isRenaming = false;
                }
           }
           private void reset()
@@ -302,7 +313,16 @@ namespace AnimeOrganizer
                     }
                }
           }
-          private void linkLabel1_Click(object sender, EventArgs e)
+          private void RefreshZeddPath()
+        {
+            string newRoot = Properties.Settings.Default.zeddPath;
+            rootPath = newRoot;
+            root = new DirectoryInfo(rootPath);
+            reset();
+            clearRecord();
+            updateTree();
+        }
+          private void OpenDatabaseEvent(object sender, EventArgs e)
           {
                db.Serialize();
                new Form1().Show();
@@ -315,7 +335,7 @@ namespace AnimeOrganizer
                reset();
                Renamepanel.Enabled = true;
                epsodeselectorgbx.Enabled = false;
-               rootlink.Show(); dblink.Show();
+            menu1.Enabled = true;
                isRenaming = false;
           }
           private void Enter_Press(object sender, KeyEventArgs e)
@@ -327,11 +347,18 @@ namespace AnimeOrganizer
 
           }
 
-          private void autoOrganizeLnkLbl_Click(object sender, EventArgs e)
+          private void OpenAutoOrganizeEvent(object sender, EventArgs e)
           {
                db.Serialize();
-               new Form3(db, rootPath).Show();
+               new Form3(db).Show();
                this.Hide();
           }
+        private void onZeddPathCustomised(bool ZeddPathChanged, bool EpisodeSepChanged)
+        {
+            if (ZeddPathChanged)
+            {
+                RefreshZeddPath();
+            }
+        }
      }
 }

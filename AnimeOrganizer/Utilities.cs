@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace AnimeOrganizer
 {
@@ -49,6 +50,26 @@ namespace AnimeOrganizer
                          return name + " Episode " + episode;
                }
           }
+          public static List<KeyValuePair<string,object>> GetCbxDataSourceFromEnum<TEnum>()
+          {
+            var enumType = typeof(TEnum);
+            var fields = enumType.GetMembers().OfType<FieldInfo>()
+                                              .Where(p => p.MemberType == MemberTypes.Field)
+                                              .Where(p => p.IsLiteral)
+                                              .ToList();
+            var entries = new Dictionary<string, object>();
+            foreach (var field in fields)
+            {
+                var val = (int)field.GetValue(null);
+                var description = field.Name;
+                entries[description] = val;
+            }
+            return entries.ToList();
+          }
+          public static string RemoveCommas(string input)
+        {
+            return input.Replace(",", ";");
+        }
      }
      public abstract class BaseAnimeDirectory
      {
