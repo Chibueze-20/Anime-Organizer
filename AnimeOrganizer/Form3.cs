@@ -176,7 +176,16 @@ namespace AnimeOrganizer
           {
                string fileName = UtillExtensions.GenerateFileName(animeRecord.Title, animeRecord.EpisodeCount + 1, seperator);
                FileInfo CurrentFileInfo = new FileInfo(currentFile.Path);
-               string newPath = toPath + @"\" + fileName + CurrentFileInfo.Extension;
+               DirectoryInfo ToDirectoryInfo = new DirectoryInfo(toPath);
+            string newPath = "";
+            if (globalFolders.Contains(ToDirectoryInfo.Name))
+            {
+                newPath = toPath + @"\" + CurrentFileInfo.Name;
+            }else
+            {
+                newPath = toPath + @"\" + fileName + CurrentFileInfo.Extension;
+            }
+               
                if (CurrentFileInfo.Exists && MessageBox.Show("Move to " + newPath + " ?", "Info", MessageBoxButtons.YesNo) == DialogResult.Yes)
                {
                     CurrentFileInfo.MoveTo(newPath);
