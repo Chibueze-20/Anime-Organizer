@@ -7,87 +7,89 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Core.Objects.DataClasses;
 
 namespace AnimeOrganizer
 {
-     [Serializable]
+     
      public class AnimeDB: IEnumerable<string>
      {
-          private Dictionary<string, AnimeRecord> db;
-          private static IFormatter serializerFormatter = new BinaryFormatter();
-          public static AnimeDB Deserialize()
-          {
-               Stream dbFileStream = null;
-               try
-               {
-                    dbFileStream = new FileStream("database.ani", FileMode.Open, FileAccess.Read, FileShare.Read);
-                    return (AnimeDB)serializerFormatter.Deserialize(dbFileStream);
-                   
-               }
-               catch (Exception)
-               {
-
-                    return new AnimeDB();
-               }
-               finally
-               {
-                    if (dbFileStream != null)
-                    {
-                         dbFileStream.Close();
-                    }
-               }
-          }
-          public void Serialize()
-          {
-               Stream dbFileStream = new FileStream("database.ani", FileMode.Create, FileAccess.Write, FileShare.None);
-               serializerFormatter.Serialize(dbFileStream, this);
-               dbFileStream.Close();
-          }
+        private AnimeDatabaseEntities animeDatabase;
+        private AnimeRecord defaultRecord = new AnimeRecord();
 
           public AnimeDB()
           {
-               db = new Dictionary<string, AnimeRecord>();
+            animeDatabase = new AnimeDatabaseEntities();
           }
           
           public AnimeRecord this[string title]
           {
                get {
-                    return db[title];
+                var query = animeDatabase.AnimeRecords.Where(x => x.title == title);
+                bool found = query.Any();
+                if (found)
+                {
+                    return query.FirstOrDefault();
+                } else {
+                    return defaultRecord;
+                }
                }
           }
           public bool Contains(string title)
           {
-               return db.ContainsKey(title);
+               return this[title].title != null;
           }
           public IList<string> Titles()
           {
-               return db.Keys.ToList();
+               return Sort();
           }
+          public void Create(AnimeRecord record)
+        {
+            animeDatabase.AnimeRecords.Add(record);
+            animeDatabase.SaveChanges();
+        }
           public void Update(AnimeRecord record)
           {
-               record.LastUpdated = DateTime.Now;
-               if (db.Keys.Contains(record.Title))
+               if (Contains(record.title))
                {
-                    db[record.Title] = record;
+                AnimeRecord animeRecord = this[record.title];
+                animeRecord.lastUpdate = DateTime.Now;
+                animeRecord.numberOfEpisodes = record.numberOfEpisodes;
+                animeRecord.Description = record.Description;
+                animeRecord.Year = record.Year;
+                animeRecord.Rating = record.Rating;
+                animeRecord.Season = record.Season;
+                animeDatabase.Entry(animeRecord).State = System.Data.Entity.EntityState.Modified;
                }
                else
                {
-                    db.Add(record.Title, record);
+                    animeDatabase.AnimeRecords.Add(record);
                }
+               animeDatabase.SaveChanges();
           }
           public void Delete(AnimeRecord record)
           {
-               db.Remove(record.Title);
+               if (Contains(record.title)) {
+                AnimeRecord animeRecord = this[record.title];
+                animeDatabase.AnimeRecords.Remove(animeRecord);
+                animeDatabase.SaveChanges();
+            }
           }
-
+          private IList<string> Sort()
+        {
+            IQueryable<string> values = from AnimeRecord in animeDatabase.AnimeRecords 
+                                   orderby AnimeRecord.title ascending
+                                   select AnimeRecord.title;
+            return values.ToList();
+        }
           public IEnumerator<string> GetEnumerator()
           {
-               return db.Keys.GetEnumerator();
+               return Sort().GetEnumerator();
           }
 
           IEnumerator IEnumerable.GetEnumerator()
           {
-               return db.Keys.GetEnumerator();
+               return Sort().GetEnumerator();
           }
           
      }

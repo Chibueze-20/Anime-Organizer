@@ -72,6 +72,7 @@
             this.titleList = new System.Windows.Forms.CheckedListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menu1 = new AnimeOrganizer.menu();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.Homepanel.SuspendLayout();
             this.menutab.SuspendLayout();
             this.detailstab.SuspendLayout();
@@ -494,8 +495,9 @@
             this.csv_importbtn.Name = "csv_importbtn";
             this.csv_importbtn.Size = new System.Drawing.Size(123, 25);
             this.csv_importbtn.TabIndex = 2;
-            this.csv_importbtn.Text = "Import from excel";
+            this.csv_importbtn.Text = "Import from csv";
             this.csv_importbtn.UseVisualStyleBackColor = true;
+            this.csv_importbtn.Click += new System.EventHandler(this.csv_importbtn_Click);
             // 
             // titleList
             // 
@@ -518,6 +520,11 @@
             this.menu1.Name = "menu1";
             this.menu1.Size = new System.Drawing.Size(682, 26);
             this.menu1.TabIndex = 32;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Filter = "csv files|*.csv";
+            this.openFileDialog.Title = "Open csv file";
             // 
             // Form1
             // 
@@ -593,6 +600,7 @@
           private System.Windows.Forms.Button videos_importbtn;
           private System.Windows.Forms.Button csv_importbtn;
         private menu menu1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 

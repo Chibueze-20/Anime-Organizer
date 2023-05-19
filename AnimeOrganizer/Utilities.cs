@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace AnimeOrganizer
 {
@@ -17,9 +18,23 @@ namespace AnimeOrganizer
           private static List<string> badStrings = new List<string>()
           {
                "mp4", "mkv", "animepahe", "720p", "360p", "subsplease", "ttga",
-               "netflix", "crunchyroll", "disney", "animechap"
+               "netflix", "crunchyroll", "disney", "animechap", " ", ""
           };
-          public static bool IsNumeric(string s)
+        public static List<string> globalFolders = new List<string>
+          {
+               "movies and ova"
+          };
+        public static List<string> excludeFolders = new List<string>
+          {
+              "temp",
+              "Done"
+          };
+        public static List<string> videoExtensions = new List<string>
+          {
+              ".mp4",
+              ".mkv"
+          };
+        public static bool IsNumeric(string s)
           {
                if (s == null) return false;
                if (s.Length == 0) return false;
@@ -70,6 +85,18 @@ namespace AnimeOrganizer
         {
             return input.Replace(",", ";");
         }
+        public static string GetZeddDirectory()
+        {
+            return Properties.Settings.Default.zeddPath;
+        }
+        public static string ShortenString32(string input)
+        {
+            if (input.Length<=32)
+            {
+                return input;
+            }
+            return input.Substring(0, 32)+"...";
+        }
      }
      public abstract class BaseAnimeDirectory
      {
@@ -103,7 +130,7 @@ namespace AnimeOrganizer
                if (b == null) return false;
                return a.Weight < b.Weight;
           }
-          public HashSet<string> SearchSet
+          public virtual HashSet<string> SearchSet
           {
                get
                {
@@ -141,60 +168,75 @@ namespace AnimeOrganizer
                }
           }
      }
-     public class AnimeFolder: BaseAnimeDirectory { }
+     public class AnimeFolder: BaseAnimeDirectory { 
+    
+        override
+        public HashSet<string> SearchSet
+        {
+            get
+            {
+                string[] set = Name.Split('_', '-', ':', ';', '.',' ');
+                HashSet<string> searchSet = new HashSet<string>();
+                foreach (string s in set)
+                {
+                    if (!UtillExtensions.IsNumeric(s) && !UtillExtensions.IsRedundantString(s))
+                    {
+                        searchSet.Add(s.Trim());
+                    }
+                }
+                return searchSet;
+            }
+        }
+    }
      public enum Seperator
      {
           dash,
           episode,
           none
      }
-     [Serializable]
-     public struct AnimeRecord
+     
+     public partial class AnimeRecord
      {
-          private string title;
-          private int numberOfEpisodes;
-          private int rating;
-          private string description;
-          private DateTime lastUpdate;
-          private int? year; //1917 above
-          private string season;
-
+            public AnimeRecord()
+        {
+            title = null;
+            numberOfEpisodes =0;
+            lastUpdate = DateTime.Now;
+        }
           public AnimeRecord(string title,int episodes)
           {
                this.title = title;
-               numberOfEpisodes = episodes;
-               rating = 1;
-               description = "";
-               lastUpdate = DateTime.Now;
-               year = null;
-               season = "unknown";
+               this.numberOfEpisodes = episodes;
+            this.lastUpdate = DateTime.Now;
           }
           public static AnimeRecord FromCsv(string csvLine)
           {
-               //Title,Episodes Downloaded,Season,Description,Rating
-               string[] values = csvLine.Split(',');
-               AnimeRecord record = new AnimeRecord(Convert.ToString(values[0]), Convert.ToInt32(values[1]));
-               record.Season = Convert.ToString(values[2].Split(' ')[0]);
-               if (values[2].Split(' ')[1]!="")
+            //Title,Description,Rating,Episode Count,Season,Year,Last Updated
+                string[] values = csvLine.Split(',');
+               AnimeRecord record = new AnimeRecord(Convert.ToString(values[0]), Convert.ToInt32(values[3]));
+               record.Season = Convert.ToString(values[4]);
+               if (values[5]!="")
                {
-                    record.Year = Convert.ToInt32(values[2].Split(' ')[1]);
+                    record.Year = Convert.ToInt32(values[5]);
                }
-               record.Description = Convert.ToString(values[3]);
-               record.Rating = Convert.ToInt32(values[4]);
+               record.Description = Convert.ToString(values[1]);
+            if (values[2]!="")
+            {
+                record.Rating = Convert.ToInt32(values[2]);
+            }
                return record;
           }
           public static AnimeRecord Clone(AnimeRecord currentRecord,string newTitle)
           {
-               AnimeRecord rec = new AnimeRecord(newTitle, currentRecord.EpisodeCount);
+               AnimeRecord rec = new AnimeRecord(newTitle, currentRecord.numberOfEpisodes);
                rec.Description = currentRecord.Description;
                rec.Rating = currentRecord.Rating;
                rec.Season = currentRecord.Season;
                rec.Year = currentRecord.Year;
                return rec;
           }
-          public string Title { get { return title; }}
-          public int EpisodeCount { get { return numberOfEpisodes; } set { numberOfEpisodes = value; } }
-          public int Rating { get { return rating; } set { rating = value; } }
+       
+          public int Rating { get { return rating.GetValueOrDefault(0); } set { rating = value; } }
           public string Description
           {
                get
@@ -209,24 +251,24 @@ namespace AnimeOrganizer
                }
                set { description = value; }
           }
-          public DateTime LastUpdated {get { return lastUpdate; } set { lastUpdate = value; } }
-          public int? Year
+          public int Year
           {
-               get { return year; }
+               get {
+                if (year.HasValue)
+                {
+                    return year.Value;
+                }
+                return 0;
+            }
                set
                {
-                    if (!value.HasValue)
-                    {
-                         year = null;
-                         return;
-                    }
-                    if (value.Value < 1917)
+                    if (value < 1917)
                     {
                          year = null;
                     }
                     else
                     {
-                         year = value.Value;
+                    year = value;
                     }
                }
           }
@@ -246,5 +288,18 @@ namespace AnimeOrganizer
                     }
                }
           }
-     }
+        public override string ToString()
+        {
+            string value = "";
+            value += "[Title]: " + title;
+            value += ";[Episode Count]: " + numberOfEpisodes;
+            value += ";[Rating]: " + Rating;
+            value += ";[Description]: " + UtillExtensions.ShortenString32(Description);
+            value += ";[Season]: " + Season;
+            value += ";[Year]: " + Year;
+            value += ";[Updated]: " + lastUpdate;
+
+            return value;
+        }
+    }
 }

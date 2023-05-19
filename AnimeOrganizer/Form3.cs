@@ -16,20 +16,7 @@ namespace AnimeOrganizer
           private DirectoryInfo directoryInfo;
           private List<AnimeFile> animeFiles;
           private List<AnimeFolder> animeFolders;
-          private List<string> globalFolders = new List<string>
-          {
-               "movies and ova"
-          };
-          private List<string> excludeFolders = new List<string>
-          {
-              "temp",
-              "Done"
-          };
-        private List<string> videoExtensions = new List<string>
-          {
-              ".mp4",
-              ".mkv"
-          };
+          
           private AnimeFile currentFile;
           private readonly AnimeDB db;
         private readonly string rootPath;
@@ -58,13 +45,12 @@ namespace AnimeOrganizer
           }
           private void OpenDatabaseEvent(object sender, EventArgs e)
           {
-            db.Serialize();
+            
             new Form1().Show();
             this.Hide();
           }
         private void OpenOrganizerEvent(object sender, EventArgs e)
         {
-            db.Serialize();
             new Form2().Show();
             this.Hide();
         }
@@ -74,7 +60,7 @@ namespace AnimeOrganizer
                directoryInfo = new DirectoryInfo(rootPath);
                foreach (FileInfo file in directoryInfo.EnumerateFiles()) 
                {
-                if (!videoExtensions.Contains(file.Extension))
+                if (!UtillExtensions.videoExtensions.Contains(file.Extension))
                 {
                     continue;
                 }
@@ -93,7 +79,8 @@ namespace AnimeOrganizer
           private void RefreshDirectories()
           {
                animeFolders.Clear();
-               foreach (DirectoryInfo folder in directoryInfo.EnumerateDirectories())
+            directoryInfo = new DirectoryInfo(rootPath);
+            foreach (DirectoryInfo folder in directoryInfo.EnumerateDirectories())
                {
                     AnimeFolder animeFolder = new AnimeFolder();
                     animeFolder.Name = folder.Name;
@@ -123,7 +110,6 @@ namespace AnimeOrganizer
         }
           private new void Close()
           {
-              db.Serialize();
               new Form2().Show();
               this.Hide();
           }
@@ -149,7 +135,7 @@ namespace AnimeOrganizer
                if (!((sender as Control).Tag is object[] tags)) return; //if Tag is list of object continue else return
                string name = (string) tags[0];
                string path = (string) tags[1];
-               AnimeRecord animeRecord = GetAnimeRecord(name);
+               AnimeRecord animeRecord = GetAnimeRecord(name, path);
                if(MoveFile(path, animeRecord))
             {
                 RefreshFiles();
@@ -158,27 +144,29 @@ namespace AnimeOrganizer
                
 
         }
-          private AnimeRecord GetAnimeRecord(string name)
+          private AnimeRecord GetAnimeRecord(string name, string path)
           {
                AnimeRecord animeRecord;
+               DirectoryInfo directoryInfo = new DirectoryInfo(path);
+               int fileCount = directoryInfo.EnumerateFiles().Count();
                if (db.Contains(name))
                {
                     animeRecord = db[name];
                }
                else
                {
-                    animeRecord = new AnimeRecord(name, 0);
+                    animeRecord = new AnimeRecord(name, fileCount);
 
                }
                return animeRecord;
           }
           private bool MoveFile(string toPath, AnimeRecord animeRecord)
           {
-               string fileName = UtillExtensions.GenerateFileName(animeRecord.Title, animeRecord.EpisodeCount + 1, seperator);
+               string fileName = UtillExtensions.GenerateFileName(animeRecord.title, animeRecord.numberOfEpisodes + 1, seperator);
                FileInfo CurrentFileInfo = new FileInfo(currentFile.Path);
                DirectoryInfo ToDirectoryInfo = new DirectoryInfo(toPath);
             string newPath = "";
-            if (globalFolders.Contains(ToDirectoryInfo.Name))
+            if (UtillExtensions.globalFolders.Contains(ToDirectoryInfo.Name))
             {
                 newPath = toPath + @"\" + CurrentFileInfo.Name;
             }else
@@ -189,8 +177,11 @@ namespace AnimeOrganizer
                if (CurrentFileInfo.Exists && MessageBox.Show("Move to " + newPath + " ?", "Info", MessageBoxButtons.YesNo) == DialogResult.Yes)
                {
                     CurrentFileInfo.MoveTo(newPath);
-                    animeRecord.EpisodeCount = animeRecord.EpisodeCount + 1;
+                    animeRecord.numberOfEpisodes = animeRecord.numberOfEpisodes + 1;
+                if (!UtillExtensions.globalFolders.Contains(animeRecord.title)) //no global folders in db
+                {
                     db.Update(animeRecord);
+                }
                 return true;
                }
                else
@@ -204,10 +195,11 @@ namespace AnimeOrganizer
                List<AnimeFolder> matches = new List<AnimeFolder>();
                foreach (AnimeFolder item in animeFolders)
                {
-                    if (globalFolders.Contains(item.Name))
+                    if (UtillExtensions.globalFolders.Contains(item.Name))
                     {
+                         item.Weight = int.MaxValue;
                          matches.Add(item);
-                    } else if (!excludeFolders.Contains(item.Name))
+                    } else if (!UtillExtensions.excludeFolders.Contains(item.Name))
                     {
                         IEnumerable<string> intersect =  currentFile.SearchSet.Intersect(item.SearchSet);
                         if (intersect.Any()) {
@@ -216,13 +208,16 @@ namespace AnimeOrganizer
                          }
                     }
                }
-            matches.Sort((a, b) => a > b ? 1 : -1);
+            matches.Sort((a, b) => a > b ? -1 : 1);
             Console.WriteLine(string.Join(",", matches));
                optionsBox.Controls.Clear();
                foreach (AnimeFolder match in matches)
                {
                     optionsBox.Controls.Add(GetButton(match.Name, match.Path));
                }
+            VScrollBar scrollBar = new VScrollBar();
+            scrollBar.Dock = DockStyle.Right;
+            optionsBox.Controls.Add(scrollBar);
           }
 
           private Button GetButton(string name, string path)
@@ -261,7 +256,7 @@ namespace AnimeOrganizer
                     DirectoryInfo directoryInfo = new DirectoryInfo(path);
                     if (directoryInfo.Exists)
                     {
-                         AnimeRecord animeRecord = GetAnimeRecord(directoryInfo.Name);
+                         AnimeRecord animeRecord = GetAnimeRecord(directoryInfo.Name, path);
                          MoveFile(directoryInfo.FullName, animeRecord);
                          RefreshFiles();
                          RefreshDirectories();
@@ -275,9 +270,14 @@ namespace AnimeOrganizer
           {
                if (e.CloseReason == CloseReason.UserClosing)
                {
-                    db.Serialize();
                     Application.Exit();
                }
           }
-     }
+
+        private void mainDisplay_Click(object sender, EventArgs e)
+        {
+            string possibleFolderName = string.Join(" ", currentFile.SearchSet);
+            Clipboard.SetText(possibleFolderName);
+        }
+    }
 }

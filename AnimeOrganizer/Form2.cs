@@ -21,7 +21,7 @@ namespace AnimeOrganizer
           FileInfo activeFile;
           int index = 0;
           AnimeDB db;
-          AnimeRecord? currentRecord;
+          AnimeRecord currentRecord;
           private bool isRenaming = false;
           public Form2()
           {
@@ -42,12 +42,12 @@ namespace AnimeOrganizer
                     {
                          root = new DirectoryInfo(rootPath);
                     }
-                    catch(Exception e)
+                    catch(Exception)
                     {
                          SelectZeddPath(true);
                     }
                }
-               db = AnimeDB.Deserialize();
+            db = new AnimeDB();
                buildTree();
                epsodeselectorgbx.Enabled = false;
                
@@ -59,6 +59,11 @@ namespace AnimeOrganizer
                TreeNode rootNode = new TreeNode(root.Name);
                foreach (DirectoryInfo folder in root.EnumerateDirectories())
                {
+                if (UtillExtensions.globalFolders.Contains(folder.Name) || 
+                    UtillExtensions.excludeFolders.Contains(folder.Name))
+                {
+                    continue;
+                }
                     TreeNode node = new TreeNode(folder.Name);
                     List<FileInfo> files = new List<FileInfo>();
                 try
@@ -94,8 +99,8 @@ namespace AnimeOrganizer
           
           private void showRecord(AnimeRecord record)
           {
-               titlelbl.Text = record.Title;
-               epdownloadedlbl.Text = record.EpisodeCount.ToString();
+               titlelbl.Text = record.title;
+               epdownloadedlbl.Text = record.numberOfEpisodes.ToString();
                ratingNud.Value = record.Rating;
                descriptionRtx.Text = record.Description;
                seasontxt.Text = record.Season + "," + record.Year;
@@ -115,7 +120,7 @@ namespace AnimeOrganizer
                     if (db.Contains(folderlbl.Text))
                     {
                          currentRecord = db[folderlbl.Text];
-                         showRecord(currentRecord.Value);
+                         showRecord(currentRecord);
                     }
                     else
                     {
@@ -242,11 +247,11 @@ namespace AnimeOrganizer
 
           private void updatebtn_Click(object sender, EventArgs e)
           {
-               if (currentRecord.HasValue)
+               if (currentRecord != null)
                {
-                    AnimeRecord rec = currentRecord.GetValueOrDefault();
+                    AnimeRecord rec = currentRecord;
                     rec.Description = descriptionRtx.Text;
-                    rec.EpisodeCount = int.Parse(epdownloadedlbl.Text);
+                    rec.numberOfEpisodes = int.Parse(epdownloadedlbl.Text);
                     rec.Rating = (int)ratingNud.Value;
                     rec.Season = seasontxt.Text.Split(',')[0];
                     try
@@ -256,11 +261,11 @@ namespace AnimeOrganizer
                     catch (Exception)
                     {
 
-                         rec.Year = null;
+                         rec.Year = 0;
                     }
                     db.Update(rec);
-                    currentRecord = db[rec.Title];
-                    showRecord(currentRecord.Value);
+                    currentRecord = db[rec.title];
+                    showRecord(currentRecord);
                     clearRecord();
                }
                else
@@ -276,11 +281,11 @@ namespace AnimeOrganizer
                     catch (Exception)
                     {
 
-                         newRecord.Year = null;
+                         newRecord.Year = 0;
                     }
                     db.Update(newRecord);
-                    currentRecord = db[newRecord.Title];
-                    showRecord(currentRecord.Value);
+                    currentRecord = db[newRecord.title];
+                    showRecord(currentRecord);
                     clearRecord();
                }
                MessageBox.Show("updated successfully!");
@@ -288,7 +293,6 @@ namespace AnimeOrganizer
 
           private void Form2_FormClosing(object sender, FormClosingEventArgs e)
           {
-               db.Serialize();
                Application.Exit();
                //MessageBox.Show("Database index saved, clode to exit");
           }
@@ -324,7 +328,6 @@ namespace AnimeOrganizer
         }
           private void OpenDatabaseEvent(object sender, EventArgs e)
           {
-               db.Serialize();
                new Form1().Show();
                this.Hide();
           }
@@ -349,7 +352,6 @@ namespace AnimeOrganizer
 
           private void OpenAutoOrganizeEvent(object sender, EventArgs e)
           {
-               db.Serialize();
                new Form3(db).Show();
                this.Hide();
           }

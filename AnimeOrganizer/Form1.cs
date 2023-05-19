@@ -24,24 +24,29 @@ namespace AnimeOrganizer
             menu1.AddOpenMenuOption("Auto Organizer", OpenAutoOrganizerEvent);
             menu1.AddOpenMenuOption("Organizer", OpenOrganizerEvent);
             menu1.AddMenuOption("Export Database to CSV", ExportToCsv);
-               db = AnimeDB.Deserialize();
-               fill();
+               db = new AnimeDB();
+               Fill();
           }
-          public void fill()
+          public void Fill()
           {
                foreach (string title in db)
                {
                     titleList.Items.Add(title, false);
                }
           }
+         public void RefreshList()
+        {
+            titleList.Items.Clear();
+            Fill();
+        }
           
           private void showRecord(AnimeRecord record)
           {
-               titlelbl.Text = record.Title;
-               episodelbl.Text = record.EpisodeCount.ToString();
+               titlelbl.Text = record.title;
+               episodelbl.Text = record.numberOfEpisodes.ToString();
                ratingnum.Value = record.Rating;
                descriptionrtxt.Text = record.Description;
-               yeartxt.Text = record.Year.HasValue? record.Year.Value.ToString():"";
+               yeartxt.Text = record.Year.ToString();
                seasontxt.Text = record.Season;
 
           }
@@ -56,8 +61,7 @@ namespace AnimeOrganizer
 
           }
           private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-          {
-               db.Serialize();
+          {               
                Application.Exit();
                //MessageBox.Show("Database index saved, close to exit");
           }
@@ -82,7 +86,7 @@ namespace AnimeOrganizer
                catch (Exception)
                {
 
-                    currentRecord.Year = null;
+                    currentRecord.Year = 0;
                }
                db.Update(currentRecord);
                //currentRecord = db[currentRecord.Title];
@@ -94,20 +98,17 @@ namespace AnimeOrganizer
           {
                db.Delete(currentRecord);
                clearRecord();
-               titleList.Items.Clear();
-               fill();
+               RefreshList();
                MessageBox.Show("Record deleted sucesssfully");
           }
 
           private void OpenOrganizerEvent(object sender, EventArgs e)
           {
-               db.Serialize();
                new Form2().Show();
                this.Hide();
           }
         private void OpenAutoOrganizerEvent(object sender, EventArgs e)
         {
-            db.Serialize();
             new Form3(db).Show();
             this.Hide();
         }
@@ -118,9 +119,9 @@ namespace AnimeOrganizer
             foreach (var anime in db)
             {
                 string line = string.Format("{0},{1},{2:D},{3:D},{4},{5:D},{6:MM-dd-yyyy HH:mm:ss}", 
-                    UtillExtensions.RemoveCommas(db[anime].Title), UtillExtensions.RemoveCommas(db[anime].Description), 
-                    db[anime].Rating, db[anime].EpisodeCount, db[anime].Season, db[anime].Year, 
-                    db[anime].LastUpdated);
+                    UtillExtensions.RemoveCommas(db[anime].title), UtillExtensions.RemoveCommas(db[anime].Description), 
+                    db[anime].Rating, db[anime].numberOfEpisodes, db[anime].Season, db[anime].Year, 
+                    db[anime].lastUpdate.DateTime);
                 lines.Add(line);
             }
             string rootpath = Properties.Settings.Default.zeddPath;
@@ -139,6 +140,33 @@ namespace AnimeOrganizer
                 MessageBox.Show("Error Exporting file: " + ex.Message, "Error Exporting to csv", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void csv_importbtn_Click(object sender, EventArgs e)
+        {
+            openFileDialog.InitialDirectory = UtillExtensions.GetZeddDirectory();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+               string[] lines = File.ReadAllLines(openFileDialog.FileName);
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    Console.WriteLine("Csv line: " + lines[i]);
+                    AnimeRecord animeRecord = AnimeRecord.FromCsv(lines[i]);
+                    if (db.Contains(animeRecord.title))
+                    {
+                        db.Update(animeRecord);
+                    } else
+                    {
+                        db.Create(animeRecord);
+                    }
+                    Console.WriteLine("Finished Importing record "+ animeRecord.ToString());
+                }
+                Console.WriteLine("Import complete");
+                RefreshList();
+            } else
+            {
+                Console.WriteLine("Import Aborted");
+            }
         }
     }
     

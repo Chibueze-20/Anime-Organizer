@@ -34,13 +34,14 @@
             this.selectFolderBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.menu1 = new AnimeOrganizer.menu();
             this.optionsBox = new System.Windows.Forms.FlowLayoutPanel();
+            this.menu1 = new AnimeOrganizer.menu();
             this.SuspendLayout();
             // 
             // mainDisplay
             // 
             this.mainDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mainDisplay.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.mainDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mainDisplay.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainDisplay.Location = new System.Drawing.Point(165, 38);
@@ -49,6 +50,7 @@
             this.mainDisplay.TabIndex = 1;
             this.mainDisplay.Text = "Anime Video file";
             this.mainDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mainDisplay.Click += new System.EventHandler(this.mainDisplay_Click);
             // 
             // skipBtn
             // 
@@ -84,6 +86,14 @@
             // 
             this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
+            // optionsBox
+            // 
+            this.optionsBox.AutoScroll = true;
+            this.optionsBox.Location = new System.Drawing.Point(2, 185);
+            this.optionsBox.Name = "optionsBox";
+            this.optionsBox.Size = new System.Drawing.Size(793, 261);
+            this.optionsBox.TabIndex = 34;
+            // 
             // menu1
             // 
             this.menu1.BackColor = System.Drawing.Color.Transparent;
@@ -91,13 +101,6 @@
             this.menu1.Name = "menu1";
             this.menu1.Size = new System.Drawing.Size(766, 23);
             this.menu1.TabIndex = 33;
-            // 
-            // optionsBox
-            // 
-            this.optionsBox.Location = new System.Drawing.Point(2, 185);
-            this.optionsBox.Name = "optionsBox";
-            this.optionsBox.Size = new System.Drawing.Size(793, 261);
-            this.optionsBox.TabIndex = 34;
             // 
             // Form3
             // 
