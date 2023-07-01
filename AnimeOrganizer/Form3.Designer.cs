@@ -36,6 +36,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.optionsBox = new System.Windows.Forms.FlowLayoutPanel();
             this.menu1 = new AnimeOrganizer.menu();
+            this.autoSeason_cbx = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // mainDisplay
@@ -102,11 +103,25 @@
             this.menu1.Size = new System.Drawing.Size(766, 23);
             this.menu1.TabIndex = 33;
             // 
+            // autoSeason_cbx
+            // 
+            this.autoSeason_cbx.AutoSize = true;
+            this.autoSeason_cbx.Location = new System.Drawing.Point(15, 162);
+            this.autoSeason_cbx.Name = "autoSeason_cbx";
+            this.autoSeason_cbx.Size = new System.Drawing.Size(117, 17);
+            this.autoSeason_cbx.TabIndex = 35;
+            this.autoSeason_cbx.Text = "Use default season";
+            this.toolTip1.SetToolTip(this.autoSeason_cbx, "This uses the current season and year automatically when updating database record" +
+        " for anime");
+            this.autoSeason_cbx.UseVisualStyleBackColor = true;
+            this.autoSeason_cbx.CheckedChanged += new System.EventHandler(this.autoSeason_cbx_CheckedChanged);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.autoSeason_cbx);
             this.Controls.Add(this.optionsBox);
             this.Controls.Add(this.menu1);
             this.Controls.Add(this.selectFolderBtn);
@@ -117,6 +132,7 @@
             this.Text = "Quick Organizer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
           }
 
@@ -128,5 +144,6 @@
           private System.Windows.Forms.ToolTip toolTip1;
         private menu menu1;
         private System.Windows.Forms.FlowLayoutPanel optionsBox;
+        private System.Windows.Forms.CheckBox autoSeason_cbx;
     }
 }

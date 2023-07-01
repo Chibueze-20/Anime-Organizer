@@ -97,6 +97,26 @@ namespace AnimeOrganizer
             }
             return input.Substring(0, 32)+"...";
         }
+
+        public static string getSeason()
+        {
+            int month = DateTime.Now.Month;
+            if (month >= 1 && month <= 3)
+            {
+                return "Winter";   
+            } else if (month >= 4 && month <= 6)
+            {
+                return "Spring";
+            }else if (month >= 7 && month <= 9)
+            {
+                return "Summer";
+            } else if (month >= 10 && month <= 12)
+            {
+                return "Fall";
+            } else { 
+                return ""; 
+            }
+        }
      }
      public abstract class BaseAnimeDirectory
      {
@@ -194,6 +214,7 @@ namespace AnimeOrganizer
           episode,
           none
      }
+
      
      public partial class AnimeRecord
      {

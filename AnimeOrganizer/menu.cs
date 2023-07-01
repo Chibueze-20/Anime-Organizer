@@ -56,5 +56,13 @@ namespace AnimeOrganizer
             toolStrip.Name = name;
             menuStrip.Items.Add(toolStrip);
         }
+
+        private void newSeasonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (NewSeason newSeasonForm =  new NewSeason())
+            {
+                newSeasonForm.ShowDialog();
+            }
+        }
     }
 }

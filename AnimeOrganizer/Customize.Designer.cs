@@ -30,14 +30,14 @@ namespace AnimeOrganizer
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.zeddPathlbl = new System.Windows.Forms.Label();
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.episodeSepcbx = new System.Windows.Forms.ComboBox();
-            this.updateZeddllbl = new System.Windows.Forms.LinkLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.zeddPathlbl = new System.Windows.Forms.Label();
+            this.updateZeddllbl = new System.Windows.Forms.LinkLabel();
+            this.episodeSepcbx = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,23 +54,23 @@ namespace AnimeOrganizer
             this.panel1.Size = new System.Drawing.Size(506, 158);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Zedd Path:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(266, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "label3";
             // 
-            // label2
+            // flowLayoutPanel1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Episode Separator:";
+            this.flowLayoutPanel1.Controls.Add(this.zeddPathlbl);
+            this.flowLayoutPanel1.Controls.Add(this.updateZeddllbl);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(121, 29);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(370, 24);
+            this.flowLayoutPanel1.TabIndex = 4;
             // 
             // zeddPathlbl
             // 
@@ -80,19 +80,6 @@ namespace AnimeOrganizer
             this.zeddPathlbl.Size = new System.Drawing.Size(35, 13);
             this.zeddPathlbl.TabIndex = 1;
             this.zeddPathlbl.Text = "label3";
-            // 
-            // folderBrowserDialog
-            // 
-            this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
-            // 
-            // episodeSepcbx
-            // 
-            this.episodeSepcbx.FormattingEnabled = true;
-            this.episodeSepcbx.Location = new System.Drawing.Point(121, 76);
-            this.episodeSepcbx.Name = "episodeSepcbx";
-            this.episodeSepcbx.Size = new System.Drawing.Size(121, 21);
-            this.episodeSepcbx.TabIndex = 2;
-            this.episodeSepcbx.SelectedIndexChanged += new System.EventHandler(this.episodeSepcbx_SelectedValueChanged);
             // 
             // updateZeddllbl
             // 
@@ -106,23 +93,36 @@ namespace AnimeOrganizer
             this.updateZeddllbl.Text = "update";
             this.updateZeddllbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.updateZeddllbl_LinkClicked);
             // 
-            // flowLayoutPanel1
+            // episodeSepcbx
             // 
-            this.flowLayoutPanel1.Controls.Add(this.zeddPathlbl);
-            this.flowLayoutPanel1.Controls.Add(this.updateZeddllbl);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(121, 29);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(370, 24);
-            this.flowLayoutPanel1.TabIndex = 4;
+            this.episodeSepcbx.FormattingEnabled = true;
+            this.episodeSepcbx.Location = new System.Drawing.Point(121, 76);
+            this.episodeSepcbx.Name = "episodeSepcbx";
+            this.episodeSepcbx.Size = new System.Drawing.Size(121, 21);
+            this.episodeSepcbx.TabIndex = 2;
+            this.episodeSepcbx.SelectedIndexChanged += new System.EventHandler(this.episodeSepcbx_SelectedValueChanged);
             // 
-            // label3
+            // label2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(266, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "label3";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Episode Separator:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Zedd Path:";
+            // 
+            // folderBrowserDialog
+            // 
+            this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
             // Customize
             // 

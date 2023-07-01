@@ -55,16 +55,11 @@
             this.bulk_titletxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.bulk_skipbtn = new System.Windows.Forms.Button();
-            this.bulk_removebtn = new System.Windows.Forms.Button();
-            this.bulk_updatebtn = new System.Windows.Forms.Button();
             this.bulk_yeartxt = new System.Windows.Forms.TextBox();
             this.bulk_seasontxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.bulk_epsnud = new System.Windows.Forms.NumericUpDown();
-            this.bulk_ratingnud = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.folder_importbtn = new System.Windows.Forms.Button();
             this.videos_importbtn = new System.Windows.Forms.Button();
@@ -73,6 +68,16 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menu1 = new AnimeOrganizer.menu();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.Homepanel.SuspendLayout();
             this.menutab.SuspendLayout();
             this.detailstab.SuspendLayout();
@@ -80,8 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ratingnum)).BeginInit();
             this.bulktab.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bulk_epsnud)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bulk_ratingnud)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -320,19 +323,24 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button10);
+            this.groupBox2.Controls.Add(this.button9);
+            this.groupBox2.Controls.Add(this.button8);
+            this.groupBox2.Controls.Add(this.button7);
+            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.bulk_titletxt);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.bulk_skipbtn);
-            this.groupBox2.Controls.Add(this.bulk_removebtn);
-            this.groupBox2.Controls.Add(this.bulk_updatebtn);
             this.groupBox2.Controls.Add(this.bulk_yeartxt);
             this.groupBox2.Controls.Add(this.bulk_seasontxt);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.bulk_epsnud);
-            this.groupBox2.Controls.Add(this.bulk_ratingnud);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Location = new System.Drawing.Point(3, 62);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(422, 225);
@@ -361,43 +369,23 @@
             // bulk_skipbtn
             // 
             this.bulk_skipbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bulk_skipbtn.Location = new System.Drawing.Point(218, 174);
+            this.bulk_skipbtn.Location = new System.Drawing.Point(15, 179);
             this.bulk_skipbtn.Name = "bulk_skipbtn";
             this.bulk_skipbtn.Size = new System.Drawing.Size(75, 31);
             this.bulk_skipbtn.TabIndex = 34;
             this.bulk_skipbtn.Text = "&Skip";
             this.bulk_skipbtn.UseVisualStyleBackColor = true;
             // 
-            // bulk_removebtn
-            // 
-            this.bulk_removebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bulk_removebtn.Location = new System.Drawing.Point(115, 175);
-            this.bulk_removebtn.Name = "bulk_removebtn";
-            this.bulk_removebtn.Size = new System.Drawing.Size(75, 31);
-            this.bulk_removebtn.TabIndex = 33;
-            this.bulk_removebtn.Text = "&Remove";
-            this.bulk_removebtn.UseVisualStyleBackColor = true;
-            // 
-            // bulk_updatebtn
-            // 
-            this.bulk_updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bulk_updatebtn.Location = new System.Drawing.Point(12, 175);
-            this.bulk_updatebtn.Name = "bulk_updatebtn";
-            this.bulk_updatebtn.Size = new System.Drawing.Size(75, 31);
-            this.bulk_updatebtn.TabIndex = 32;
-            this.bulk_updatebtn.Text = "&Update";
-            this.bulk_updatebtn.UseVisualStyleBackColor = true;
-            // 
             // bulk_yeartxt
             // 
-            this.bulk_yeartxt.Location = new System.Drawing.Point(306, 125);
+            this.bulk_yeartxt.Location = new System.Drawing.Point(306, 83);
             this.bulk_yeartxt.Name = "bulk_yeartxt";
             this.bulk_yeartxt.Size = new System.Drawing.Size(100, 20);
             this.bulk_yeartxt.TabIndex = 29;
             // 
             // bulk_seasontxt
             // 
-            this.bulk_seasontxt.Location = new System.Drawing.Point(306, 82);
+            this.bulk_seasontxt.Location = new System.Drawing.Point(68, 82);
             this.bulk_seasontxt.Name = "bulk_seasontxt";
             this.bulk_seasontxt.Size = new System.Drawing.Size(100, 20);
             this.bulk_seasontxt.TabIndex = 28;
@@ -406,31 +394,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(262, 129);
+            this.label3.Location = new System.Drawing.Point(262, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 27;
             this.label3.Text = "Year";
             // 
-            // bulk_epsnud
-            // 
-            this.bulk_epsnud.Location = new System.Drawing.Point(137, 82);
-            this.bulk_epsnud.Name = "bulk_epsnud";
-            this.bulk_epsnud.Size = new System.Drawing.Size(69, 20);
-            this.bulk_epsnud.TabIndex = 31;
-            // 
-            // bulk_ratingnud
-            // 
-            this.bulk_ratingnud.Location = new System.Drawing.Point(82, 128);
-            this.bulk_ratingnud.Name = "bulk_ratingnud";
-            this.bulk_ratingnud.Size = new System.Drawing.Size(120, 20);
-            this.bulk_ratingnud.TabIndex = 30;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(255, 82);
+            this.label5.Location = new System.Drawing.Point(17, 82);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 26;
@@ -445,16 +419,6 @@
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 25;
             this.label7.Text = "Rating";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 82);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(119, 13);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Number of episodes";
             // 
             // groupBox1
             // 
@@ -475,17 +439,17 @@
             this.folder_importbtn.Name = "folder_importbtn";
             this.folder_importbtn.Size = new System.Drawing.Size(133, 25);
             this.folder_importbtn.TabIndex = 0;
-            this.folder_importbtn.Text = "Import from folder";
+            this.folder_importbtn.Text = "Bulk Rank (folder)";
             this.folder_importbtn.UseVisualStyleBackColor = true;
             // 
             // videos_importbtn
             // 
             this.videos_importbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.videos_importbtn.Location = new System.Drawing.Point(160, 19);
+            this.videos_importbtn.Location = new System.Drawing.Point(146, 19);
             this.videos_importbtn.Name = "videos_importbtn";
-            this.videos_importbtn.Size = new System.Drawing.Size(106, 25);
+            this.videos_importbtn.Size = new System.Drawing.Size(136, 25);
             this.videos_importbtn.TabIndex = 1;
-            this.videos_importbtn.Text = "Import videos";
+            this.videos_importbtn.Text = "Bulk Rank (videos)";
             this.videos_importbtn.UseVisualStyleBackColor = true;
             // 
             // csv_importbtn
@@ -526,6 +490,96 @@
             this.openFileDialog.Filter = "csv files|*.csv";
             this.openFileDialog.Title = "Open csv file";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(62, 123);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 23);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(98, 123);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(30, 23);
+            this.button2.TabIndex = 37;
+            this.button2.Text = "2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(134, 123);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(30, 23);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(170, 123);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(30, 23);
+            this.button4.TabIndex = 37;
+            this.button4.Text = "4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(206, 123);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(30, 23);
+            this.button5.TabIndex = 37;
+            this.button5.Text = "5";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(239, 123);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(30, 23);
+            this.button6.TabIndex = 37;
+            this.button6.Text = "6";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(275, 123);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(30, 23);
+            this.button7.TabIndex = 37;
+            this.button7.Text = "7";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(311, 123);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(30, 23);
+            this.button8.TabIndex = 37;
+            this.button8.Text = "8";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(347, 123);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(30, 23);
+            this.button9.TabIndex = 37;
+            this.button9.Text = "9";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(383, 123);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(30, 23);
+            this.button10.TabIndex = 37;
+            this.button10.Text = "10";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,8 +602,6 @@
             this.bulktab.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bulk_epsnud)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bulk_ratingnud)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -585,22 +637,27 @@
           private System.Windows.Forms.TextBox bulk_titletxt;
           private System.Windows.Forms.Label label6;
           private System.Windows.Forms.Button bulk_skipbtn;
-          private System.Windows.Forms.Button bulk_removebtn;
-          private System.Windows.Forms.Button bulk_updatebtn;
           private System.Windows.Forms.TextBox bulk_yeartxt;
           private System.Windows.Forms.TextBox bulk_seasontxt;
           private System.Windows.Forms.Label label3;
-          private System.Windows.Forms.NumericUpDown bulk_epsnud;
-          private System.Windows.Forms.NumericUpDown bulk_ratingnud;
           private System.Windows.Forms.Label label5;
           private System.Windows.Forms.Label label7;
-          private System.Windows.Forms.Label label8;
           private System.Windows.Forms.GroupBox groupBox1;
-          private System.Windows.Forms.Button folder_importbtn;
           private System.Windows.Forms.Button videos_importbtn;
           private System.Windows.Forms.Button csv_importbtn;
         private menu menu1;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        protected System.Windows.Forms.Button folder_importbtn;
     }
 }
 

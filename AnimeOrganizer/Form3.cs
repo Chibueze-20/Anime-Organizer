@@ -21,9 +21,11 @@ namespace AnimeOrganizer
           private readonly AnimeDB db;
         private readonly string rootPath;
         private Seperator seperator;
+        private bool useDefaultSeason;
           public Form3(AnimeDB db)
           {
                this.db = db;
+            this.useDefaultSeason = false;
             this.rootPath = Properties.Settings.Default.zeddPath;
                animeFiles = new List<AnimeFile>();
                animeFolders = new List<AnimeFolder>();
@@ -180,6 +182,15 @@ namespace AnimeOrganizer
                     animeRecord.numberOfEpisodes = animeRecord.numberOfEpisodes + 1;
                 if (!UtillExtensions.globalFolders.Contains(animeRecord.title)) //no global folders in db
                 {
+                    //check if season and year are set and use default if default flag is set
+                    if (animeRecord.Season == "unknown" && useDefaultSeason)
+                    {
+                        animeRecord.Season = UtillExtensions.getSeason();
+                    }
+                    if(animeRecord.Year == 0 && useDefaultSeason)
+                    {
+                        animeRecord.Year = DateTime.Now.Year;
+                    }
                     db.Update(animeRecord);
                 }
                 return true;
@@ -278,6 +289,16 @@ namespace AnimeOrganizer
         {
             string possibleFolderName = string.Join(" ", currentFile.SearchSet);
             Clipboard.SetText(possibleFolderName);
+        }
+
+        private void autoSeason_cbx_CheckedChanged(object sender, EventArgs e)
+        {
+            if (autoSeason_cbx.Checked)
+            {
+                this.useDefaultSeason = true;
+            } else { 
+                this.useDefaultSeason = false; 
+            }
         }
     }
 }

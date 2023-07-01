@@ -38,6 +38,7 @@ namespace AnimeOrganizer
             this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newSeasonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,8 @@ namespace AnimeOrganizer
             // toolsToolStripMenuItem1
             // 
             this.toolsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customizeToolStripMenuItem});
+            this.customizeToolStripMenuItem,
+            this.newSeasonToolStripMenuItem});
             this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
             this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem1.Text = "&Tools";
@@ -108,6 +110,13 @@ namespace AnimeOrganizer
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.aboutToolStripMenuItem1.Text = "&About...";
             // 
+            // newSeasonToolStripMenuItem
+            // 
+            this.newSeasonToolStripMenuItem.Name = "newSeasonToolStripMenuItem";
+            this.newSeasonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newSeasonToolStripMenuItem.Text = "&New Season";
+            this.newSeasonToolStripMenuItem.Click += new System.EventHandler(this.newSeasonToolStripMenuItem_Click);
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,5 +143,6 @@ namespace AnimeOrganizer
         private System.Windows.Forms.ToolStripMenuItem statisticsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem newSeasonToolStripMenuItem;
     }
 }
