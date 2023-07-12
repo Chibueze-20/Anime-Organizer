@@ -64,5 +64,11 @@ namespace AnimeOrganizer
                 newSeasonForm.ShowDialog();
             }
         }
+
+        private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Statistic statistic = AnimeDB.GetStatistic();
+           MessageBox.Show(statistic.ToString(), "Statistics", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

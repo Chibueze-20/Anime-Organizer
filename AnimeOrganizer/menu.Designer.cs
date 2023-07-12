@@ -34,11 +34,11 @@ namespace AnimeOrganizer
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newSeasonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.newSeasonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,9 +79,16 @@ namespace AnimeOrganizer
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             this.customizeToolStripMenuItem.Click += new System.EventHandler(this.CustomizeToolStripMenuItem_Click);
+            // 
+            // newSeasonToolStripMenuItem
+            // 
+            this.newSeasonToolStripMenuItem.Name = "newSeasonToolStripMenuItem";
+            this.newSeasonToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.newSeasonToolStripMenuItem.Text = "&New Season";
+            this.newSeasonToolStripMenuItem.Click += new System.EventHandler(this.newSeasonToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -96,26 +103,20 @@ namespace AnimeOrganizer
             // statisticsToolStripMenuItem
             // 
             this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
-            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.statisticsToolStripMenuItem.Text = "&Statistics";
+            this.statisticsToolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(117, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem1.Text = "&About...";
-            // 
-            // newSeasonToolStripMenuItem
-            // 
-            this.newSeasonToolStripMenuItem.Name = "newSeasonToolStripMenuItem";
-            this.newSeasonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newSeasonToolStripMenuItem.Text = "&New Season";
-            this.newSeasonToolStripMenuItem.Click += new System.EventHandler(this.newSeasonToolStripMenuItem_Click);
             // 
             // menu
             // 

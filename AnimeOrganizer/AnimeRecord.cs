@@ -19,7 +19,7 @@ namespace AnimeOrganizer
         public int Id { get; set; }
         public string title { get; set; }
         public int numberOfEpisodes { get; set; }
-        private Nullable<int> rating { get; set; }
+        public Nullable<int> rating { get; set; }
         private string description { get; set; }
         public System.DateTimeOffset lastUpdate { get; set; }
         private Nullable<int> year { get; set; }

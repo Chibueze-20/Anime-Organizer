@@ -21,6 +21,17 @@ namespace AnimeOrganizer
           {
             animeDatabase = new AnimeDatabaseEntities();
           }
+
+          public static Statistic GetStatistic()
+          {
+            AnimeDatabaseEntities db = new AnimeDatabaseEntities();
+            int total = db.AnimeRecords.Count();
+            int tens = db.AnimeRecords.Count((rec)=>rec.rating.HasValue && rec.rating>=10);
+            int lows = db.AnimeRecords.Count((rec)=>rec.rating.HasValue&&rec.rating<=5);
+            int rated = db.AnimeRecords.Count((rec) => rec.rating.HasValue);
+            int sum = (int)db.AnimeRecords.Where((rec)=>rec.rating.HasValue).Sum((rec) => rec.rating);
+            return new Statistic(total, tens, lows, rated, sum);
+          }
           
           public AnimeRecord this[string title]
           {
