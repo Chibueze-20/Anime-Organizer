@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AnimeOrganizer.Database;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -12,7 +13,7 @@ using System.Data.Entity.Core.Objects.DataClasses;
 namespace AnimeOrganizer
 {
      
-     public class AnimeDB: IEnumerable<string>
+     public class AnimeDB: IAnimeDB
      {
         private AnimeDatabaseEntities animeDatabase;
         private AnimeRecord defaultRecord = new AnimeRecord();
@@ -24,6 +25,7 @@ namespace AnimeOrganizer
 
           public static Statistic GetStatistic()
           {
+            // TODO: Use DI
             AnimeDatabaseEntities db = new AnimeDatabaseEntities();
             int total = db.AnimeRecords.Count();
             int tens = db.AnimeRecords.Count((rec)=>rec.rating.HasValue && rec.rating>=10);
@@ -52,7 +54,7 @@ namespace AnimeOrganizer
           }
           public IList<string> Titles()
           {
-               return Sort();
+               return Sort().ToList();
           }
           public void Create(AnimeRecord record)
         {
@@ -76,16 +78,16 @@ namespace AnimeOrganizer
                 animeDatabase.AnimeRecords.Remove(animeRecord);
             }
           }
-        public void save()
+        public void Save()
         {
             if(animeDatabase.ChangeTracker.HasChanges()) animeDatabase.SaveChanges();
         }
-          private IList<string> Sort()
+        private IQueryable<string> Sort()
         {
             IQueryable<string> values = from AnimeRecord in animeDatabase.AnimeRecords 
                                    orderby AnimeRecord.title ascending
                                    select AnimeRecord.title;
-            return values.ToList();
+            return values;
         }
           public IEnumerator<string> GetEnumerator()
           {

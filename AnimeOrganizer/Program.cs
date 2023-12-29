@@ -16,7 +16,7 @@ namespace AnimeOrganizer
           {
                Application.EnableVisualStyles();
                Application.SetCompatibleTextRenderingDefault(false);
-               Application.Run(new Organizer());
+               Application.Run(new Organizer(new AnimeDB()));
           }
      }
 }

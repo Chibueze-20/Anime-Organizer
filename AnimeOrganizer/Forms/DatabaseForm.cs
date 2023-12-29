@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using AnimeOrganizer.Database;
 
 namespace AnimeOrganizer
 {
@@ -62,7 +63,7 @@ namespace AnimeOrganizer
           }
           private void Form1_FormClosing(object sender, FormClosingEventArgs e)
           {    
-                db.save();
+                db.Save();
                Application.Exit();
                //MessageBox.Show("Database index saved, close to exit");
           }
@@ -90,7 +91,7 @@ namespace AnimeOrganizer
                     currentRecord.Year = 0;
                }
                db.Update(currentRecord);
-            db.save();
+            db.Save();
                //currentRecord = db[currentRecord.Title];
                //showRecord(currentRecord);
                MessageBox.Show("Record sucessfully updated");
@@ -99,7 +100,7 @@ namespace AnimeOrganizer
           private void deletebtn_Click(object sender, EventArgs e)
           {
                db.Delete(currentRecord);
-            db.save();
+            db.Save();
                clearRecord();
                RefreshList();
                MessageBox.Show("Record deleted sucesssfully");
@@ -163,7 +164,7 @@ namespace AnimeOrganizer
                         db.Create(animeRecord);
                     }
                     Console.WriteLine("Finished Importing record "+ animeRecord.ToString());
-                    db.save();
+                    db.Save();
                 }
                 Console.WriteLine("Import complete");
                 RefreshList();

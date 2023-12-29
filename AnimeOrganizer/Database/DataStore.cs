@@ -8,11 +8,11 @@ using System.IO;
 namespace AnimeOrganizer
 {
      [Serializable]
-     public class Database
+     public class DataStore
      {
           private ISet<string> ongoing;
           private ISet<string> plan;
-          public Database()
+          public DataStore()
           {
                ongoing = new HashSet<string>(new TitleComparer());
                plan = new HashSet<string>(new TitleComparer());

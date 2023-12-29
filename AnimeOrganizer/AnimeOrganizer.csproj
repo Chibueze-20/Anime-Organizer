@@ -253,13 +253,15 @@
     <Compile Include="Database\AnimeRecord.cs">
       <DependentUpon>AnimeDatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\AnimeRecordCustom.cs" />
+    <Compile Include="Database\IAnimeDB.cs" />
     <Compile Include="Forms\Customize.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Customize.Designer.cs">
       <DependentUpon>Customize.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\Database.cs" />
+    <Compile Include="Database\DataStore.cs" />
     <Compile Include="Forms\DatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
