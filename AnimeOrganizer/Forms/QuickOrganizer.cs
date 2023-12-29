@@ -11,31 +11,34 @@ using System.Windows.Forms;
 
 namespace AnimeOrganizer
 {
-     public partial class Form3 : Form
+     public partial class QuickOrganizer : Form
      {
           private DirectoryInfo directoryInfo;
-          private List<AnimeFile> animeFiles;
+          private Queue<AnimeFile> animeFiles;
           private List<AnimeFolder> animeFolders;
-          
+          private bool init = true;
+        private bool saved = false;
           private AnimeFile currentFile;
           private readonly AnimeDB db;
         private readonly string rootPath;
         private Seperator seperator;
         private bool useDefaultSeason;
-          public Form3(AnimeDB db)
+          public QuickOrganizer(AnimeDB db)
           {
                this.db = db;
-            this.useDefaultSeason = false;
+            this.useDefaultSeason = true;
             this.rootPath = Properties.Settings.Default.zeddPath;
-               animeFiles = new List<AnimeFile>();
+               animeFiles = new Queue<AnimeFile>();
                animeFolders = new List<AnimeFolder>();
                InitializeComponent();
+            autoSeason_cbx.Checked = true;
             menu1.AddOpenMenuOption("Database", OpenDatabaseEvent);
             menu1.AddOpenMenuOption("Organizer", OpenOrganizerEvent);
             menu1.OnCustomize = CustomizeSeparatorEvent;
                try
                {
                     GetFiles(rootPath);
+                    init = false;
                }
                catch (Exception e)
                {
@@ -48,47 +51,56 @@ namespace AnimeOrganizer
           private void OpenDatabaseEvent(object sender, EventArgs e)
           {
             
-            new Form1().Show();
+            new DatabaseForm().Show();
             this.Hide();
           }
         private void OpenOrganizerEvent(object sender, EventArgs e)
         {
-            new Form2().Show();
+            new Organizer().Show();
             this.Hide();
         }
 
         private void GetFiles(string rootPath)
           {
-               directoryInfo = new DirectoryInfo(rootPath);
-               foreach (FileInfo file in directoryInfo.EnumerateFiles()) 
-               {
-                if (!UtillExtensions.videoExtensions.Contains(file.Extension))
+               if(init)
+            {
+                directoryInfo = new DirectoryInfo(rootPath);
+
+                foreach (FileInfo file in directoryInfo.EnumerateFiles())
                 {
-                    continue;
-                }
+                    if (!UtillExtensions.videoExtensions.Contains(file.Extension))
+                    {
+                        continue;
+                    }
                     AnimeFile animeFile = new AnimeFile();
                     animeFile.Name = file.Name;
                     animeFile.Path = file.FullName;
-                    animeFiles.Add(animeFile);
-               }
+                    animeFiles.Enqueue(animeFile);
+                }
+            }
                if (animeFiles.Count<1)
                {
                     throw new Exception("No files to be arranged");
                }
                RefreshDirectories();
+            init = false;
                
           }
           private void RefreshDirectories()
           {
-               animeFolders.Clear();
-            directoryInfo = new DirectoryInfo(rootPath);
-            foreach (DirectoryInfo folder in directoryInfo.EnumerateDirectories())
-               {
+            if (init)
+            {
+                animeFolders.Clear();
+                directoryInfo = new DirectoryInfo(rootPath);
+                foreach (DirectoryInfo folder in directoryInfo.EnumerateDirectories())
+                {
                     AnimeFolder animeFolder = new AnimeFolder();
                     animeFolder.Name = folder.Name;
                     animeFolder.Path = folder.FullName;
                     animeFolders.Add(animeFolder);
-               }
+                }
+            }
+            init = false;
           }
           private void RefreshSeparator()
         {
@@ -112,7 +124,7 @@ namespace AnimeOrganizer
         }
           private new void Close()
           {
-              new Form2().Show();
+              new Organizer().Show();
               this.Hide();
           }
           private void ShowFile()
@@ -124,12 +136,13 @@ namespace AnimeOrganizer
           {
                if (animeFiles.Count>0)
                {
-                    currentFile = animeFiles[0];
+                    currentFile = animeFiles.Dequeue();
                     ShowFile();
                } else
                {
                     MessageBox.Show("No more files to auto organize", "Info");
-                   Close();
+                if (!saved) db.save();
+                Close();
                }
 
           }
@@ -137,32 +150,29 @@ namespace AnimeOrganizer
                if (!((sender as Control).Tag is object[] tags)) return; //if Tag is list of object continue else return
                string name = (string) tags[0];
                string path = (string) tags[1];
-               AnimeRecord animeRecord = GetAnimeRecord(name, path);
-               if(MoveFile(path, animeRecord))
+               bool isNew;
+               AnimeRecord animeRecord = GetAnimeRecord(name, path, out isNew);
+               if(MoveFile(path, animeRecord, isNew))
             {
-                RefreshFiles();
                 Next();
             }
                
 
         }
-          private AnimeRecord GetAnimeRecord(string name, string path)
+          private AnimeRecord GetAnimeRecord(string name, string path, out bool isNew)
           {
-               AnimeRecord animeRecord;
-               DirectoryInfo directoryInfo = new DirectoryInfo(path);
-               int fileCount = directoryInfo.EnumerateFiles().Count();
-               if (db.Contains(name))
+               AnimeRecord animeRecord = db[name];
+               isNew = false;
+               if (animeRecord.title == null)
                {
-                    animeRecord = db[name];
-               }
-               else
-               {
+                    DirectoryInfo directoryInfo = new DirectoryInfo(path);
+                    int fileCount = directoryInfo.EnumerateFiles().Count();
                     animeRecord = new AnimeRecord(name, fileCount);
-
+                    isNew = true;
                }
                return animeRecord;
           }
-          private bool MoveFile(string toPath, AnimeRecord animeRecord)
+          private bool MoveFile(string toPath, AnimeRecord animeRecord, bool isNew)
           {
                string fileName = UtillExtensions.GenerateFileName(animeRecord.title, animeRecord.numberOfEpisodes + 1, seperator);
                FileInfo CurrentFileInfo = new FileInfo(currentFile.Path);
@@ -183,15 +193,23 @@ namespace AnimeOrganizer
                 if (!UtillExtensions.globalFolders.Contains(animeRecord.title)) //no global folders in db
                 {
                     //check if season and year are set and use default if default flag is set
-                    if (animeRecord.Season == "unknown" && useDefaultSeason)
+                    if ((isNew || animeRecord.Season == "unknown" || animeRecord.Season == null) && useDefaultSeason)
                     {
                         animeRecord.Season = UtillExtensions.getSeason();
                     }
-                    if(animeRecord.Year == 0 && useDefaultSeason)
+                    if((isNew || animeRecord.Year == 0) && useDefaultSeason)
                     {
                         animeRecord.Year = DateTime.Now.Year;
                     }
-                    db.Update(animeRecord);
+                    if (isNew)
+                    {
+                        db.Create(animeRecord);
+                    }
+                    else
+                    {
+                        db.Update(animeRecord);
+                    }
+                    saved = false;
                 }
                 return true;
                }
@@ -245,16 +263,9 @@ namespace AnimeOrganizer
                this.toolTip1.SetToolTip(button, name);
                return button;
           }
-          private void RefreshFiles()
-          {
-               if (animeFiles.Count>0)
-               {
-                    animeFiles.RemoveAt(0);
-               }
-          }
+      
           private void skipBtn_Click(object sender, EventArgs e)
           {
-               RefreshFiles();
                Next();
           }
 
@@ -267,9 +278,10 @@ namespace AnimeOrganizer
                     DirectoryInfo directoryInfo = new DirectoryInfo(path);
                     if (directoryInfo.Exists)
                     {
-                         AnimeRecord animeRecord = GetAnimeRecord(directoryInfo.Name, path);
-                         MoveFile(directoryInfo.FullName, animeRecord);
-                         RefreshFiles();
+                        bool isNew;   
+                         AnimeRecord animeRecord = GetAnimeRecord(directoryInfo.Name, path, out isNew);
+                         MoveFile(directoryInfo.FullName, animeRecord, isNew);
+                         init = true;
                          RefreshDirectories();
                          Next();
                     }
@@ -281,6 +293,7 @@ namespace AnimeOrganizer
           {
                if (e.CloseReason == CloseReason.UserClosing)
                {
+                    if(!saved) db.save();
                     Application.Exit();
                }
           }
@@ -299,6 +312,11 @@ namespace AnimeOrganizer
             } else { 
                 this.useDefaultSeason = false; 
             }
+        }
+
+        private void refresh_btn_Click(object sender, EventArgs e)
+        {
+            init = false;
         }
     }
 }

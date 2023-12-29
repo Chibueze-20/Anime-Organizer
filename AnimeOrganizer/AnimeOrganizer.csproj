@@ -30,7 +30,7 @@
     <ProductName>Anime Organizer</ProductName>
     <PublisherName>Analogbei Chibueze</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -121,83 +121,83 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnimeDatabaseModel.Context.cs">
+    <Compile Include="Database\AnimeDatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AnimeDatabaseModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="AnimeDatabaseModel.cs">
+    <Compile Include="Database\AnimeDatabaseModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AnimeDatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AnimeDatabaseModel.Designer.cs">
+    <Compile Include="Database\AnimeDatabaseModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AnimeDatabaseModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="AnimeDB.cs" />
-    <Compile Include="AnimeRecord.cs">
+    <Compile Include="Database\AnimeDB.cs" />
+    <Compile Include="Database\AnimeRecord.cs">
       <DependentUpon>AnimeDatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Customize.cs">
+    <Compile Include="Forms\Customize.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customize.Designer.cs">
+    <Compile Include="Forms\Customize.Designer.cs">
       <DependentUpon>Customize.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Database\Database.cs" />
+    <Compile Include="Forms\DatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\DatabaseForm.Designer.cs">
+      <DependentUpon>DatabaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Forms\Organizer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Forms\Organizer.Designer.cs">
+      <DependentUpon>Organizer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="Forms\QuickOrganizer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="Forms\QuickOrganizer.Designer.cs">
+      <DependentUpon>QuickOrganizer.cs</DependentUpon>
     </Compile>
-    <Compile Include="menu.cs">
+    <Compile Include="Controls\menu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="menu.Designer.cs">
+    <Compile Include="Controls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewSeason.cs">
+    <Compile Include="Forms\NewSeason.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewSeason.Designer.cs">
+    <Compile Include="Forms\NewSeason.Designer.cs">
       <DependentUpon>NewSeason.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="TitleComparer.cs" />
-    <Compile Include="Utilities.cs" />
-    <EmbeddedResource Include="Customize.resx">
+    <Compile Include="Utils\TitleComparer.cs" />
+    <Compile Include="Utils\Utilities.cs" />
+    <EmbeddedResource Include="Forms\Customize.resx">
       <DependentUpon>Customize.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DatabaseForm.resx">
+      <DependentUpon>DatabaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Organizer.resx">
+      <DependentUpon>Organizer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\QuickOrganizer.resx">
+      <DependentUpon>QuickOrganizer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="menu.resx">
+    <EmbeddedResource Include="Controls\menu.resx">
       <DependentUpon>menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewSeason.resx">
+    <EmbeddedResource Include="Forms\NewSeason.resx">
       <DependentUpon>NewSeason.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -210,11 +210,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="AnimeDatabaseModel.edmx">
+    <EntityDeploy Include="Database\AnimeDatabaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AnimeDatabaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="AnimeDatabaseModel.edmx.diagram">
+    <None Include="Database\AnimeDatabaseModel.edmx.diagram">
       <DependentUpon>AnimeDatabaseModel.edmx</DependentUpon>
     </None>
     <None Include="AnimeOrganizer_TemporaryKey.pfx" />
@@ -245,20 +245,20 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AnimeDatabase.mdf">
+    <Content Include="Database\AnimeDatabase.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AnimeDatabaseModel.Context.tt">
+    <Content Include="Database\AnimeDatabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AnimeDatabaseModel.edmx</DependentUpon>
       <LastGenOutput>AnimeDatabaseModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="AnimeDatabaseModel.tt">
+    <Content Include="Database\AnimeDatabaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AnimeDatabaseModel.edmx</DependentUpon>
       <LastGenOutput>AnimeDatabaseModel.cs</LastGenOutput>
     </Content>
-    <Content Include="AnimeDatabase_log.ldf">
+    <Content Include="Database\AnimeDatabase_log.ldf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>AnimeDatabase.mdf</DependentUpon>
     </Content>

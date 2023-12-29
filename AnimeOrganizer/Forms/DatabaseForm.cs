@@ -13,12 +13,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace AnimeOrganizer
 {
-     public partial class Form1 : Form
+     public partial class DatabaseForm : Form
      {
           private IFormatter serializerFormatter = new BinaryFormatter();
           private AnimeDB db;
           private AnimeRecord currentRecord;
-          public Form1()
+          public DatabaseForm()
           {
                InitializeComponent();
             menu1.AddOpenMenuOption("Auto Organizer", OpenAutoOrganizerEvent);
@@ -61,7 +61,8 @@ namespace AnimeOrganizer
 
           }
           private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-          {               
+          {    
+                db.save();
                Application.Exit();
                //MessageBox.Show("Database index saved, close to exit");
           }
@@ -89,6 +90,7 @@ namespace AnimeOrganizer
                     currentRecord.Year = 0;
                }
                db.Update(currentRecord);
+            db.save();
                //currentRecord = db[currentRecord.Title];
                //showRecord(currentRecord);
                MessageBox.Show("Record sucessfully updated");
@@ -97,6 +99,7 @@ namespace AnimeOrganizer
           private void deletebtn_Click(object sender, EventArgs e)
           {
                db.Delete(currentRecord);
+            db.save();
                clearRecord();
                RefreshList();
                MessageBox.Show("Record deleted sucesssfully");
@@ -104,12 +107,12 @@ namespace AnimeOrganizer
 
           private void OpenOrganizerEvent(object sender, EventArgs e)
           {
-               new Form2().Show();
+               new Organizer().Show();
                this.Hide();
           }
         private void OpenAutoOrganizerEvent(object sender, EventArgs e)
         {
-            new Form3(db).Show();
+            new QuickOrganizer(db).Show();
             this.Hide();
         }
         private void ExportToCsv(object sender, EventArgs e)
@@ -160,6 +163,7 @@ namespace AnimeOrganizer
                         db.Create(animeRecord);
                     }
                     Console.WriteLine("Finished Importing record "+ animeRecord.ToString());
+                    db.save();
                 }
                 Console.WriteLine("Import complete");
                 RefreshList();

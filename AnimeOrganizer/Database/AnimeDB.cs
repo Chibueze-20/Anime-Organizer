@@ -57,35 +57,29 @@ namespace AnimeOrganizer
           public void Create(AnimeRecord record)
         {
             animeDatabase.AnimeRecords.Add(record);
-            animeDatabase.SaveChanges();
         }
           public void Update(AnimeRecord record)
           {
-               if (Contains(record.title))
-               {
-                AnimeRecord animeRecord = this[record.title];
-                animeRecord.lastUpdate = DateTime.Now;
-                animeRecord.numberOfEpisodes = record.numberOfEpisodes;
-                animeRecord.Description = record.Description;
-                animeRecord.Year = record.Year;
-                animeRecord.Rating = record.Rating;
-                animeRecord.Season = record.Season;
-                animeDatabase.Entry(animeRecord).State = System.Data.Entity.EntityState.Modified;
-               }
-               else
-               {
-                    animeDatabase.AnimeRecords.Add(record);
-               }
-               animeDatabase.SaveChanges();
+            AnimeRecord animeRecord = this[record.title];
+            animeRecord.lastUpdate = DateTime.Now;
+            animeRecord.numberOfEpisodes = record.numberOfEpisodes;
+            animeRecord.Description = record.Description;
+            animeRecord.Year = record.Year;
+            animeRecord.Rating = record.Rating;
+            animeRecord.Season = record.Season;
+            animeDatabase.Entry(animeRecord).State = System.Data.Entity.EntityState.Modified;
           }
           public void Delete(AnimeRecord record)
           {
                if (Contains(record.title)) {
                 AnimeRecord animeRecord = this[record.title];
                 animeDatabase.AnimeRecords.Remove(animeRecord);
-                animeDatabase.SaveChanges();
             }
           }
+        public void save()
+        {
+            if(animeDatabase.ChangeTracker.HasChanges()) animeDatabase.SaveChanges();
+        }
           private IList<string> Sort()
         {
             IQueryable<string> values = from AnimeRecord in animeDatabase.AnimeRecords 

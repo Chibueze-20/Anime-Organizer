@@ -1,6 +1,6 @@
 ﻿namespace AnimeOrganizer
 {
-     partial class Form1
+     partial class DatabaseForm
      {
           /// <summary>
           /// Required designer variable.

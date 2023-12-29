@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AnimeOrganizer
+namespace AnimeOrganizer.Database
 {
     using System;
     using System.Data.Entity;

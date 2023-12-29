@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace AnimeOrganizer
 {
-     public partial class Form2 : Form
+     public partial class Organizer : Form
      {
           Dictionary<string,List<FileInfo>> Folder = new Dictionary<string,List<FileInfo>>();
           List<FileInfo> activeBulk = new List<FileInfo>();
@@ -23,7 +23,7 @@ namespace AnimeOrganizer
           AnimeDB db;
           AnimeRecord currentRecord;
           private bool isRenaming = false;
-          public Form2()
+          public Organizer()
           {
                InitializeComponent();
             menu1.AddOpenMenuOption("Auto Organize", OpenAutoOrganizeEvent);
@@ -264,7 +264,8 @@ namespace AnimeOrganizer
                          rec.Year = 0;
                     }
                     db.Update(rec);
-                    currentRecord = db[rec.title];
+
+                currentRecord = db[rec.title];
                     showRecord(currentRecord);
                     clearRecord();
                }
@@ -272,7 +273,7 @@ namespace AnimeOrganizer
                {
                     AnimeRecord newRecord = new AnimeRecord(titlelbl.Text,int.Parse(epdownloadedlbl.Text));
                     newRecord.Description = descriptionRtx.Text;
-                    newRecord.Rating = (int)ratingNud.Value;
+                    newRecord.Rating = (int)ratingNud.Value == 0 ? (int)ratingNud.Value + 1 : (int)ratingNud.Value;
                     newRecord.Season = seasontxt.Text.Split(',')[0];
                     try
                     {
@@ -283,8 +284,8 @@ namespace AnimeOrganizer
 
                          newRecord.Year = 0;
                     }
-                    db.Update(newRecord);
-                    currentRecord = db[newRecord.title];
+                    db.Create(newRecord);
+                currentRecord = db[newRecord.title];
                     showRecord(currentRecord);
                     clearRecord();
                }
@@ -293,7 +294,9 @@ namespace AnimeOrganizer
 
           private void Form2_FormClosing(object sender, FormClosingEventArgs e)
           {
+                db.save();
                Application.Exit();
+               
                //MessageBox.Show("Database index saved, clode to exit");
           }
 
@@ -328,7 +331,7 @@ namespace AnimeOrganizer
         }
           private void OpenDatabaseEvent(object sender, EventArgs e)
           {
-               new Form1().Show();
+               new DatabaseForm().Show();
                this.Hide();
           }
 
@@ -352,7 +355,7 @@ namespace AnimeOrganizer
 
           private void OpenAutoOrganizeEvent(object sender, EventArgs e)
           {
-               new Form3(db).Show();
+               new QuickOrganizer(db).Show();
                this.Hide();
           }
         private void onZeddPathCustomised(bool ZeddPathChanged, bool EpisodeSepChanged)

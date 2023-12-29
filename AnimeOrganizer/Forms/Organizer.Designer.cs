@@ -1,6 +1,6 @@
 ﻿namespace AnimeOrganizer
 {
-     partial class Form2
+     partial class Organizer
      {
           /// <summary>
           /// Required designer variable.
@@ -191,11 +191,6 @@
             this.ratingNud.Location = new System.Drawing.Point(137, 89);
             this.ratingNud.Maximum = new decimal(new int[] {
             10,
-            0,
-            0,
-            0});
-            this.ratingNud.Minimum = new decimal(new int[] {
-            1,
             0,
             0,
             0});

@@ -7,22 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AnimeOrganizer
+namespace AnimeOrganizer.Database
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class AnimeRecord
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string title { get; set; }
         public int numberOfEpisodes { get; set; }
         public Nullable<int> rating { get; set; }
-        private string description { get; set; }
+        public string description { get; set; }
         public System.DateTimeOffset lastUpdate { get; set; }
-        private Nullable<int> year { get; set; }
-        private string season { get; set; }
+        public Nullable<int> year { get; set; }
+        public string season { get; set; }
     }
 }
