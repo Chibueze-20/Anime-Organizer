@@ -295,8 +295,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Utils\AnimeFile.cs" />
+    <Compile Include="Utils\AnimeFolder.cs" />
+    <Compile Include="Utils\BaseAnimeDirectory.cs" />
+    <Compile Include="Utils\OpenMode.cs" />
+    <Compile Include="Utils\Statistic.cs" />
     <Compile Include="Utils\TitleComparer.cs" />
-    <Compile Include="Utils\Utilities.cs" />
+    <Compile Include="Utils\Seperator.cs" />
+    <Compile Include="Utils\UtillExtensions.cs" />
     <EmbeddedResource Include="Forms\Customize.resx">
       <DependentUpon>Customize.cs</DependentUpon>
     </EmbeddedResource>

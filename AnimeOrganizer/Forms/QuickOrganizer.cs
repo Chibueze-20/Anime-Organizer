@@ -98,7 +98,6 @@ namespace AnimeOrganizer
                     AnimeFolder animeFolder = new AnimeFolder();
                     animeFolder.Name = folder.Name;
                     animeFolder.Path = folder.FullName;
-                    animeFolder.DirectoryInfo = folder;
                     animeFolders.Add(animeFolder);
                 }
             }
@@ -177,15 +176,18 @@ namespace AnimeOrganizer
             currentAnimeRecord = new KeyValuePair<string, AnimeRecord>(name, animeRecord);
             return animeRecord;
         }
-        private void UpdateRecord() {
-            if (currentAnimeRecord.Key == null)
+        private void UpdateRecord()
+        {
+            // do not update/create null anime record or anime record for ova/movie in database
+            if (currentAnimeRecord.Key == null || UtillExtensions.globalFolders.Contains(currentAnimeRecord.Key))
             {
                 return;
             }
             if (db.Contains(currentAnimeRecord.Key))
             {
                 db.Update(currentAnimeRecord.Value);
-            } else
+            }
+            else
             {
                 db.Create(currentAnimeRecord.Value);
             }
@@ -195,8 +197,8 @@ namespace AnimeOrganizer
         {
             FileInfo CurrentFileInfo = new FileInfo(currentFile.Path);
             DirectoryInfo ToDirectoryInfo = new DirectoryInfo(toPath);
-            int numOfFiles =  ToDirectoryInfo.EnumerateFiles().Count();
-            string fileName = UtillExtensions.GenerateFileName(animeRecord.title, numOfFiles + 1, seperator);   
+            int numOfFiles = ToDirectoryInfo.EnumerateFiles().Count();
+            string fileName = UtillExtensions.GenerateFileName(animeRecord.title, numOfFiles + 1, seperator);
             string newPath = "";
             if (UtillExtensions.globalFolders.Contains(ToDirectoryInfo.Name))
             {
