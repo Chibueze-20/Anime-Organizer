@@ -24,6 +24,7 @@ namespace AnimeOrganizer
         private Seperator seperator;
         private bool useDefaultSeason;
         private KeyValuePair<string, AnimeRecord> currentAnimeRecord = new KeyValuePair<string, AnimeRecord>();
+        private List<AnimeRecord> updatedAnimeRecords = new List<AnimeRecord>();
         public QuickOrganizer(AnimeDB db)
         {
             this.db = db;
@@ -142,7 +143,8 @@ namespace AnimeOrganizer
             }
             else
             {
-                MessageBox.Show("No more files to auto organize", "Info");
+                MessageBox.Show("No more files to auto organize, Folders Updated: " 
+                    + updatedAnimeRecords.Count + 1 , "Info");
                 UpdateRecord();
                 Close();
             }
@@ -165,7 +167,11 @@ namespace AnimeOrganizer
         {
 
             if (currentAnimeRecord.Key == name) return currentAnimeRecord.Value;
-            UpdateRecord();
+            //TODO: replace currentAnimeRecord checks with checking last item in updatedAnimeRecords
+            if (!UtillExtensions.globalFolders.Contains(currentAnimeRecord.Key) && currentAnimeRecord.Key != null)
+            {
+                updatedAnimeRecords.Add(currentAnimeRecord.Value);
+            }
             AnimeRecord animeRecord = db[name];
             if (animeRecord.title == null)
             {
@@ -178,19 +184,27 @@ namespace AnimeOrganizer
         }
         private void UpdateRecord()
         {
+            if (!UtillExtensions.globalFolders.Contains(currentAnimeRecord.Key))
+            {
+                updatedAnimeRecords.Add(currentAnimeRecord.Value);
+            }
             // do not update/create null anime record or anime record for ova/movie in database
-            if (currentAnimeRecord.Key == null || UtillExtensions.globalFolders.Contains(currentAnimeRecord.Key))
+            foreach (AnimeRecord record in updatedAnimeRecords)
             {
-                return;
+                if (record == null || UtillExtensions.globalFolders.Contains(record.title))
+                {
+                    continue;
+                }
+                if (db.Contains(record.title))
+                {
+                    db.Update(record);
+                }
+                else
+                {
+                    db.Create(record);
+                }
             }
-            if (db.Contains(currentAnimeRecord.Key))
-            {
-                db.Update(currentAnimeRecord.Value);
-            }
-            else
-            {
-                db.Create(currentAnimeRecord.Value);
-            }
+            updatedAnimeRecords.Clear();
             db.Save();
         }
         private bool MoveFile(string toPath, AnimeRecord animeRecord)

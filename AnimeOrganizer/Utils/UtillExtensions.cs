@@ -14,7 +14,8 @@ namespace AnimeOrganizer
           };
         public static List<string> globalFolders = new List<string>
           {
-               "movies and ova"
+               "movies and ova",
+               "dump"
           };
         public static List<string> excludeFolders = new List<string>
           {
