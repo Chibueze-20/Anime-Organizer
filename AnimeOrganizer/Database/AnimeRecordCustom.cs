@@ -17,6 +17,7 @@ namespace AnimeOrganizer.Database
         public AnimeRecord(string title, int episodes)
         {
             this.title = title;
+            this.description = title;
             this.numberOfEpisodes = episodes;
             this.lastUpdate = DateTime.Now;
         }

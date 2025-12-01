@@ -19,13 +19,16 @@ namespace AnimeOrganizer
           private IFormatter serializerFormatter = new BinaryFormatter();
           private AnimeDB db;
           private AnimeRecord currentRecord;
+          private IEnumerable<DirectoryInfo> bulkOperationTitles;
+        private int currentBulkIndex =  0;
           public DatabaseForm()
           {
                InitializeComponent();
             menu1.AddOpenMenuOption("Auto Organizer", OpenAutoOrganizerEvent);
             menu1.AddOpenMenuOption("Organizer", OpenOrganizerEvent);
             menu1.AddMenuOption("Export Database to CSV", ExportToCsv);
-               db = new AnimeDB();
+            menu1.AddMenuOption("Import from CSV", csv_importbtn_Click);
+            db = Program.database;
                Fill();
           }
           public void Fill()
@@ -172,6 +175,88 @@ namespace AnimeOrganizer
             {
                 Console.WriteLine("Import Aborted");
             }
+        }
+
+        private void import_fdr_btn_Click(object sender, EventArgs e)
+        {
+            titleList.Enabled = false;
+            if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                string rootPath =  folderBrowserDialog.SelectedPath;
+                bulkOperationTitles = getTitles(rootPath);
+                NextBulkItem();
+            }
+        }
+        private void Skip(object sender, EventArgs e)
+        {
+            NextBulkItem();
+        }
+        private void Cancel(object sender, EventArgs e)
+        {
+            Cancel();
+        }
+        private void AddToDB(object sender, EventArgs e)
+        {
+            if (bulk_cbx.SelectedItem == null || string.IsNullOrEmpty(bulk_yeartxt.Text) || !UtillExtensions.IsNumeric(bulk_yeartxt.Text))
+            {
+                MessageBox.Show("Some Input values are missing for this record", "Missing Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string season = bulk_cbx.SelectedItem.ToString();
+            int year = int.Parse(bulk_yeartxt.Text);
+            int rating = (int)bulk_rating_nud.Value;
+            string title = bulk_titletxt.Text;
+            int episodeCount = int.Parse(bulk_episode_count_lbl.Text);
+            if (!db.Contains(title))
+            {
+                AnimeRecord record = new AnimeRecord(title, episodeCount);
+                record.description = title;
+                record.lastUpdate = DateTime.Now;
+                record.Season = season;
+                record.Year = year; 
+                record.Rating = rating;
+                db.Create(record);
+            }
+            NextBulkItem();
+        }
+        private IEnumerable<DirectoryInfo> getTitles (string rootPath)
+        {
+            DirectoryInfo dir = new DirectoryInfo(rootPath);
+            return dir.EnumerateDirectories();
+        }
+        private void Cancel()
+        {
+            currentBulkIndex = 0;
+            bulkOperationTitles = Array.Empty<DirectoryInfo>();
+            titleList.Enabled = true;
+            bulk_titletxt.Text = string.Empty;
+            bulk_rating_nud.Value = 1;
+            bulk_episode_count_lbl.Text = string.Empty;
+            bulk_yeartxt.Text = string.Empty;
+            bulk_cbx.Text = string.Empty;
+            bulkop_lbl.Text = string.Empty;
+            SyncDB();
+        }
+        private void SyncDB()
+        {
+            db.Save();
+        }
+        private void NextBulkItem()
+        {
+            int total = bulkOperationTitles.Count();
+            bulkop_lbl.Text = string.Format("{0} of {1} items left to process", total-currentBulkIndex, total);
+            if (bulkOperationTitles != null && currentBulkIndex < total)
+            {
+                DirectoryInfo title = bulkOperationTitles.ElementAt(currentBulkIndex);
+                bulk_titletxt.Text = title.Name;
+                bulk_episode_count_lbl.Text = title.EnumerateFiles().Count().ToString();
+                currentBulkIndex++;
+            } else
+            {
+                MessageBox.Show("All Items Processed", "Operation Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Cancel();
+            }
+            
         }
     }
     

@@ -114,7 +114,7 @@ namespace AnimeOrganizer
             epdownloadedlbl.Text = record.numberOfEpisodes.ToString();
             ratingNud.Value = record.Rating;
             descriptionRtx.Text = record.Description;
-            seasontxt.Text = record.Season + "," + record.Year;
+            seasontxt.Text = record.Season + "," + (record.Year == 0 ? "" : record.Year.ToString());
         }
         private void clearRecord()
         {
@@ -274,7 +274,7 @@ namespace AnimeOrganizer
 
                     rec.Year = 0;
                 }
-                db.Update(rec);
+                db.Update(rec, false);
 
                 currentRecord = db[rec.title];
                 showRecord(currentRecord);
@@ -296,6 +296,7 @@ namespace AnimeOrganizer
                     newRecord.Year = 0;
                 }
                 db.Create(newRecord);
+                db.Save(); //TODO: add isSoftUpdate flag to create method
                 currentRecord = db[newRecord.title];
                 showRecord(currentRecord);
                 clearRecord();
@@ -305,7 +306,6 @@ namespace AnimeOrganizer
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            db.Save();
             Application.Exit();
 
             //MessageBox.Show("Database index saved, clode to exit");

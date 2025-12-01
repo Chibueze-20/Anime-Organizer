@@ -34,6 +34,11 @@ namespace AnimeOrganizer
             int sum = (int)db.AnimeRecords.Where((rec)=>rec.rating.HasValue).Sum((rec) => rec.rating);
             return new Statistic(total, tens, lows, rated, sum);
           }
+
+          public void Warmup()
+          {
+            Sort().Any();
+          }
           
           public AnimeRecord this[string title]
           {
@@ -59,8 +64,10 @@ namespace AnimeOrganizer
           public void Create(AnimeRecord record)
         {
             animeDatabase.AnimeRecords.Add(record);
+            animeDatabase.Entry(record).State = System.Data.Entity.EntityState.Added;
         }
-          public void Update(AnimeRecord record)
+        
+          public void Update(AnimeRecord record, bool isSoftUpdate = true)
           {
             AnimeRecord animeRecord = this[record.title];
             animeRecord.lastUpdate = DateTime.Now;
@@ -70,7 +77,11 @@ namespace AnimeOrganizer
             animeRecord.Rating = record.Rating;
             animeRecord.Season = record.Season;
             animeDatabase.Entry(animeRecord).State = System.Data.Entity.EntityState.Modified;
-          }
+            if (!isSoftUpdate)
+            {
+                animeDatabase.SaveChanges();
+            }
+        }
           public void Delete(AnimeRecord record)
           {
                if (Contains(record.title)) {
@@ -80,7 +91,7 @@ namespace AnimeOrganizer
           }
         public void Save()
         {
-            if(animeDatabase.ChangeTracker.HasChanges()) animeDatabase.SaveChanges();
+            animeDatabase.SaveChanges();
         }
         private IQueryable<string> Sort()
         {

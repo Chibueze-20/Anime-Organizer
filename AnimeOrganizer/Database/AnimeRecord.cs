@@ -14,7 +14,6 @@ namespace AnimeOrganizer.Database
     
     public partial class AnimeRecord
     {
-        public int Id { get; set; }
         public string title { get; set; }
         public int numberOfEpisodes { get; set; }
         public Nullable<int> rating { get; set; }

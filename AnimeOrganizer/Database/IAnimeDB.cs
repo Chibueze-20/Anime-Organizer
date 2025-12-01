@@ -11,7 +11,7 @@ namespace AnimeOrganizer.Database
         bool Contains(string title);
         IList<string> Titles();
         void Create(AnimeRecord record);
-        void Update(AnimeRecord record);
+        void Update(AnimeRecord record, bool isSoftUpdate);
         void Delete(AnimeRecord record);
         void Save();
 

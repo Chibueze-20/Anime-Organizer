@@ -8,6 +8,7 @@ namespace AnimeOrganizer
 {
      static class Program
      {
+        public static readonly AnimeDB database = new AnimeDB();
           /// <summary>
           /// The main entry point for the application.
           /// </summary>
@@ -16,7 +17,8 @@ namespace AnimeOrganizer
           {
                Application.EnableVisualStyles();
                Application.SetCompatibleTextRenderingDefault(false);
-               Application.Run(new Organizer(new AnimeDB()));
+               database.Warmup();
+               Application.Run(new Organizer(database));
           }
      }
 }
