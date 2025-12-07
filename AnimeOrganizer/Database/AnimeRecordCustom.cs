@@ -115,5 +115,20 @@ namespace AnimeOrganizer.Database
 
             return value;
         }
+
+        public override int GetHashCode()
+        {
+            return title.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is AnimeRecord)
+            {
+                AnimeRecord other = (AnimeRecord)obj;
+                return this.title.Equals(other.title);
+            }
+            return false;
+        }
     }
 }

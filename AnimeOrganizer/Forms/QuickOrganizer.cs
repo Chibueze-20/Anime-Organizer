@@ -143,8 +143,9 @@ namespace AnimeOrganizer
             }
             else
             {
+                updatedAnimeRecords.Add(currentAnimeRecord.Value);
                 MessageBox.Show("No more files to auto organize, Folders Updated: " 
-                    + updatedAnimeRecords.Count + 1 , "Info");
+                    + countUniqueAnimeRecords(updatedAnimeRecords) , "Info");
                 UpdateRecord();
                 Close();
             }
@@ -247,6 +248,18 @@ namespace AnimeOrganizer
             }
 
         }
+
+        // count unique number of elements based on AnimeRecord.title 
+        private int countUniqueAnimeRecords(List<AnimeRecord> list)
+        {
+            HashSet<string> uniqueTitles = new HashSet<string>();
+            foreach (AnimeRecord item in list)
+            {
+                uniqueTitles.Add(item.title);
+            }
+            return uniqueTitles.Count;
+        }
+
         private void DisplayOptions()
         {
             List<AnimeFolder> matches = new List<AnimeFolder>();

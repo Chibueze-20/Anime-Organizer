@@ -20,7 +20,11 @@ namespace AnimeOrganizer
         public static List<string> excludeFolders = new List<string>
           {
               "temp",
-              "Done"
+              "Done",
+              "Summer",
+              "Fall",
+              "Winter",
+              "Spring"
           };
         public static List<string> videoExtensions = new List<string>
           {

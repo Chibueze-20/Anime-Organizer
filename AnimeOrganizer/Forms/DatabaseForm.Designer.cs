@@ -71,9 +71,9 @@
             this.csv_importbtn = new System.Windows.Forms.Button();
             this.titleList = new System.Windows.Forms.CheckedListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.menu1 = new AnimeOrganizer.menu();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.menu1 = new AnimeOrganizer.menu();
             this.Homepanel.SuspendLayout();
             this.menutab.SuspendLayout();
             this.detailstab.SuspendLayout();
@@ -141,7 +141,7 @@
             this.detailstab.Controls.Add(this.detailspanel);
             this.detailstab.Location = new System.Drawing.Point(4, 22);
             this.detailstab.Name = "detailstab";
-            this.detailstab.Padding = new System.Windows.Forms.Padding(3);
+            this.detailstab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.detailstab.Size = new System.Drawing.Size(431, 293);
             this.detailstab.TabIndex = 0;
             this.detailstab.Text = "Details";
@@ -175,9 +175,9 @@
             this.deletebtn.FlatAppearance.BorderSize = 0;
             this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deletebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deletebtn.Location = new System.Drawing.Point(322, 238);
+            this.deletebtn.Location = new System.Drawing.Point(322, 236);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(75, 23);
+            this.deletebtn.Size = new System.Drawing.Size(75, 33);
             this.deletebtn.TabIndex = 13;
             this.deletebtn.Text = "Delete";
             this.deletebtn.UseVisualStyleBackColor = false;
@@ -191,7 +191,7 @@
             this.updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updatebtn.Location = new System.Drawing.Point(322, 190);
             this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(75, 23);
+            this.updatebtn.Size = new System.Drawing.Size(75, 32);
             this.updatebtn.TabIndex = 12;
             this.updatebtn.Text = "Update";
             this.updatebtn.UseVisualStyleBackColor = false;
@@ -312,7 +312,7 @@
             this.bulktab.Controls.Add(this.groupBox1);
             this.bulktab.Location = new System.Drawing.Point(4, 22);
             this.bulktab.Name = "bulktab";
-            this.bulktab.Padding = new System.Windows.Forms.Padding(3);
+            this.bulktab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.bulktab.Size = new System.Drawing.Size(431, 293);
             this.bulktab.TabIndex = 1;
             this.bulktab.Text = "Bulk";
@@ -532,7 +532,7 @@
             this.titleList.FormattingEnabled = true;
             this.titleList.Location = new System.Drawing.Point(13, 33);
             this.titleList.Name = "titleList";
-            this.titleList.Size = new System.Drawing.Size(244, 319);
+            this.titleList.Size = new System.Drawing.Size(244, 304);
             this.titleList.Sorted = true;
             this.titleList.TabIndex = 10;
             this.titleList.SelectedIndexChanged += new System.EventHandler(this.titleList_SelectedIndexChanged);
@@ -542,24 +542,25 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Information";
             // 
-            // menu1
-            // 
-            this.menu1.BackColor = System.Drawing.Color.Transparent;
-            this.menu1.Location = new System.Drawing.Point(12, 3);
-            this.menu1.Name = "menu1";
-            this.menu1.Size = new System.Drawing.Size(682, 26);
-            this.menu1.TabIndex = 32;
-            // 
             // openFileDialog
             // 
             this.openFileDialog.Filter = "csv files|*.csv";
             this.openFileDialog.Title = "Open csv file";
             // 
+            // menu1
+            // 
+            this.menu1.BackColor = System.Drawing.Color.Transparent;
+            this.menu1.Location = new System.Drawing.Point(12, 3);
+            this.menu1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.menu1.Name = "menu1";
+            this.menu1.Size = new System.Drawing.Size(682, 26);
+            this.menu1.TabIndex = 32;
+            // 
             // DatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 489);
+            this.ClientSize = new System.Drawing.Size(757, 463);
             this.Controls.Add(this.menu1);
             this.Controls.Add(this.Homepanel);
             this.Controls.Add(this.label1);
