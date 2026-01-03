@@ -21,7 +21,7 @@ namespace AnimeOrganizer
         Seperator seperator;
         FileInfo activeFile;
         int index = 0;
-        AnimeDB db;
+        IAnimeDB db;
         AnimeRecord currentRecord;
         private bool isRenaming = false;
         public Organizer()
@@ -30,7 +30,7 @@ namespace AnimeOrganizer
             InitializeComponent();
             setUpForm();
         }
-        public Organizer(AnimeDB db)
+        public Organizer(IAnimeDB db)
         {
             this.db = db;
             InitializeComponent();
@@ -311,7 +311,7 @@ namespace AnimeOrganizer
             //MessageBox.Show("Database index saved, clode to exit");
         }
 
-        private void linkLabel2_LinkClicked(object sender, EventArgs e)
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SelectZeddPath(false);
         }

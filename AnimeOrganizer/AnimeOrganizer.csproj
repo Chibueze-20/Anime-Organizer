@@ -29,7 +29,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Anime Organizer</ProductName>
     <PublisherName>Analogbei Chibueze</PublisherName>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.1.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -254,6 +254,7 @@
     </Compile>
     <Compile Include="Database\AnimeRecordCustom.cs" />
     <Compile Include="Database\IAnimeDB.cs" />
+    <Compile Include="Database\InMemoryAnimeDB.cs" />
     <Compile Include="Forms\Customize.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,7 +298,9 @@
     <Compile Include="Utils\AnimeFile.cs" />
     <Compile Include="Utils\AnimeFolder.cs" />
     <Compile Include="Utils\BaseAnimeDirectory.cs" />
+    <Compile Include="Utils\MutableDefaultStringSet.cs" />
     <Compile Include="Utils\OpenMode.cs" />
+    <Compile Include="Utils\RedundantStringSet.cs" />
     <Compile Include="Utils\Statistic.cs" />
     <Compile Include="Utils\TitleComparer.cs" />
     <Compile Include="Utils\Seperator.cs" />

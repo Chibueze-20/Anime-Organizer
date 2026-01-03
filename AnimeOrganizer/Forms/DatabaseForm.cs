@@ -17,7 +17,7 @@ namespace AnimeOrganizer
      public partial class DatabaseForm : Form
      {
           private IFormatter serializerFormatter = new BinaryFormatter();
-          private AnimeDB db;
+          private IAnimeDB db;
           private AnimeRecord currentRecord;
           private IEnumerable<DirectoryInfo> bulkOperationTitles;
         private int currentBulkIndex =  0;

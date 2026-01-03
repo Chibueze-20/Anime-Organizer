@@ -7,25 +7,77 @@ namespace AnimeOrganizer
 {
     public static class UtillExtensions
      {
-          private static List<string> badStrings = new List<string>()
-          {
-               "mp4", "mkv", "animepahe", "720p", "360p", "subsplease", "ttga",
-               "netflix", "crunchyroll", "disney", "animechap", " ", ""
-          };
-        public static List<string> globalFolders = new List<string>
-          {
-               "movies and ova",
-               "dump"
-          };
-        public static List<string> excludeFolders = new List<string>
-          {
-              "temp",
-              "Done",
-              "Summer",
-              "Fall",
-              "Winter",
-              "Spring"
-          };
+          // use serializable RedundantStringSet for redundant strings
+          private static RedundantStringSet redundantStrings = RedundantStringSet.LoadFromDefaultLocation();
+
+        public static IEnumerable<string> RedundantStringItems => redundantStrings.Items;
+
+        // mutable sets with defaults for globalFolders and excludeFolders
+        private static readonly string GlobalFoldersFile = "global_folders.xml";
+        private static readonly string ExcludeFoldersFile = "exclude_folders.xml";
+
+        private static MutableDefaultStringSet globalFoldersSet = MutableDefaultStringSet.LoadFromDefaultLocation(new[] { "movies and ova", "dump" }, GlobalFoldersFile);
+        private static MutableDefaultStringSet excludeFoldersSet = MutableDefaultStringSet.LoadFromDefaultLocation(new[] { "temp", "Done", "Summer", "Fall", "Winter", "Spring" }, ExcludeFoldersFile);
+
+        public static IEnumerable<string> GlobalFolders => globalFoldersSet.Items;
+        public static IEnumerable<string> ExcludeFolders => excludeFoldersSet.Items;
+
+        // Backwards-compatible aliases (original field names)
+        public static IEnumerable<string> globalFolders => GlobalFolders;
+        public static IEnumerable<string> excludeFolders => ExcludeFolders;
+
+        // Add to global folders (only persists user-added items)
+        public static bool AddGlobalFolder(string s)
+        {
+            var added = globalFoldersSet.Add(s);
+            if (added) globalFoldersSet.SaveToDefaultLocation();
+            return added;
+        }
+
+        // Remove only user-added global folders
+        public static bool RemoveGlobalFolder(string s)
+        {
+            var removed = globalFoldersSet.Remove(s);
+            if (removed) globalFoldersSet.SaveToDefaultLocation();
+            return removed;
+        }
+
+        // Add to exclude folders
+        public static bool AddExcludeFolder(string s)
+        {
+            var added = excludeFoldersSet.Add(s);
+            if (added) excludeFoldersSet.SaveToDefaultLocation();
+            return added;
+        }
+
+        // Remove only user-added exclude folders
+        public static bool RemoveExcludeFolder(string s)
+        {
+            var removed = excludeFoldersSet.Remove(s);
+            if (removed) excludeFoldersSet.SaveToDefaultLocation();
+            return removed;
+        }
+
+        public static bool IsNotMatchingDefaultGlobalFoler(string item, string input)
+        {
+            return globalFoldersSet.ItemIsUserAddedAndEqualToInput(item, input);
+        }
+
+        public static bool IsNotMatchingDefaultExcludedFoler(string item, string input)
+        {
+            return excludeFoldersSet.ItemIsUserAddedAndEqualToInput(item, input);
+        }
+
+        public static bool IsDefaultGlobalFolder(string input)
+        {
+            return globalFoldersSet.IsDefault(input);
+        }
+
+        public static bool IsDefaultExcludedFolder(string input)
+        {
+            return excludeFoldersSet.IsDefault(input);
+        }
+
         public static List<string> videoExtensions = new List<string>
           {
               ".mp4",
@@ -48,8 +100,25 @@ namespace AnimeOrganizer
           }
           public static bool IsRedundantString(string s)
           {
-               return badStrings.Contains(s.ToLower());
+               return redundantStrings.Contains(s) || string.IsNullOrWhiteSpace(s);
           }
+
+          // Add a redundant string and persist
+          public static bool AddRedundantString(string s)
+          {
+               var added = redundantStrings.Add(s);
+               if (added) redundantStrings.SaveToDefaultLocation();
+               return added;
+          }
+
+          // Remove a redundant string and persist
+          public static bool RemoveRedundantString(string s)
+          {
+               var removed = redundantStrings.Remove(s);
+               if (removed) redundantStrings.SaveToDefaultLocation();
+               return removed;
+          }
+
           public static string GenerateFileName(string name, int episode, Seperator sep)
           {
                switch (sep)

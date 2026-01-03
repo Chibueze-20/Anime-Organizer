@@ -8,12 +8,14 @@ namespace AnimeOrganizer.Database
 {
     public interface IAnimeDB: IEnumerable<string>
     {
+        AnimeRecord this[string title] { get; }
         bool Contains(string title);
         IList<string> Titles();
         void Create(AnimeRecord record);
-        void Update(AnimeRecord record, bool isSoftUpdate);
+        void Update(AnimeRecord record, bool isSoftUpdate = true);
         void Delete(AnimeRecord record);
         void Save();
+        void Warmup();
 
 
     }

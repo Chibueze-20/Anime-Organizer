@@ -19,13 +19,13 @@ namespace AnimeOrganizer
         private List<AnimeFolder> animeFolders;
         private bool init = true;
         private AnimeFile currentFile;
-        private readonly AnimeDB db;
+        private readonly IAnimeDB db;
         private readonly string rootPath;
         private Seperator seperator;
         private bool useDefaultSeason;
         private KeyValuePair<string, AnimeRecord> currentAnimeRecord = new KeyValuePair<string, AnimeRecord>();
         private List<AnimeRecord> updatedAnimeRecords = new List<AnimeRecord>();
-        public QuickOrganizer(AnimeDB db)
+        public QuickOrganizer(IAnimeDB db)
         {
             this.db = db;
             this.useDefaultSeason = true;

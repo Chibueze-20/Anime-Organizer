@@ -1,0 +1,1416 @@
+<?xml version="1.0"?>
+<ArrayOfSerializableAnimeRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SerializableAnimeRecord>
+    <Title>17-26</Title>
+    <NumberOfEpisodes>8</NumberOfEpisodes>
+    <Rating>9</Rating>
+    <Description />
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>3-nen Z-gumi Ginpachi-sensei</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>3-nen Z-gumi Ginpachi-sensei</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Acro Trip</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Aharen-san wa Hakarenai Season 2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Aharen-san wa Hakarenai Season 2</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Akujiki Reijou to Kyouketsu Koushaku</Title>
+    <NumberOfEpisodes>11</NumberOfEpisodes>
+    <Rating xsi:nil="true" />
+    <Description>Akujiki Reijou to Kyouketsu Koushaku</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Akuyaku Reijou Tensei Ojisan</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Akuyaku Reijou Tensei Ojisan</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Alma-chan wa Kazoku ni Naritai</Title>
+    <NumberOfEpisodes>11</NumberOfEpisodes>
+    <Rating xsi:nil="true" />
+    <Description>Alma-chan wa Kazoku ni Naritai</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ame to Kimi to</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Ame to Kimi to</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Anne Shirley</Title>
+    <NumberOfEpisodes>24</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Anne Shirley</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ao no Exorcist- Yosuga-hen</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Ao no Exorcist- Yosuga-hen</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ao no Exorcist_Yuki no Hate-hen</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ao no Hako</Title>
+    <NumberOfEpisodes>25</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Ao no Hako</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Aru Majo ga Shinu Made</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Aru Majo ga Shinu Made</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Astro Note</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Astro Note</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Bad Girl</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Bad Girl</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ballpark de Tsukamaete</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Ballpark de Tsukamaete</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Bartender Kami no Glass</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Bartender Kami no Glass</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Bleach_Sennen Kessen-hen - Soukoku-tan</Title>
+    <NumberOfEpisodes>14</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Blue Lock vs U-20 Japan</Title>
+    <NumberOfEpisodes>14</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Boukyaku Battery TV</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Bucchigiri</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>7</Rating>
+    <Description>Bucchigiri</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Busamen Gachi Fighter</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Busamen Gachi Fighter</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Busu ni Hanataba wo</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Busu ni Hanataba wo</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Bye Bye Earth</Title>
+    <NumberOfEpisodes>10</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Bye Bye Earth</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Bye Bye Earth 2nd Season</Title>
+    <NumberOfEpisodes>10</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Bye Bye Earth 2nd Season</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Chanto Suenai Kyuuketsuki-chan</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Chanto Suenai Kyuuketsuki-chan</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Chitose wa Ramune Bin no Naka</Title>
+    <NumberOfEpisodes>10</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Chitose wa Ramune Bin no Naka</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Chuuzenji-sensei Mononoke Kougiroku-Sensei ga Nazo wo Hodoite Shimau kara</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Chuuzenji-sensei Mononoke Kougiroku-Sensei ga Nazo wo Hodoite Shimau kara</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>City The Animation</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>City The Animation</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Clevatess Majuu no Ou to Akago to Shikabane no Yuusha</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Clevatess Majuu no Ou to Akago to Shikabane no Yuusha</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Code Geass - Dakkan no Roze</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Code Geass - Dakkan no Roze</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Code Geass -Dakkan no Roze</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>6</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Dandadan</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Dandadan</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Danjo no Yuujou wa Seiritsu suru Iya Shinai</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Danjo no Yuujou wa Seiritsu suru Iya Shinai</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Dead Dead Demons Dededede Destruction</Title>
+    <NumberOfEpisodes>6</NumberOfEpisodes>
+    <Rating>8</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Debu to Love to Ayamachi to</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Debu to Love to Ayamachi to</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Delicos Nursery</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>DrStone-Science Future</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>DrStone-Science Future</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>DrStone_Science Future Part 2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>DrStone_Science Future Part 2</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Dungeon Meshi</Title>
+    <NumberOfEpisodes>24</NumberOfEpisodes>
+    <Rating>9</Rating>
+    <Description>Dungeon Meshi</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka V_Houjou no Megami-hen</Title>
+    <NumberOfEpisodes>15</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Egao no Taenai Shokuba desu</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Egao no Taenai Shokuba desu</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Elf-san wa Yaserarenai</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Elf-san wa Yaserarenai</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Enen no Shouboutai San no Shou</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Enen no Shouboutai San no Shou</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Fairy Tail- 100-nen Quest</Title>
+    <NumberOfEpisodes>25</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Fairy Tail- 100-nen Quest</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Fate strange Fake</Title>
+    <NumberOfEpisodes>1</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Fate strange Fake</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Food Court de Mata Ashita</Title>
+    <NumberOfEpisodes>6</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Food Court de Mata Ashita</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Fumetsu no Anata e S3</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Fumetsu no Anata e S3</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Gachiakuta</Title>
+    <NumberOfEpisodes>24</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Gachiakuta</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Giji Harem</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Giji Harem</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Gimai Seikatsu</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Gimai Seikatsu</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Goukon ni Ittara Onna ga Inakatta Hanashi</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Grand Blue Season 2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Grand Blue Season 2</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Hana wa Saku Shura no Gotoku</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Hana wa Saku Shura no Gotoku</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Hananoi-kun to Koi no Yamai</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Hananoi-kun to Koi no Yamai</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Henjin no Salad Bowl</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Hibi wa Sugiredo Meshi Umashi</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Hibi wa Sugiredo Meshi Umashi</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Hibike Euphonium 3</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Hibike Euphonium 3</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Isekai Quartet 3</Title>
+    <NumberOfEpisodes>11</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Isekai Quartet 3</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou S2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou S2</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Jiisan Baasan Wakagaeru</Title>
+    <NumberOfEpisodes>11</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Jiisan Baasan Wakagaeru</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kaii to Otome to Kamikakushi</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Kaii to Otome to Kamikakushi</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kaijuu 8-gou</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Kaijuu 8-gou</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kaijuu 8gou 2nd Season</Title>
+    <NumberOfEpisodes>11</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kaijuu 8gou 2nd Season</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kakkou no Iinazuke Season 2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kakkou no Iinazuke Season 2</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kami no Tou- Ouji no Kikan</Title>
+    <NumberOfEpisodes>26</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kami no Tou- Ouji no Kikan</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kanojo Okarishimasu 4th Season</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kanojo Okarishimasu 4th Season</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kanpekisugite Kawaige ga Nai to Konyaku Haki sareta Seijo wa Ringoku ni Urareru</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kanpekisugite Kawaige ga Nai to Konyaku Haki sareta Seijo wa Ringoku ni Urareru</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kaoru Hana wa Rin to Saku</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kaoru Hana wa Rin to Saku</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Karaoke Iko</Title>
+    <NumberOfEpisodes>5</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Karaoke Iko</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Karasu wa Aruji wo Erabanai</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Karasu wa Aruji wo Erabanai</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Katsute Mahou Shoujo to Aku wa Tekitai shiteita</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>10</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kenka Dokugaku</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Kenka Dokugaku</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kimetsu no Yaiba - Hashira Geiko-hen</Title>
+    <NumberOfEpisodes>8</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kimetsu no Yaiba - Hashira Geiko-hen</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 2nd Season</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 2nd Season</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kimi to Koete Koi ni Naru</Title>
+    <NumberOfEpisodes>7</NumberOfEpisodes>
+    <Rating xsi:nil="true" />
+    <Description>Kimi to Koete Koi ni Naru</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kono Sekai wa Fukanzen Sugiru</Title>
+    <NumberOfEpisodes>11</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kono Subarashii Sekai ni Shukufuku wo 3</Title>
+    <NumberOfEpisodes>11</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Kono Subarashii Sekai ni Shukufuku wo 3</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kono Subarashii Sekai ni Shukufuku wo 3- Bonus Stage</Title>
+    <NumberOfEpisodes>2</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kono Subarashii Sekai ni Shukufuku wo 3- Bonus Stage</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kowloon Generic Romance</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kowloon Generic Romance</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Kusuriya no Hitorigoto 2nd Season</Title>
+    <NumberOfEpisodes>24</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Kusuriya no Hitorigoto 2nd Season</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Lycoris Recoil- Friends Are Thieves of Time</Title>
+    <NumberOfEpisodes>6</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Lycoris Recoil- Friends Are Thieves of Time</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Madougushi Dahliya wa Utsumukanai</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Madougushi Dahliya wa Utsumukanai</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Mahouka Koukou no Rettousei 3rd Season</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Mahouka Koukou no Rettousei 3rd Season</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Majo to Yajuu</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>6</Rating>
+    <Description>Majo to Yajuu</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Make Heroine ga Oosugiru</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Make Heroine ga Oosugiru</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Maou Gakuin II Part 2</Title>
+    <NumberOfEpisodes>10</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Maou Gakuin II Part 2</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Mattaku Saikin no Tantei to Kitara</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Mattaku Saikin no Tantei to Kitara</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Medalist</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Medalist</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Mofa Gongzhu de Xiao Fannao</Title>
+    <NumberOfEpisodes>16</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Mofa Gongzhu de Xiao Fannao</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Mono</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Mono</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Monogatari Series- Off &amp; Monster Season</Title>
+    <NumberOfEpisodes>14</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Monogatari Series- Off &amp; Monster Season</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Muchuu sa Kimi ni</Title>
+    <NumberOfEpisodes>5</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Muchuu sa Kimi ni</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Mushoku Tensei II - Isekai Ittara Honki Dasu Part 2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Nazotoki wa Dinner no Ato de</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Nazotoki wa Dinner no Ato de</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>NegaPosi Angler</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>NieR Automata Ver1.1a Part 2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>NieR Automata Ver1.1a Part 2</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Nige Jouzu no Wakagimi</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Nige Jouzu no Wakagimi</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Nihon e Youkoso Elf-san</Title>
+    <NumberOfEpisodes>11</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Nihon e Youkoso Elf-san</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ninja Kamui</Title>
+    <NumberOfEpisodes>2</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Ninja Kamui</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ninja to Koroshiya no Futarigurashi</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Ninja to Koroshiya no Futarigurashi</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Okinawa de Suki ni Natta Ko ga Hougen Sugite Tsurasugiru</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Okinawa de Suki ni Natta Ko ga Hougen Sugite Tsurasugiru</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>One Punch Man 3</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>One Punch Man 3</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ookami to Koushinryou - Merchant Meets the Wise Wolf</Title>
+    <NumberOfEpisodes>25</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Ookami to Koushinryou - Merchant Meets the Wise Wolf</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ore dake Level Up na Ken Season 2</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Ore dake Level Up na Ken Season 2</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Oshi no Ko 2nd Season</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Oshi no Ko 2nd Season</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Puniru wa Kawaii Slime</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Puniru wa Kawaii Slime</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Raise wa Tanin ga Ii</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ramen Akaneko</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Ramen Akaneko</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Re_Zero kara Hajimeru Isekai Seikatsu 3rd Season</Title>
+    <NumberOfEpisodes>16</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Ruri no Houseki</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Ruri no Houseki</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Rurouni Kenshin_Meiji Kenkaku Romantan - Kyoto Douran</Title>
+    <NumberOfEpisodes>23</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Salaryman ga Isekai ni Ittara Shitennou ni Natta Hanashi</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Salaryman ga Isekai ni Ittara Shitennou ni Natta Hanashi</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Sasayaku You ni Koi wo Utau</Title>
+    <NumberOfEpisodes>10</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Sasayaku You ni Koi wo Utau</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Sawaranaide Kotesashi-kun</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Sawaranaide Kotesashi-kun</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Seishun Buta Yarou wa Santa Claus no Yume wo Minai</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Seishun Buta Yarou wa Santa Claus no Yume wo Minai</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Seiyuu Radio no Uraomote</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Seiyuu Radio no Uraomote</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Sentai Daishikkaku</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Sentai Daishikkaku</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Sentai Red Isekai de Boukensha ni Naru</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Sentai Red Isekai de Boukensha ni Naru</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Shangri-La Frontier_Kusoge Hunter - Kamige ni Idoman to su 2nd Season</Title>
+    <NumberOfEpisodes>25</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Shikanoko Nokonoko Koshitantan</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Shikanoko Nokonoko Koshitantan</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Shin Tennis no Oujisama_U-17 World Cup Semifinal</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Shinigami Bocchan to Kuro Maid 3rd Season</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Shinigami Bocchan to Kuro Maid 3rd Season</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Shoushimin Series</Title>
+    <NumberOfEpisodes>10</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Shoushimin Series</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Shoushimin Series 2nd Season</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Shoushimin Series 2nd Season</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Shuumatsu Train Doko e Iku</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Shuumatsu Train Doko e Iku</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Silent Witch_Chinmoku no Majo no Kakushigoto</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Silent Witch_Chinmoku no Majo no Kakushigoto</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Sono Bisque Doll wa Koi wo Suru S2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Sono Bisque Doll wa Koi wo Suru S2</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Sorairo Utility</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Sorairo Utility</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Spy x Family Season 3</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Spy x Family Season 3</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Summer Pockets</Title>
+    <NumberOfEpisodes>26</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Summer Pockets</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Sword Art Online Alternative - Gun Gale Online II</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Takopii no Genzai</Title>
+    <NumberOfEpisodes>6</NumberOfEpisodes>
+    <Rating>9</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tasokare Hotel</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Tasokare Hotel</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tate no Yuusha no Nariagari S4</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Tate no Yuusha no Nariagari S4</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tensei shitara Slime Datta Ken 3rd Season</Title>
+    <NumberOfEpisodes>24</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tensui no Sakuna-hime</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Tensui no Sakuna-hime</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tonari no Youkai-san</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Tonari no Youkai-san</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tondemo Skill de Isekai Hourou Meshi 2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Tondemo Skill de Isekai Hourou Meshi 2</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Toujima Tanzaburou wa Kamen Rider ni Naritai</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Toujima Tanzaburou wa Kamen Rider ni Naritai</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tsue to Tsurugi no Wistoria</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Tsue to Tsurugi no Wistoria</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tsuki ga Michibiku Isekai Douchuu 2nd Season</Title>
+    <NumberOfEpisodes>25</NumberOfEpisodes>
+    <Rating>6</Rating>
+    <Description>Tsuki ga Michibiku Isekai Douchuu 2nd Season</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Tsuma_Shougakusei ni Naru</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Uchuujin MuuMuu</Title>
+    <NumberOfEpisodes>24</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Uchuujin MuuMuu</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Urusei Yatsura (2022) 2nd Season</Title>
+    <NumberOfEpisodes>23</NumberOfEpisodes>
+    <Rating>9</Rating>
+    <Description>Urusei Yatsura (2022) 2nd Season</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Uzumaki</Title>
+    <NumberOfEpisodes>4</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Vigilante- Boku no Hero Academia Illegals</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Vigilante- Boku no Hero Academia Illegals</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Wind Breaker</Title>
+    <NumberOfEpisodes>13</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Wind Breaker</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Yano-kun no Futsuu no Hibi</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>No description provided</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>fall</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Yofukashi no Uta S2</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Yofukashi no Uta S2</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Yoru no Kurage wa Oyogenai</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Yoru no Kurage wa Oyogenai</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Yozakura-san Chi no Daisakusen</Title>
+    <NumberOfEpisodes>27</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Yozakura-san Chi no Daisakusen</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Yuru Camp Season 3</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>1</Rating>
+    <Description>Yuru Camp Season 3</Description>
+    <LastUpdate />
+    <Year>2024</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Zatsu Tabi</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Zatsu Tabi</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Zenshuu</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Zenshuu</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Zutaboro Reijou wa Ane no Moto Konyakusha ni Dekiai sareru</Title>
+    <NumberOfEpisodes>12</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Zutaboro Reijou wa Ane no Moto Konyakusha ni Dekiai sareru</Description>
+    <LastUpdate />
+    <Year>2025</Year>
+    <Season>summer</Season>
+  </SerializableAnimeRecord>
+</ArrayOfSerializableAnimeRecord>
