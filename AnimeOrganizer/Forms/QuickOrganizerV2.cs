@@ -33,6 +33,7 @@ namespace AnimeOrganizer.Forms
         private readonly IAnimeDB db;
         Button skipBtn = new Button(); // button to skip the current file and move it to the hold section
         private const string EventLogSourceName = "AnimeOrganizerService";
+        List<Button> fileActionButtons = new List<Button>(); // list to hold the file action buttons for easy management
 
         #region 1. Constructor and Initialization
 
@@ -82,7 +83,22 @@ namespace AnimeOrganizer.Forms
             plusBtn.Enabled = false;
             minusBtn.Enabled = false;
             point5btn.Enabled = false;
-            skipBtn.Enabled = false;
+        }
+
+        private void disableFileActionButtons()
+        {
+            foreach (var button in fileActionButtons)
+            {
+                button.Enabled = false;
+            }
+        }
+
+        private void enableFileActionButtons()
+        {
+            foreach (var button in fileActionButtons)
+            {
+                button.Enabled = true;
+            }
         }
 
         private void SetUpMenuStrip()
@@ -115,14 +131,16 @@ namespace AnimeOrganizer.Forms
                 button.Text = $"Move to {folder.Name}";
                 button.Click += (sender, e) => MoveSelectedItemToFolder(folder);
                 actionBtnFlp.Controls.Add(button);
+                fileActionButtons.Add(button);
             }
             // add last button to remove item from list view and move it to the hold section
 
             skipBtn.Size = new Size(210, 75);
             skipBtn.Text = "Skip (Move to Hold)";
             actionBtnFlp.Controls.Add(skipBtn);
-
+            fileActionButtons.Add(skipBtn);
             // when clicked it should skip organization for the current folder and move to the next folder in the queue
+            disableFileActionButtons(); // disable the buttons until a file is selected
 
         }
 
@@ -367,8 +385,8 @@ namespace AnimeOrganizer.Forms
             animelv.Items.Clear();
             animelv.Columns.Clear();
             // Add columns
-            animelv.Columns.Add("New Name", 400);
-            animelv.Columns.Add("Current Name", 400);
+            animelv.Columns.Add("New Name", 500);
+            animelv.Columns.Add("Current Name", 600);
             animelv.Columns.Add("Episode", 100);
 
             AnimeFolder currentFolder = _activeAnimeFolderQueue.Peek();
@@ -380,6 +398,13 @@ namespace AnimeOrganizer.Forms
 
                 ListViewItem listViewItem = GetListViewItemForMoveableAnimeFile(animeFile, i);
                 animelv.Items.Add(listViewItem);
+            }
+            // Auto-select the first item
+            if (animelv.Items.Count > 0)
+            {
+                animelv.Items[0].Selected = true;
+                animelv.Items[0].Focused = true;
+                animelv.EnsureVisible(0);
             }
             animelv.EndUpdate();
             SafeWriteEventLog($"List view refreshed for folder {currentFolder.Name} with {filesToProposeCount} proposed files.");
@@ -403,13 +428,13 @@ namespace AnimeOrganizer.Forms
                     //itemIndex < _activeAnimeFolderQueue.Peek().ProposedFileCount - 1;
                 minusBtn.Enabled = true; 
                     //itemIndex > 0;
-                skipBtn.Enabled = true;
+                enableFileActionButtons();
             }
             else
             {
                 plusBtn.Enabled = false;
                 minusBtn.Enabled = false;
-                skipBtn.Enabled = false;
+                disableFileActionButtons();
 
             }
         }
@@ -484,6 +509,7 @@ namespace AnimeOrganizer.Forms
                 if (_activeAnimeFolderQueue.Count == 0) return; // TODO: handle this case better, maybe disable the next button when there are no more folders to propose
                 _setOfTouchedFolders.Add(_activeAnimeFolderQueue.Peek().Path); // track the current folder as touched before moving the files
                 MoveAllProposedFilesForCurrentFolder();
+                
             };
             skipBtn.Click += SkipBtn_Click;
         }
@@ -514,8 +540,8 @@ namespace AnimeOrganizer.Forms
 
             AddToExcessFLP(selectedProposedFile);
 
-            //Check if the proposed folder should be cleaned up after skipping
-            CheckAndCleanupProposedFolder(originalProposedFolder);
+           
+            MoveOn(originalProposedFolder); // if there are no more proposed files for the current folder after skipping, move on to the next folder and clean up the current folder from the queue and other data structures
 
             SafeWriteEventLog($"File {selectedProposedFile.OriginalFile.Name} skipped for folder {originalProposedFolder.Name} and added to excess files.");
 
@@ -540,7 +566,7 @@ namespace AnimeOrganizer.Forms
             UpdateEpisodeNumbersForCurrentFolder();
 
             //Check if the proposed folder should be cleaned up after skipping
-            CheckAndCleanupProposedFolder(originalProposedFolder);
+            MoveOn(originalProposedFolder);
 
             RefreshViews();
         }
@@ -572,6 +598,13 @@ namespace AnimeOrganizer.Forms
         // Used when moving a file to a global folder, where keeping the original file name is expected.
         private void MoveSelectedItemToFolder(AnimeFolder targetFolder)
         {
+            var selectedCount = animelv.SelectedItems.Count;
+            if (selectedCount <= 0)
+            {
+                MessageBox.Show("Please select a file to move.", "No File Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+                return;
+            }
+            
             ListViewItem selectedItem = animelv.SelectedItems[0];
             MoveableAnimeFile selectedProposedFile = _activeAnimeFolderQueue.Peek().GetProposedFileByIndex((int)selectedItem.Tag);
             // original proposed folder should be the same as the head of the queue, a check is done to assert this.
@@ -593,9 +626,9 @@ namespace AnimeOrganizer.Forms
             _activeAnimeFolderQueue.Peek().RemoveProposedFileByIndex((int)selectedItem.Tag);
 
             //If the file was moved to a global folder from a new proposed folder, check for cleanup
-            if (IsGlobalFolder(targetFolder) && originalProposedFolder.IsNew)
+            if (IsGlobalFolder(targetFolder))
             {
-                CheckAndCleanupProposedFolder(originalProposedFolder);
+                MoveOn(originalProposedFolder);
             }
 
             //track the touched folders
@@ -660,6 +693,20 @@ namespace AnimeOrganizer.Forms
         private bool IsGlobalFolder(AnimeFolder folder)
         {
            return UtillExtensions.globalFolders.Contains(folder.Name);
+        }
+
+
+        private void MoveOn(AnimeFolder folder)
+        {
+            if (folder.ProposedFileCount > 0)
+            {
+                return; // Don't move on if there are still proposed files in the folder
+            }
+            if (folder.IsNew)
+            {
+                CheckAndCleanupProposedFolder(folder); // If it's a new proposed folder, check if it should be cleaned up after skipping
+            }
+            CleanUp(); // Clean up the current folder from the queue and other data structures
         }
 
         /// <summary>

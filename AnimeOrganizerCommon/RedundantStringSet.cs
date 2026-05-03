@@ -83,7 +83,7 @@ namespace AnimeOrganizerCommon
                     {
                         var ser = new XmlSerializer(typeof(RedundantStringSet));
                         var obj = ser.Deserialize(fs) as RedundantStringSet;
-                        if (obj != null) return obj;
+                        if (obj != null && obj.Items.Count > 0) return obj;
                     }
                 }
                 catch
@@ -97,7 +97,7 @@ namespace AnimeOrganizerCommon
             {
                 "mp4", "mkv", "animepahe", "720p", "360p", "subsplease", "ttga",
                 "netflix", "crunchyroll", "disney", "animechap", "1080p",
-                "720p","amazon","bd","pog42","max","hbo","plus","erai","raws","tsundere","episode"
+                "720p","amazon","bd","pog42","max","hbo","plus","erai","raws","tsundere","episode","part","season","2nd","3rd"
             };
             foreach (var d in defaults)
             {

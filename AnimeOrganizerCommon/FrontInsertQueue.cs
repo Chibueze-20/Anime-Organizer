@@ -42,7 +42,11 @@ namespace AnimeOrganizerCommon
             }
         }
 
-        
+        public void Push(T item)
+        {
+            _list.AddFirst(item);
+        }
+
 
         // Pop from the front
         public T Pop()

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="zeddPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">C:\Users\blazi\Videos\zedd</Value>
     </Setting>
     <Setting Name="episodeSep" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

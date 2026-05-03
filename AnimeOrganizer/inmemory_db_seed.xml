@@ -1440,4 +1440,22 @@
     <Year>2026</Year>
     <Season>winter</Season>
   </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Toujima Tanzaburou wa Kamen Rider ni Naritai</Title>
+    <NumberOfEpisodes>4</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Anime Name: Toujima Tanzaburou wa Kamen Rider ni Naritai</Description>
+    <LastUpdate />
+    <Year>2026</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Vigilante - Boku no Hero Academia Illegals 2nd Season</Title>
+    <NumberOfEpisodes>4</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Anime Name: Vigilante - Boku no Hero Academia Illegals 2nd Season</Description>
+    <LastUpdate />
+    <Year>2026</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
 </ArrayOfSerializableAnimeRecord>

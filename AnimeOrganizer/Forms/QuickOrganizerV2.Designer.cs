@@ -55,7 +55,7 @@
             // 
             this.animelv.FullRowSelect = true;
             this.animelv.HideSelection = false;
-            this.animelv.Location = new System.Drawing.Point(18, 219);
+            this.animelv.Location = new System.Drawing.Point(18, 243);
             this.animelv.Name = "animelv";
             this.animelv.Size = new System.Drawing.Size(1380, 604);
             this.animelv.TabIndex = 3;
@@ -65,7 +65,7 @@
             // 
             // nextBtn
             // 
-            this.nextBtn.Location = new System.Drawing.Point(1188, 119);
+            this.nextBtn.Location = new System.Drawing.Point(1188, 157);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(210, 75);
             this.nextBtn.TabIndex = 2;
@@ -76,14 +76,14 @@
             // actionBtnFlp
             // 
             this.actionBtnFlp.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.actionBtnFlp.Location = new System.Drawing.Point(1422, 119);
+            this.actionBtnFlp.Location = new System.Drawing.Point(1422, 165);
             this.actionBtnFlp.Name = "actionBtnFlp";
             this.actionBtnFlp.Size = new System.Drawing.Size(220, 460);
             this.actionBtnFlp.TabIndex = 4;
             // 
             // plusBtn
             // 
-            this.plusBtn.Location = new System.Drawing.Point(864, 132);
+            this.plusBtn.Location = new System.Drawing.Point(864, 168);
             this.plusBtn.Name = "plusBtn";
             this.plusBtn.Size = new System.Drawing.Size(56, 58);
             this.plusBtn.TabIndex = 5;
@@ -92,7 +92,7 @@
             // 
             // minusBtn
             // 
-            this.minusBtn.Location = new System.Drawing.Point(926, 132);
+            this.minusBtn.Location = new System.Drawing.Point(926, 168);
             this.minusBtn.Name = "minusBtn";
             this.minusBtn.Size = new System.Drawing.Size(56, 58);
             this.minusBtn.TabIndex = 5;
@@ -102,7 +102,7 @@
             // episodeLbl
             // 
             this.episodeLbl.AutoSize = true;
-            this.episodeLbl.Location = new System.Drawing.Point(850, 98);
+            this.episodeLbl.Location = new System.Drawing.Point(850, 134);
             this.episodeLbl.Name = "episodeLbl";
             this.episodeLbl.Size = new System.Drawing.Size(191, 25);
             this.episodeLbl.TabIndex = 6;
@@ -110,17 +110,16 @@
             // 
             // folderLbl
             // 
-            this.folderLbl.AutoSize = true;
             this.folderLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.folderLbl.Location = new System.Drawing.Point(12, 131);
+            this.folderLbl.Location = new System.Drawing.Point(12, 66);
             this.folderLbl.Name = "folderLbl";
-            this.folderLbl.Size = new System.Drawing.Size(458, 59);
+            this.folderLbl.Size = new System.Drawing.Size(1660, 59);
             this.folderLbl.TabIndex = 7;
-            this.folderLbl.Text = "Folder Name (new)";
+            this.folderLbl.Text = "Folder c Name That Is Very Long (new)Long Long Long Long Long Nogd";
             // 
             // point5btn
             // 
-            this.point5btn.Location = new System.Drawing.Point(988, 132);
+            this.point5btn.Location = new System.Drawing.Point(988, 168);
             this.point5btn.Name = "point5btn";
             this.point5btn.Size = new System.Drawing.Size(56, 58);
             this.point5btn.TabIndex = 5;

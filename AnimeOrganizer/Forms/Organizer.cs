@@ -45,27 +45,46 @@ namespace AnimeOrganizer
             menu1.AddOpenMenuOption("Auto Organize V2", OpenAutoOrganizeV2Event);
             menu1.AddOpenMenuOption("Database", OpenDatabaseEvent);
             menu1.OnCustomize = onZeddPathCustomised;
-            if (rootPath == "empty" || rootPath == "" || rootPath == null || !rootPath.Contains(":\\"))
+
+            try
             {
-                SelectZeddPath(true);
-                Properties.Settings.Default["zeddPath"] = rootPath;
-                Properties.Settings.Default.Save();
-                UtillExtensions.ZeddPath = rootPath;
-                Console.WriteLine(Properties.Settings.Default.zeddPath);
-            }
-            else
-            {
-                try
-                {
-                    root = new DirectoryInfo(rootPath);
-                }
-                catch (Exception)
+                if (rootPath == "empty" || rootPath == "" || rootPath == null || !rootPath.Contains(":\\"))
                 {
                     SelectZeddPath(true);
+                    if (rootPath == "empty" || rootPath == "" || rootPath == null)
+                    {
+                        MessageBox.Show("No valid path was selected. Please set the path in Customize.", "Path Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    Properties.Settings.Default["zeddPath"] = rootPath;
+                    Properties.Settings.Default.Save();
+                    UtillExtensions.ZeddPath = rootPath;
                 }
+                else
+                {
+                    root = new DirectoryInfo(rootPath);
+                    if (!root.Exists)
+                    {
+                        SelectZeddPath(true);
+                        if (rootPath == "empty" || rootPath == "" || rootPath == null)
+                        {
+                            MessageBox.Show("Selected path does not exist. Please set a valid path in Customize.", "Invalid Path", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        Properties.Settings.Default["zeddPath"] = rootPath;
+                        Properties.Settings.Default.Save();
+                        UtillExtensions.ZeddPath = rootPath;
+                        root = new DirectoryInfo(rootPath);
+                    }
+                }
+
+                buildTree();
+                epsodeselectorgbx.Enabled = false;
             }
-            buildTree();
-            epsodeselectorgbx.Enabled = false;
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error initializing form: {ex.Message}", "Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buildTree()

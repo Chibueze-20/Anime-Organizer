@@ -228,7 +228,7 @@ namespace AnimeOrganizerCommon
 
         public static AnimeFolder[] BuildDirectoryTree()
         {
-            var zeddPath = @"C:\Users\blazi\Videos"; //GetZeddDirectory();
+            var zeddPath = GetZeddDirectory();
             DirectoryInfo rootDir = new DirectoryInfo(zeddPath);
             if (!rootDir.Exists)
             {

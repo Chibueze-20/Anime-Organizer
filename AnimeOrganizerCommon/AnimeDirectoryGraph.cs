@@ -74,9 +74,13 @@ namespace AnimeOrganizerCommon
                     var childMatchWeight = UtillExtensions.IndexedListIntersect(child.Self.SearchSet, searchSet).Count();
                     if (childMatchWeight >= matchWeight && childMatchWeight > 0) // child can be worth exploring
                     {
-                        if (child.Self.SearchSet.Count <= searchSet.Count)
+                        if (childMatchWeight == matchWeight && child.Self.SearchSet.Count <= searchSet.Count)
                         { // a child larger than search set will be a further deviation from a perfect match
                             frontInsertQueue.AddChild(child);
+                        }
+                        else if (childMatchWeight > matchWeight)
+                        { // a child with a better match weight than the current node should be explored immediately as it is more likely to lead to a perfect match
+                            frontInsertQueue.Push(child);
                         }
                     }
 
@@ -119,10 +123,10 @@ namespace AnimeOrganizerCommon
                         var intersectionCountToBeat = 0;
                         if (currentParent.Self != null)
                         {
-                            intersectionCountToBeat = currentParent.Self.SearchSet.Intersect(folder.SearchSet).Count();
+                            intersectionCountToBeat = UtillExtensions.IndexedListIntersect(currentParent.Self.SearchSet, folder.SearchSet).Count();
                         }
                         //see if any child has a higher intersection count than the current parent, if so, move down to that child and continue
-                        if (child.Self.SearchSet.Intersect(folder.SearchSet).Count() > intersectionCountToBeat)
+                        if (UtillExtensions.IndexedListIntersect(child.Self.SearchSet, folder.SearchSet).Count() > intersectionCountToBeat)
                         {
                             currentParent = child;
                             inserted = true;
