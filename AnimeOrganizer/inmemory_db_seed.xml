@@ -1413,4 +1413,31 @@
     <Year>2025</Year>
     <Season>summer</Season>
   </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Atri My Dear Moments</Title>
+    <NumberOfEpisodes>0</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Atri My Dear Moments</Description>
+    <LastUpdate />
+    <Year>2026</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Boku no Tsuma wa Kanjou ga Nai</Title>
+    <NumberOfEpisodes>0</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Boku no Tsuma wa Kanjou ga Nai</Description>
+    <LastUpdate />
+    <Year>2026</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Vigilante - Boku no Hero Academia Illegals 2nd Season</Title>
+    <NumberOfEpisodes>0</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Vigilante - Boku no Hero Academia Illegals 2nd Season</Description>
+    <LastUpdate />
+    <Year>2026</Year>
+    <Season>winter</Season>
+  </SerializableAnimeRecord>
 </ArrayOfSerializableAnimeRecord>

@@ -3,7 +3,8 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
-using AnimeOrganizer.Database;
+using AnimeOrganizerCommon;
+using AnimeOrganizerDataObjects;
 
 namespace AnimeOrganizer
 {
@@ -53,6 +54,9 @@ namespace AnimeOrganizer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            // Initialize the ZeddPath from application settings
+            UtillExtensions.ZeddPath = Properties.Settings.Default.zeddPath;
+
             // Debug-only: optionally clean AppData when running under the debugger (Visual Studio).
             TryCleanAppDataWhenDebugging();
 
@@ -72,6 +76,7 @@ namespace AnimeOrganizer
 
             database.Warmup();
             Application.Run(new Organizer(database));
+            //Application.Run(new Forms.QuickOrganizerV2());
         }
 
         // Runs only in DEBUG builds and only if a debugger is attached.

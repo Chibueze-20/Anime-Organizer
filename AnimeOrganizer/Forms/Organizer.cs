@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
-using AnimeOrganizer.Database;
+using AnimeOrganizerCommon;
+using AnimeOrganizerDataObjects;
+using AnimeOrganizer.Forms;
 
 namespace AnimeOrganizer
 {
@@ -16,7 +18,7 @@ namespace AnimeOrganizer
     {
         Dictionary<string, List<FileInfo>> Folder = new Dictionary<string, List<FileInfo>>();
         List<FileInfo> activeBulk = new List<FileInfo>();
-        static string rootPath = Properties.Settings.Default.zeddPath; //@"C:\Users\USER\Downloads\Video\zedd";
+        static string rootPath = UtillExtensions.ZeddPath; //@"C:\Users\USER\Downloads\Video\zedd";
         DirectoryInfo root;
         Seperator seperator;
         FileInfo activeFile;
@@ -40,6 +42,7 @@ namespace AnimeOrganizer
         private void setUpForm()
         {
             menu1.AddOpenMenuOption("Auto Organize", OpenAutoOrganizeEvent);
+            menu1.AddOpenMenuOption("Auto Organize V2", OpenAutoOrganizeV2Event);
             menu1.AddOpenMenuOption("Database", OpenDatabaseEvent);
             menu1.OnCustomize = onZeddPathCustomised;
             if (rootPath == "empty" || rootPath == "" || rootPath == null || !rootPath.Contains(":\\"))
@@ -47,6 +50,7 @@ namespace AnimeOrganizer
                 SelectZeddPath(true);
                 Properties.Settings.Default["zeddPath"] = rootPath;
                 Properties.Settings.Default.Save();
+                UtillExtensions.ZeddPath = rootPath;
                 Console.WriteLine(Properties.Settings.Default.zeddPath);
             }
             else
@@ -112,9 +116,9 @@ namespace AnimeOrganizer
         {
             titlelbl.Text = record.title;
             epdownloadedlbl.Text = record.numberOfEpisodes.ToString();
-            ratingNud.Value = record.Rating;
-            descriptionRtx.Text = record.Description;
-            seasontxt.Text = record.Season + "," + (record.Year == 0 ? "" : record.Year.ToString());
+            ratingNud.Value = record.rating.GetValueOrDefault(0);
+            descriptionRtx.Text = record.description;
+            seasontxt.Text = record.season + "," + (record.year == 0 ? "" : record.year.ToString());
         }
         private void clearRecord()
         {
@@ -261,18 +265,18 @@ namespace AnimeOrganizer
             if (currentRecord != null)
             {
                 AnimeRecord rec = currentRecord;
-                rec.Description = descriptionRtx.Text;
+                rec.description = descriptionRtx.Text;
                 rec.numberOfEpisodes = int.Parse(epdownloadedlbl.Text);
-                rec.Rating = (int)ratingNud.Value;
-                rec.Season = seasontxt.Text.Split(',')[0];
+                rec.rating = (int)ratingNud.Value;
+                rec.SafeSetSeason(seasontxt.Text.Split(',')[0]);
                 try
                 {
-                    rec.Year = int.Parse(seasontxt.Text.Split(',')[1].Substring(0, 4));
+                    rec.SafeSetYear(int.Parse(seasontxt.Text.Split(',')[1].Substring(0, 4)));
                 }
                 catch (Exception)
                 {
 
-                    rec.Year = 0;
+                    rec.SafeSetYear(null);
                 }
                 db.Update(rec, false);
 
@@ -283,17 +287,17 @@ namespace AnimeOrganizer
             else
             {
                 AnimeRecord newRecord = new AnimeRecord(titlelbl.Text, int.Parse(epdownloadedlbl.Text));
-                newRecord.Description = descriptionRtx.Text;
-                newRecord.Rating = (int)ratingNud.Value == 0 ? (int)ratingNud.Value + 1 : (int)ratingNud.Value;
-                newRecord.Season = seasontxt.Text.Split(',')[0];
+                newRecord.description = descriptionRtx.Text;
+                newRecord.rating = (int)ratingNud.Value == 0 ? (int)ratingNud.Value + 1 : (int)ratingNud.Value;
+                newRecord.SafeSetSeason(seasontxt.Text.Split(',')[0]);
                 try
                 {
-                    newRecord.Year = int.Parse(seasontxt.Text.Split(',')[1].Substring(0, 4));
+                    newRecord.SafeSetYear(int.Parse(seasontxt.Text.Split(',')[1].Substring(0, 4)));
                 }
                 catch (Exception)
                 {
 
-                    newRecord.Year = 0;
+                    newRecord.SafeSetYear(null);
                 }
                 db.Create(newRecord);
                 db.Save(); //TODO: add isSoftUpdate flag to create method
@@ -366,7 +370,12 @@ namespace AnimeOrganizer
 
         private void OpenAutoOrganizeEvent(object sender, EventArgs e)
         {
-            new QuickOrganizer(db).Show();
+            new QuickOrganizer().Show();
+            this.Hide();
+        }
+        private void OpenAutoOrganizeV2Event(object sender, EventArgs e)
+        {
+            new QuickOrganizerV2().Show();
             this.Hide();
         }
         private void onZeddPathCustomised(bool ZeddPathChanged, bool EpisodeSepChanged)

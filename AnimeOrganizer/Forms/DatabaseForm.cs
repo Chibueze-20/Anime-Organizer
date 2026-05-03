@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using AnimeOrganizer.Database;
+using AnimeOrganizerCommon;
+using AnimeOrganizerDataObjects;
+using AnimeOrganizer.Forms;
 
 namespace AnimeOrganizer
 {
@@ -25,6 +27,7 @@ namespace AnimeOrganizer
           {
                InitializeComponent();
             menu1.AddOpenMenuOption("Auto Organizer", OpenAutoOrganizerEvent);
+            menu1.AddOpenMenuOption("Auto Organizer V2", OpenAutoOrganizerV2Event);
             menu1.AddOpenMenuOption("Organizer", OpenOrganizerEvent);
             menu1.AddMenuOption("Export Database to CSV", ExportToCsv);
             menu1.AddMenuOption("Import from CSV", csv_importbtn_Click);
@@ -48,10 +51,10 @@ namespace AnimeOrganizer
           {
                titlelbl.Text = record.title;
                episodelbl.Text = record.numberOfEpisodes.ToString();
-               ratingnum.Value = record.Rating;
-               descriptionrtxt.Text = record.Description;
-               yeartxt.Text = record.Year.ToString();
-               seasontxt.Text = record.Season;
+               ratingnum.Value = record.rating.GetValueOrDefault(0);
+               descriptionrtxt.Text = record.description;
+               yeartxt.Text = record.year.ToString();
+               seasontxt.Text = record.season;
 
           }
           private void clearRecord()
@@ -81,17 +84,17 @@ namespace AnimeOrganizer
 
           private void updatebtn_Click(object sender, EventArgs e)
           {
-               currentRecord.Description = descriptionrtxt.Text;
-               currentRecord.Rating = (int)ratingnum.Value;
-               currentRecord.Season = seasontxt.Text;
+               currentRecord.description = descriptionrtxt.Text;
+               currentRecord.rating = (int)ratingnum.Value;
+               currentRecord.SafeSetSeason(seasontxt.Text);
                try
                {
-                    currentRecord.Year = int.Parse(yeartxt.Text == "" ? "0" : yeartxt.Text);
+                    currentRecord.SafeSetYear(int.Parse(yeartxt.Text == "" ? "0" : yeartxt.Text));
                }
                catch (Exception)
                {
 
-                    currentRecord.Year = 0;
+                    currentRecord.SafeSetYear(0);
                }
                db.Update(currentRecord);
             db.Save();
@@ -116,7 +119,12 @@ namespace AnimeOrganizer
           }
         private void OpenAutoOrganizerEvent(object sender, EventArgs e)
         {
-            new QuickOrganizer(db).Show();
+            new QuickOrganizer().Show();
+            this.Hide();
+        }
+        private void OpenAutoOrganizerV2Event(object sender, EventArgs e)
+        {
+            new QuickOrganizerV2().Show();
             this.Hide();
         }
         private void ExportToCsv(object sender, EventArgs e)
@@ -126,8 +134,8 @@ namespace AnimeOrganizer
             foreach (var anime in db)
             {
                 string line = string.Format("{0},{1},{2:D},{3:D},{4},{5:D},{6:MM-dd-yyyy HH:mm:ss}", 
-                    UtillExtensions.RemoveCommas(db[anime].title), UtillExtensions.RemoveCommas(db[anime].Description), 
-                    db[anime].Rating, db[anime].numberOfEpisodes, db[anime].Season, db[anime].Year, 
+                    UtillExtensions.RemoveCommas(db[anime].title), UtillExtensions.RemoveCommas(db[anime].description), 
+                    db[anime].rating, db[anime].numberOfEpisodes, db[anime].season, db[anime].year, 
                     db[anime].lastUpdate.DateTime);
                 lines.Add(line);
             }
@@ -212,9 +220,9 @@ namespace AnimeOrganizer
                 AnimeRecord record = new AnimeRecord(title, episodeCount);
                 record.description = title;
                 record.lastUpdate = DateTime.Now;
-                record.Season = season;
-                record.Year = year; 
-                record.Rating = rating;
+                record.SafeSetSeason(season);
+                record.SafeSetYear(year); 
+                record.rating = rating;
                 db.Create(record);
             }
             NextBulkItem();

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.mainDisplay = new System.Windows.Forms.Label();
             this.skipBtn = new System.Windows.Forms.Button();
-            this.selectFolderBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.autoSeason_cbx = new System.Windows.Forms.CheckBox();
@@ -46,9 +45,10 @@
             this.mainDisplay.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.mainDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mainDisplay.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainDisplay.Location = new System.Drawing.Point(165, 38);
+            this.mainDisplay.Location = new System.Drawing.Point(330, 73);
+            this.mainDisplay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.mainDisplay.Name = "mainDisplay";
-            this.mainDisplay.Size = new System.Drawing.Size(456, 120);
+            this.mainDisplay.Size = new System.Drawing.Size(910, 229);
             this.mainDisplay.TabIndex = 1;
             this.mainDisplay.Text = "Anime Video file";
             this.mainDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -60,29 +60,15 @@
             this.skipBtn.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.skipBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
             this.skipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.skipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.skipBtn.Location = new System.Drawing.Point(640, 79);
+            this.skipBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skipBtn.Location = new System.Drawing.Point(1280, 152);
+            this.skipBtn.Margin = new System.Windows.Forms.Padding(6);
             this.skipBtn.Name = "skipBtn";
-            this.skipBtn.Size = new System.Drawing.Size(111, 46);
+            this.skipBtn.Size = new System.Drawing.Size(222, 88);
             this.skipBtn.TabIndex = 32;
             this.skipBtn.Text = "Skip this file";
             this.skipBtn.UseVisualStyleBackColor = false;
             this.skipBtn.Click += new System.EventHandler(this.skipBtn_Click);
-            // 
-            // selectFolderBtn
-            // 
-            this.selectFolderBtn.BackColor = System.Drawing.Color.SteelBlue;
-            this.selectFolderBtn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.selectFolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumAquamarine;
-            this.selectFolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.selectFolderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectFolderBtn.Location = new System.Drawing.Point(15, 38);
-            this.selectFolderBtn.Name = "selectFolderBtn";
-            this.selectFolderBtn.Size = new System.Drawing.Size(119, 46);
-            this.selectFolderBtn.TabIndex = 32;
-            this.selectFolderBtn.Text = "Select Folder";
-            this.selectFolderBtn.UseVisualStyleBackColor = false;
-            this.selectFolderBtn.Click += new System.EventHandler(this.selectFolderBtn_Click);
             // 
             // folderBrowserDialog
             // 
@@ -91,9 +77,10 @@
             // autoSeason_cbx
             // 
             this.autoSeason_cbx.AutoSize = true;
-            this.autoSeason_cbx.Location = new System.Drawing.Point(15, 162);
+            this.autoSeason_cbx.Location = new System.Drawing.Point(30, 312);
+            this.autoSeason_cbx.Margin = new System.Windows.Forms.Padding(6);
             this.autoSeason_cbx.Name = "autoSeason_cbx";
-            this.autoSeason_cbx.Size = new System.Drawing.Size(117, 17);
+            this.autoSeason_cbx.Size = new System.Drawing.Size(229, 29);
             this.autoSeason_cbx.TabIndex = 35;
             this.autoSeason_cbx.Text = "Use default season";
             this.toolTip1.SetToolTip(this.autoSeason_cbx, "This uses the current season and year automatically when updating database record" +
@@ -104,17 +91,19 @@
             // optionsBox
             // 
             this.optionsBox.AutoScroll = true;
-            this.optionsBox.Location = new System.Drawing.Point(2, 185);
+            this.optionsBox.Location = new System.Drawing.Point(4, 356);
+            this.optionsBox.Margin = new System.Windows.Forms.Padding(6);
             this.optionsBox.Name = "optionsBox";
-            this.optionsBox.Size = new System.Drawing.Size(793, 261);
+            this.optionsBox.Size = new System.Drawing.Size(1586, 502);
             this.optionsBox.TabIndex = 34;
             // 
             // menu1
             // 
             this.menu1.BackColor = System.Drawing.Color.Transparent;
-            this.menu1.Location = new System.Drawing.Point(2, 3);
+            this.menu1.Location = new System.Drawing.Point(4, 6);
+            this.menu1.Margin = new System.Windows.Forms.Padding(12);
             this.menu1.Name = "menu1";
-            this.menu1.Size = new System.Drawing.Size(766, 23);
+            this.menu1.Size = new System.Drawing.Size(1532, 44);
             this.menu1.TabIndex = 33;
             // 
             // refresh_btn
@@ -123,29 +112,30 @@
             this.refresh_btn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.refresh_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumAquamarine;
             this.refresh_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.refresh_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refresh_btn.Location = new System.Drawing.Point(15, 107);
+            this.refresh_btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refresh_btn.Location = new System.Drawing.Point(30, 206);
+            this.refresh_btn.Margin = new System.Windows.Forms.Padding(6);
             this.refresh_btn.Name = "refresh_btn";
-            this.refresh_btn.Size = new System.Drawing.Size(119, 28);
+            this.refresh_btn.Size = new System.Drawing.Size(238, 54);
             this.refresh_btn.TabIndex = 32;
             this.refresh_btn.Text = "Refresh index";
             this.refresh_btn.UseVisualStyleBackColor = false;
             this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
             // 
-            // Form3
+            // QuickOrganizer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1600, 865);
             this.Controls.Add(this.autoSeason_cbx);
             this.Controls.Add(this.optionsBox);
             this.Controls.Add(this.menu1);
             this.Controls.Add(this.refresh_btn);
-            this.Controls.Add(this.selectFolderBtn);
             this.Controls.Add(this.skipBtn);
             this.Controls.Add(this.mainDisplay);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
-            this.Name = "Form3";
+            this.Name = "QuickOrganizer";
             this.Text = "Quick Organizer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
             this.ResumeLayout(false);
@@ -156,7 +146,6 @@
           #endregion
           private System.Windows.Forms.Label mainDisplay;
           private System.Windows.Forms.Button skipBtn;
-          private System.Windows.Forms.Button selectFolderBtn;
           private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
           private System.Windows.Forms.ToolTip toolTip1;
         private menu menu1;

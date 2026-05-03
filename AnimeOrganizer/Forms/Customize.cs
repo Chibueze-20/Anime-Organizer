@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AnimeOrganizerCommon;
 
 namespace AnimeOrganizer
 {
@@ -24,7 +25,6 @@ namespace AnimeOrganizer
             episodeSepcbx.ValueMember = "Value";
             episodeSepcbx.DropDownStyle = ComboBoxStyle.DropDownList;
             refreshEpisodeSeparator();
-            label3.Text = Properties.Settings.Default.episodeSep.ToString();
             refreshZeddPath();
             setUpMode = false;
             redundant_str_update_btn.Enabled = false;
@@ -65,17 +65,19 @@ namespace AnimeOrganizer
             {
                 int current = int.Parse(Properties.Settings.Default.episodeSep);
                 episodeSepcbx.SelectedIndex = current;
+                label3.Text =  episodeSepcbx.Items[current].ToString();
             }
             catch (Exception)
             {
 
                 episodeSepcbx.SelectedIndex = -1;
+                label3.Text = string.Empty;
             }
 
         }
         private void refreshZeddPath()
         {
-            string current = Properties.Settings.Default.zeddPath;
+            string current = UtillExtensions.ZeddPath;
             zeddPathlbl.Text = current;
         }
         private void updateEpisodeSeparator(int code)
@@ -88,6 +90,7 @@ namespace AnimeOrganizer
         {
             Properties.Settings.Default["zeddPath"] = path;
             Properties.Settings.Default.Save();
+            UtillExtensions.ZeddPath = path;
             zeddUpdated = true;
         }
 
@@ -110,6 +113,7 @@ namespace AnimeOrganizer
                 KeyValuePair<string, object> selected = (KeyValuePair<string, object>)episodeSepcbx.SelectedItem;
                 updateEpisodeSeparator((int)selected.Value);
                 Console.WriteLine(Properties.Settings.Default.PropertyValues["episodeSep"].PropertyValue);
+                refreshEpisodeSeparator();
             }
 
         }
