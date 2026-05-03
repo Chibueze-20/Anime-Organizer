@@ -193,7 +193,7 @@ namespace AnimeOrganizer.Forms
                 // create anime file object
                 AnimeFile animeFile = new AnimeFile()
                 {
-                    Name = fileInfo.Name,
+                    Name = Path.GetFileNameWithoutExtension(fileInfo.FullName),
                     Path = fileInfo.FullName
                 };
 
@@ -682,6 +682,7 @@ namespace AnimeOrganizer.Forms
         private void CleanUp()
         {
             // remove the first element in the _animeFolderHashMap and clear the episode count cache for that directory.
+            if (_activeAnimeFolderQueue.Count <= 0) return;
             AnimeFolder folderToRemove = _activeAnimeFolderQueue.Dequeue();
             string folderPathToRemove = folderToRemove.Path;
             _directoryEpisodeCountCache.Remove(folderPathToRemove);
