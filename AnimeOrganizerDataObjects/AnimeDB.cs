@@ -4,19 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using AnimeOrganizerDataObjects;
 using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.Core.Objects.DataClasses;
+using System.Data.Entity;
 
 namespace AnimeOrganizerDataObjects
 {
-     
      public class AnimeDB: IAnimeDB
      {
         private AnimeDatabaseEntities animeDatabase;
         private AnimeRecord defaultRecord = new AnimeRecord();
+        private DatabaseRecoveryManager recoveryManager = new DatabaseRecoveryManager();
 
           public AnimeDB()
           {
@@ -37,7 +36,15 @@ namespace AnimeOrganizerDataObjects
 
           public void Warmup()
           {
-            Sort().Any();
+            // Attempt to recover from previous crash
+            var recoveredOperations = recoveryManager.LoadRecoveryFile();
+            if (recoveredOperations != null && recoveredOperations.Count > 0)
+            {
+                CompleteRecoveredOperations(recoveredOperations);
+            }
+
+            // Load the database to warm up the connection and cache
+            animeDatabase.AnimeRecords.FirstOrDefault();
           }
           
           public AnimeRecord this[string title]
@@ -91,8 +98,66 @@ namespace AnimeOrganizerDataObjects
           }
         public void Save()
         {
-            animeDatabase.SaveChanges();
+            if (!animeDatabase.ChangeTracker.HasChanges()) return;
+
+            try
+            {
+                // Capture pending operations before attempting to save
+                var operations = recoveryManager.CapturePendingOperations(animeDatabase.ChangeTracker);
+                animeDatabase.SaveChanges();
+
+                // Clear recovery file on successful save
+                recoveryManager.ClearRecoveryFile();
+            }
+            catch (Exception ex)
+            {
+                // save changed entities to a file for debugging and recovery
+                var operations = recoveryManager.CapturePendingOperations(animeDatabase.ChangeTracker);
+                recoveryManager.SaveRecoveryFile(operations);
+                throw ex;
+            }
+          }
+
+        private void CompleteRecoveredOperations(List<RecoveryOperation> operations)
+        {
+            try
+            {
+                // Complete pending operations
+                foreach (var operation in operations)
+                {
+                    switch (operation.OperationType)
+                    {
+                        case "Create":
+                            Create(operation.Record);
+                            break;
+                        case "Update":
+                            Update(operation.Record, isSoftUpdate: false);
+                            break;
+                        case "Delete":
+                            Delete(operation.Record);
+                            break;
+                    }
+                }
+
+                // Attempt to save recovered operations
+                try
+                {
+                    animeDatabase.SaveChanges();
+                    recoveryManager.ClearRecoveryFile();
+                    System.Diagnostics.Debug.WriteLine("Database recovery completed successfully.");
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Failed to save recovered operations: {ex.Message}");
+                    // Keep recovery file for next attempt
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error during recovery: {ex.Message}");
+            }
         }
+
         private IQueryable<string> Sort()
         {
             IQueryable<string> values = from AnimeRecord in animeDatabase.AnimeRecords 

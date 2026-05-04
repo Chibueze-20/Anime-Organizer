@@ -92,7 +92,7 @@ namespace AnimeOrganizer
 #else
                 database = new AnimeDB();
 #endif
-
+                
                 database.Warmup();
                 Application.Run(new Organizer(database));
                 //Application.Run(new Forms.QuickOrganizerV2());

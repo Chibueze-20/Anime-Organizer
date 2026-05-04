@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace AnimeOrganizerDataObjects
 {
+    [Serializable]
     public partial class AnimeRecord
     {
         public AnimeRecord()

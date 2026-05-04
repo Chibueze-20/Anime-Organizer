@@ -76,10 +76,12 @@
       <DependentUpon>AnimeDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AnimeRecordCustom.cs" />
+    <Compile Include="DatabaseRecoveryManager.cs" />
     <Compile Include="IAnimeDB.cs" />
     <Compile Include="InMemoryAnimeDB.cs" />
     <Compile Include="DataStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecoveryOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnimeDatabaseModel.Context.tt">

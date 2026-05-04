@@ -57,6 +57,7 @@
     <Compile Include="AnimeOrganizerCommon\SeperatorEnumTests.cs" />
     <Compile Include="AnimeOrganizerCommon\TitleComparerTests.cs" />
     <Compile Include="AnimeOrganizerCommon\UtilExtensionsTests.cs" />
+    <Compile Include="AnimeOrganizerDataObjects\DatabaseRecoveryManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>

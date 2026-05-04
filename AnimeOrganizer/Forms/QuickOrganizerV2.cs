@@ -361,6 +361,7 @@ namespace AnimeOrganizer.Forms
                 }
                 catch (Exception ex)
                 {
+                    
                     SafeWriteEventLog($"Error saving database: {ex.Message}", EventLogEntryType.Error);
                     MessageBox.Show($"Error saving database", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
