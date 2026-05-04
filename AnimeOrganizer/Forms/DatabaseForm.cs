@@ -119,13 +119,19 @@ namespace AnimeOrganizer
           }
         private void OpenAutoOrganizerEvent(object sender, EventArgs e)
         {
-            new QuickOrganizer().Show();
-            this.Hide();
+            if (!ShowNoFilesToOrganizeMessage())
+            {
+                new QuickOrganizer().Show();
+                this.Hide();
+            }
         }
         private void OpenAutoOrganizerV2Event(object sender, EventArgs e)
         {
-            new QuickOrganizerV2().Show();
-            this.Hide();
+            if (!ShowNoFilesToOrganizeMessage())
+            {
+                new QuickOrganizerV2().Show();
+                this.Hide();
+            }
         }
         private void ExportToCsv(object sender, EventArgs e)
         {
@@ -265,6 +271,15 @@ namespace AnimeOrganizer
                 Cancel();
             }
             
+        }
+        private bool ShowNoFilesToOrganizeMessage()
+        {
+            if (!UtillExtensions.CanAutoOrganize())
+            {
+                MessageBox.Show("No files to organize", "Auto Organizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            return false;
         }
     }
     

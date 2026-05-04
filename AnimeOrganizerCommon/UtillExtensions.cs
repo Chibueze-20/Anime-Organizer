@@ -226,6 +226,25 @@ namespace AnimeOrganizerCommon
             }
         }
 
+        public static bool CanAutoOrganize() {            
+            var zeddPath = GetZeddDirectory();
+            DirectoryInfo rootDir = new DirectoryInfo(zeddPath);
+            if (!rootDir.Exists)
+            {
+                EventLog.WriteEntry("AnimeOrganizerService", "Zedd path does not exist: " + zeddPath, EventLogEntryType.Error);
+                throw new DirectoryNotFoundException("Zedd path does not exist: " + zeddPath);
+            }
+            foreach (var file in rootDir.EnumerateFiles())
+            {
+                var ext = file.Extension.ToLower();
+                if (videoExtensions.Contains(ext))
+                {
+                    return true; // if there is at least one video file in the root of the zedd directory, we can auto-organize
+                }
+            }
+            return false;
+        }
+
         public static AnimeFolder[] BuildDirectoryTree()
         {
             var zeddPath = GetZeddDirectory();

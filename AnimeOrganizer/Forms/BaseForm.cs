@@ -11,6 +11,12 @@ namespace AnimeOrganizer.Forms
     public class BaseForm : System.Windows.Forms.Form
     {
         internal int _formIndex;
+        //TODO: Complete BaseForm and make all forms inherit from it. This will allow for better code reuse and organization.
+        // TODO TASKS:
+        // 1. Add a method to get the seperator from the settings and return it as a Seperator enum. This will allow for better code reuse and organization.
+        // 2. Add Event handlers for switching between forms. This will allow for better code reuse and organization.
+        // 3. Add Close method that will close current form and open the Organizer form or Exit the application if the current form is the Organizer form. This will allow for better code reuse and organization.
+        // 4. Add method to check if auto ordanization can be performed. This will allow for better code reuse and organization.
         public Seperator getSeperatorFromSettings()
         {
             Console.WriteLine("Getting seperator from settings: " + Properties.Settings.Default.episodeSep.ToString());

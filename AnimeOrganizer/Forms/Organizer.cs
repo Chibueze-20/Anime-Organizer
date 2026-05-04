@@ -389,13 +389,19 @@ namespace AnimeOrganizer
 
         private void OpenAutoOrganizeEvent(object sender, EventArgs e)
         {
-            new QuickOrganizer().Show();
-            this.Hide();
+            if (!ShowNoFilesToOrganizeMessage())
+            {
+                new QuickOrganizer().Show();
+                this.Hide();
+            }
         }
         private void OpenAutoOrganizeV2Event(object sender, EventArgs e)
         {
-            new QuickOrganizerV2().Show();
-            this.Hide();
+            if (!ShowNoFilesToOrganizeMessage())
+            {
+                new QuickOrganizerV2().Show();
+                this.Hide();
+            }
         }
         private void onZeddPathCustomised(bool ZeddPathChanged, bool EpisodeSepChanged)
         {
@@ -403,6 +409,16 @@ namespace AnimeOrganizer
             {
                 RefreshZeddPath();
             }
+        }
+
+        private bool ShowNoFilesToOrganizeMessage()
+        {
+            if (!UtillExtensions.CanAutoOrganize())
+            {
+                MessageBox.Show("No files to organize", "Auto Organizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            return false;
         }
     }
 }
