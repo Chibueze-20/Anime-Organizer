@@ -1458,4 +1458,13 @@
     <Year>2026</Year>
     <Season>spring</Season>
   </SerializableAnimeRecord>
+  <SerializableAnimeRecord>
+    <Title>Chitose wa Ramune Bin no Naka</Title>
+    <NumberOfEpisodes>10</NumberOfEpisodes>
+    <Rating>0</Rating>
+    <Description>Anime Name: Chitose wa Ramune Bin no Naka</Description>
+    <LastUpdate />
+    <Year>2026</Year>
+    <Season>spring</Season>
+  </SerializableAnimeRecord>
 </ArrayOfSerializableAnimeRecord>

@@ -129,6 +129,10 @@ namespace AnimeOrganizerDataObjects
         }
         public void SafeSetSeason(string value)
         {
+            if (value == null)
+            {
+                season = "";
+            }
             if (("winter,spring,summer,fall".Split(',')).Contains(value.ToLower()))
             {
                 season = value.ToLower();

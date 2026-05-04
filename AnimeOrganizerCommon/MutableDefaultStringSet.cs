@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Xml.Serialization;
 
 namespace AnimeOrganizerCommon
@@ -168,9 +170,20 @@ namespace AnimeOrganizerCommon
 
         private static string GetDefaultPath(string fileName)
         {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var dir = Path.Combine(appData, "AnimeOrganizer");
-            return Path.Combine(dir, fileName);
+            string baseAppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AnimeOrganizer");
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                baseAppData = Path.Combine(baseAppData, "Debug");
+                // Create the debug subfolder if it doesn't exist
+                if (!Directory.Exists(baseAppData))
+                {
+                    Directory.CreateDirectory(baseAppData);
+                }
+            }
+#endif
+            return Path.Combine(baseAppData, fileName);
+
         }
     }
 }

@@ -76,8 +76,8 @@ namespace AnimeOrganizer
                 }
                 UtillExtensions.ZeddPath = savedPath;
 
-                // Debug-only: optionally clean AppData when running under the debugger (Visual Studio).
-                TryCleanAppDataWhenDebugging();
+                // Set AppData path: use a separate debug folder in DEBUG mode to avoid affecting production data
+                SetAppDataPath();
 
                 // Choose a debug-friendly DB implementation when running under the debugger.
 #if DEBUG
@@ -107,44 +107,30 @@ namespace AnimeOrganizer
             }
         }
 
-        // Runs only in DEBUG builds and only if a debugger is attached.
-        // Asks the developer for confirmation and then deletes files and subdirectories
-        // inside the app's AppData folder. This keeps the action explicit and reversible.
-        private static void TryCleanAppDataWhenDebugging()
+        // Sets the AppData folder path: uses a separate "Debug" subfolder when running in DEBUG mode.
+        // This prevents debug data from mixing with or overwriting production data.
+        private static void SetAppDataPath()
         {
+            string baseAppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AnimeOrganizer");
+
 #if DEBUG
-            if (!Debugger.IsAttached) return;
-
-            var appDataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AnimeOrganizer");
-            if (!Directory.Exists(appDataDir)) return;
-
-            var msg = "Clean application data in:\n\n" + appDataDir + "\n\nThis will delete files and subfolders used by the app for debugging. Continue?";
-            var res = MessageBox.Show(msg, "Clean AppData (Debug only)", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (res != DialogResult.Yes) return;
-
-            try
+            if (Debugger.IsAttached)
             {
-                // Delete files
-                foreach (var file in Directory.GetFiles(appDataDir))
+                baseAppData = Path.Combine(baseAppData, "Debug");
+                // Create the debug subfolder if it doesn't exist
+                if (!Directory.Exists(baseAppData))
                 {
-                    try { File.Delete(file); }
-                    catch (Exception exFile) { Debug.WriteLine("Failed to delete file: " + file + " - " + exFile.Message); }
+                    Directory.CreateDirectory(baseAppData);
                 }
-
-                // Delete subdirectories
-                foreach (var dir in Directory.GetDirectories(appDataDir))
-                {
-                    try { Directory.Delete(dir, true); }
-                    catch (Exception exDir) { Debug.WriteLine("Failed to delete directory: " + dir + " - " + exDir.Message); }
-                }
-
-                Debug.WriteLine("AppData cleanup completed for: " + appDataDir);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("AppData cleanup failed: " + ex.Message, "Cleanup error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 #endif
+
+            // Store this in a static location or update your app's configuration
+            // to use this path for all AppData operations
+            AppDataPath = baseAppData;
         }
+
+        // Static property to hold the AppData path for use throughout the application
+        public static string AppDataPath { get; set; }
     }
 }

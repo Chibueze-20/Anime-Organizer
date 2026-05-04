@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
@@ -75,6 +76,12 @@ namespace AnimeOrganizerCommon
         public static RedundantStringSet LoadFromDefaultLocation()
         {
             var path = GetDefaultPath();
+            var defaults = new[]
+            {
+                "mp4", "mkv", "animepahe", "720p", "360p", "subsplease", "ttga",
+                "netflix", "crunchyroll", "disney", "animechap", "1080p",
+                "720p","amazon","bd","pog42","max","hbo","plus","erai","raws","tsundere","episode","part","season","2nd","3rd"
+            };
             if (File.Exists(path))
             {
                 try
@@ -93,12 +100,7 @@ namespace AnimeOrganizerCommon
             }
 
             var def = new RedundantStringSet();
-            var defaults = new[]
-            {
-                "mp4", "mkv", "animepahe", "720p", "360p", "subsplease", "ttga",
-                "netflix", "crunchyroll", "disney", "animechap", "1080p",
-                "720p","amazon","bd","pog42","max","hbo","plus","erai","raws","tsundere","episode","part","season","2nd","3rd"
-            };
+            
             foreach (var d in defaults)
             {
                 def.Add(d);
@@ -112,9 +114,19 @@ namespace AnimeOrganizerCommon
 
         private static string GetDefaultPath()
         {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var dir = Path.Combine(appData, "AnimeOrganizer");
-            return Path.Combine(dir, FileName);
+            string baseAppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AnimeOrganizer");
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                baseAppData = Path.Combine(baseAppData, "Debug");
+                // Create the debug subfolder if it doesn't exist
+                if (!Directory.Exists(baseAppData))
+                {
+                    Directory.CreateDirectory(baseAppData);
+                }
+            }
+#endif
+            return Path.Combine(baseAppData, FileName);
         }
     }
 }

@@ -47,14 +47,22 @@ namespace AnimeOrganizer.Forms
             {
                 EventLog.WriteEntry(EventLogSourceName, message, entryType);
             }
-            catch (System.Security.SecurityException)
+            catch (System.Security.SecurityException e)
             {
                 // Silently ignore - application continues without event log
                 // In production, you could also log to a file as fallback
+                Debug.WriteLine($"SecurityException: {e.Message}");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Log to console as fallback for other exceptions
+                // Log warning to console if event log write fails for any reason, but don't crash the application
+                Debug.WriteLine($"Warning: Failed to write to event log for message: {message}");
+
+            }
+            finally
+            {
+                // Also write to console for visibility even when event log is available
+                Debug.WriteLine(message);
                 Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {entryType}: {message}");
             }
         }
@@ -507,10 +515,16 @@ namespace AnimeOrganizer.Forms
             };
             nextBtn.Click += (s, ev) =>
             {
-                if (_activeAnimeFolderQueue.Count == 0) return; // TODO: handle this case better, maybe disable the next button when there are no more folders to propose
-                _setOfTouchedFolders.Add(_activeAnimeFolderQueue.Peek().Path); // track the current folder as touched before moving the files
-                MoveAllProposedFilesForCurrentFolder();
-                
+                try
+                {
+                    if (_activeAnimeFolderQueue.Count == 0) return; // TODO: handle this case better, maybe disable the next button when there are no more folders to propose
+                    _setOfTouchedFolders.Add(_activeAnimeFolderQueue.Peek().Path); // track the current folder as touched before moving the files
+                    MoveAllProposedFilesForCurrentFolder();
+
+                } catch (Exception ex) { 
+                    Debug.WriteLine($"Error: {ex.Message}");
+                    MessageBox.Show(ex.Message);
+                }
             };
             skipBtn.Click += SkipBtn_Click;
         }
@@ -650,7 +664,7 @@ namespace AnimeOrganizer.Forms
             }
             //database updates
             AnimeRecord record = db[currentFolder.Name];
-            if (AnimeRecord.IsEmpty(record))
+            if (!AnimeRecord.IsEmpty(record))
             {
                 record.numberOfEpisodes += proposedFileCount;
                 record.lastUpdate = DateTimeOffset.Now;
